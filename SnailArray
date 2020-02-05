@@ -1,0 +1,33 @@
+		Scanner sc9 = new Scanner(System.in);
+		
+		//달팽이 배열 (시계 방향)
+		System.out.print("2차원 배열 크기 입력(정방형) :");
+		int input = sc9.nextInt();
+		int [][] arr = new int [input][input];
+		int start = 0; //int end =0; // end = arr.length
+		int k = 1; 
+		for(int a=start; a<arr.length/2+1;a++) { //반복 
+			for(int j=a; j<arr[a].length-a; j++) { //좌에서 우
+				arr[a][j] = k;
+				k++;
+			}
+			for(int i=a; i<arr[a].length-1-a; i++) { //위에서 아래
+				arr[i+1][arr.length-a-1] = k;
+				k++;
+			}
+			for(int j=arr.length-1; j>2*a; j--) { //오른쪽끝 -> 왼쪽끝 . 0은 시작값 = start
+				arr[arr.length-a-1][j-a-1] = k;
+				k++;
+			}
+			for(int i=arr.length-a-1; i>a+1; i--) { //아래에서 위. 0은 시작값=start. [0][0]은 포함하면 안 됨
+				arr[i-1][a] = k;
+				k++;
+			}
+		}
+		//출력
+		for(int i=0; i<arr.length; i++) {
+		    for(int j=0; j<arr[i].length; j++) {
+		        System.out.print(arr[i][j]+"\t");
+		    }
+		System.out.println();
+		}달
