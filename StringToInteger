@@ -1,0 +1,33 @@
+	public void test() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("입력 : ");
+		String str = sc.next();
+		char [] arr = new char [str.length()];
+		int test = 0;
+		//set = 100;
+		//문자열 길이측정 3
+		//문자형 배열 생성하여 한 글자씩 입력
+		//char[] arr = new char[3];
+		//{'1', '0', '0'}
+		//'1' -> 49, '0' -> 48
+		//(arr[0]-48)*100 + (arr[1]-48)*10 + (arr[2]*1)
+		for(int i=0; i<arr.length;i++) {
+			if(str.charAt(i)<48 || str.charAt(i)>57) {
+				System.out.println("숫자가 아닙니다. ");
+				return;
+			}else {
+			arr[i] = str.charAt(i);
+			}
+		}
+		for(int i= 0; i<arr.length ; i++ ) {
+			test+=(arr[i]-48)*(Math.pow(10, arr.length-i-1));
+		}
+		System.out.println(test);	
+	}
+	public void testStrInt() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("입력 : ");
+		String str = sc.next();
+		int number = Integer.parseInt(str);
+		System.out.println(number);
+	}
