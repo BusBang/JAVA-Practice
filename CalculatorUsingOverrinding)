@@ -1,3 +1,5 @@
+//////
+
 public interface Calc {
 	//숫자 두 개와 연산자를 입력받아서 연산하는 기능
 	public void start();
