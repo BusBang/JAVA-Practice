@@ -23,13 +23,20 @@ public class Client {
 			//보조 스트림 생성
 			DataInputStream dis = new DataInputStream(in);
 			DataOutputStream dos = new DataOutputStream(out);
-			
-			String serverMsg = dis.readUTF();
-			System.out.println("server > "+serverMsg); //서버에게 메세지를 받는다
-			System.out.print("client > ");
-			String msg = sc.nextLine();
-			dos.writeUTF(msg); //서버에 메세지를 보냄
-			
+			while(true) {
+				String serverMsg = dis.readUTF();
+				System.out.println("server > "+serverMsg); //서버에게 메세지를 받는다
+				if(serverMsg.equals("exit")) {
+					break;
+				}
+				System.out.print("client > ");
+				String msg = sc.nextLine();
+				dos.writeUTF(msg); //서버에 메세지를 보냄
+				if(serverMsg.equals("exit")||msg.equals("exit")) {
+					break;
+				}
+			}
+			System.out.println("연결이 끊어졌습니다.");
 			dis.close();
 			dos.close();
 			socket.close();
