@@ -1,0 +1,36 @@
+-------------------
+-----TCL----------
+------------------
+COMMIT;
+
+CREATE TABLE USERTBL (
+    USER_NO NUMBER PRIMARY KEY,
+    USER_ID VARCHAR2(20) UNIQUE,
+    USER_PW VARCHAR2(20) NOT NULL
+);
+
+INSERT INTO USERTBL VALUES (1, 'USER1','PASS1');
+INSERT INTO USERTBL VALUES (2, 'USER2','PASS2');
+INSERT INTO USERTBL VALUES (3, 'USER3','PASS3');
+
+-- 테이블에 DML 구문이 동작했을 때 -> 트랜잭션이 발생--
+-- INSERT, UPDATE, DELETE. (SELECT는 변화가 생기지 않으므로 제외)
+SELECT * FROM USERTBL;
+ROLLBACK; -- 이전 커밋까지로 되돌리기
+SELECT * FROM USERTBL; -- 뜨지 않는다.
+
+COMMIT; -- 이대로 커밋
+INSERT INTO USERTBL VALUES (4, 'USER4', 'PASS4');
+
+ROLLBACK; -- 이전 커밋까지로 되돌리기
+SELECT * FROM USERTBL;
+
+SAVEPOINT SP1;
+INSERT INTO USERTBL VALUES (5, 'USER5', 'PASS5');
+ROLLBACK TO SP1; --SAVEPOINT로 돌아가기
+ROLLBACK; -- COMMIT으로 돌아가기
+SELECT * FROM USERTBL; --3번을 넣은곳으로 돌아간다.
+COMMIT; --이미 다 적용이 된 것이기 때문에 SAVEPOINT가 다 사라진다.
+ROLLBACK TO SP1; --SAVEPOINT가 사라졌기 때문에 오류 발생
+
+--데이터를 주고 받을 때도, 마지막으로 COMMIT 시점 데이터가 전달되기 때문에 항상 COMMIT과 ROLLBACK은 유념해야한다
