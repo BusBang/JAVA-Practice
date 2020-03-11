@@ -1,0 +1,86 @@
+
+
+
+CREATE TABLE EMP_01(
+    EMP_ID NUMBER,
+    EMP_NAME VARCHAR2(30),
+    DEPT_TITLE VARCHAR2(20)
+    );
+    
+INSERT INTO EMP_01 VALUES (1, '방찬호', '학생'); --순서대로 INSERT 해야한다
+
+INSERT INTO EMP_01 (EMP_NAME, EMP_ID, DEPT_TITLE) 
+VALUES ('이호길', 2, '학생');
+
+SELECT * FROM EMP_01;
+
+--만약 모든 값을 넣지 않으면 ? 
+INSERT INTO EMP_01 VALUES (3, '박서현'); --들어가지 않는다.
+
+INSERT INTO EMP_01 (EMP_NAME, EMP_ID) 
+VALUES ('박서현', 3); -- 이건 들어간다 (넣지 않은 값은 NULL로 들어감)
+
+
+CREATE TABLE EMP_02(
+    EMP_ID NUMBER,
+    EMP_NAME VARCHAR2(30),
+    DEPT_TITLE VARCHAR2(20),
+    HIRE_DATE DATE DEFAULT SYSDATE
+    );
+
+INSERT INTO EMP_02 VALUES (1, '방버스', '학생', SYSDATE);           --행 삽입
+SELECT * FROM EMP_02;
+INSERT INTO EMP_02 VALUES (2, '오라지널', '학생', DEFAULT);        --행 삽입
+INSERT INTO EMP_02 VALUES (3, '서현팍', '학생');                        --오류 발생
+INSERT INTO EMP_02 (EMP_ID, EMP_NAME) VALUES (3, '서현팍');    --행삽입
+SELECT * FROM EMP_02;                                                       --DEFAULT 제약 조건이 설정되어 있으면, INSERT시 제외하고 값을 넣어도 DEFAULT 값이 들어간다.
+
+CREATE TABLE EMP_03(
+    EMP_ID NUMBER,
+    EMP_NAME VARCHAR2(30),
+    DEPT_TITLE VARCHAR2(20),
+    HIRE_DATE DATE DEFAULT SYSDATE,
+    PHONE CHAR(13) DEFAULT '000-0000-0000'
+    );
+INSERT INTO EMP_03 VALUES (1, '방버스', '학생', SYSDATE,'010-2435-1354');           --행 삽입
+INSERT INTO EMP_03 (EMP_ID, EMP_NAME, DEPT_TITLE) VALUES (2, '오라지널', '학생');
+SELECT * FROM EMP_03;
+
+--------------
+---DML 실습
+-------------
+
+--(1) 테이블 생성
+CREATE TABLE RUNNINGMAN (
+    NO NUMBER PRIMARY KEY,
+    ID VARCHAR2 (20) UNIQUE,
+    PASS VARCHAR2 (20) NOT NULL,
+    NAME VARCHAR2(20) NOT NULL,
+    NICKNAME VARCHAR2 (20) UNIQUE,
+    GENDER CHAR(1),
+    TEL VARCHAR2 (20) DEFAULT '010-0000-0000',
+    ADDRESS VARCHAR2 (90)
+);
+SELECT * FROM RUNNINGMAN;
+
+--(2) 행추가
+INSERT INTO RUNNINGMAN VALUES (1, 'muhan','1234','유재석','못생긴형','M','010-4958-2333','압구정');
+INSERT INTO RUNNINGMAN VALUES (2, 'bignose','4444','지석진','지는해','M',default,'서울');
+INSERT INTO RUNNINGMAN VALUES (3, 'tiger','6658','김종국','안꼬','M','010-6674-8986','안양');
+INSERT INTO RUNNINGMAN VALUES (4, 'haha','5356','하하','신분세탁','M','010-8997-1122','서래마을');
+INSERT INTO RUNNINGMAN VALUES (5, 'ace','5555','송지효','청성임','F',DEFAULT,'서울시');
+INSERT INTO RUNNINGMAN VALUES (6, 'girrafe','6658','이광수','중기친구','M','010-2378-9991','남양주');
+INSERT INTO RUNNINGMAN VALUES (7, 'ssapssap','5356','양세찬','김종국팬','M','010-1215-7777','동두천');
+INSERT INTO RUNNINGMAN VALUES (8, 'doli','5555','전소민','전두릅','F',default,'일산');
+
+--(3) 데이터 값 변경
+UPDATE RUNNINGMAN SET PASS = '9999' WHERE NICKNAME = '중기친구';
+
+--(4) TEL 정보 변경
+UPDATE RUNNINGMAN SET TEL = '없음' WHERE TEL='010-0000-0000';
+
+--(5) 유재석 삭제
+DELETE FROM RUNNINGMAN WHERE NO='1';
+
+--(6) TABLE 삭제
+TRUNCATE TABLE RUNNINGMAN;
