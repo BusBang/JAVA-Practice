@@ -1,0 +1,160 @@
+/*
+우리는 학교 시스템을 개발중에 있다. 우리는 많은 과목이 있다.  과목코드, 과목명, 과목을 이수하였을 경우 학생들에게 주어지는 학점을 관리한다.  매 학기별로 과목별 개설강좌를 오픈한다.  하나의 개설강좌는 과목과 교수가 배치되며, 하나의 강좌에는 한 명의 교수만 배정할 수 있다.  개설강좌는 ID, 학기당 총 강의시간, 강의 요일(주 1회), 강의 교시, 강의시간을 관리한다. 3교시부터 4시간을 강의한다면,  강의교시는 3, 강의시간은 4를 관리하는 방식이다. 또한 강좌가 개설하였을 경우 교수는 수강생들의 평가기준을 확정해야 한다.  평가는 출석점수, 중간고사, 기말고사, 과제점수로 구성되는데,  각 점수별로 평가 가중치를 관리한다.  예를들면 출석점수는 30%, 중간고사20%, 기말고사20%, 과제점수30%를 관리하는 방식이며, 가중치는 강의 교수별로 다르게 지정한다. 
+우리는 교수를 관리하며, 교수는 Id, 이름, 전화번호, 주소를 관리한다. 또한 학생을 관리하며, 학생은 ID, 이름, 전화번호, 주소를 관리한다. 
+
+학생은 학기 시작 전 본인이 수강하고자 하는 수업에 대해 수강신청을 한다. 학기가 종료되면 교수는 학생들의 평가를 제출해야 한다.  평가 방법은 평가기준에 따른다.
+
+--학교시스템
+--SCHOOL SYSTEM
+
+강좌(JAVA1 JAVA 2...)
+과목(JAVA, ORACLE . . .)
+
+강좌	CLASS
+-강좌ID	CLASS_ID			NUMBER	PRIMARY KEY
+-과목ID	SUBJECT_ID			NUMBER	REFERENCES SUBJECT(SUB_ID)
+-교수번호 (1명만 가능)	PROF_ID		NUMBER	REFERENCES PROFESSOR(PROF_ID)
+-총 강의시간		TIMES		NUMBER	NOT NULL
+-강의요일(주 1회)	CLASS_DAY	DATE	NOT NULL
+-강의교시(3교시 - 3)	CLASS_START	NUMBER	NOT NULL
+-강의시간(4시간 - 4)	CLASS-TIME	NUMBER	NOT NULL
+
+
+과목	SUBJECT
+-과목ID		SUB_ID		PRIMARY KEY
+-과목이름	SUB_NAME	NOT NULL
+
+
+교수	PROFESSOR
+-교수ID		PROF_ID		NUMBER	PRIMARY KEY
+-교수이름	PROF_NAME	VARCHAR2(15)	NOT NULL
+-전화번호	PROF_PHONE	CHAR(13)	NOT NULL
+-주소		PROF_ADDR	VARCHAR2(300)	NOT NULL
+
+
+학생	STUDENT
+-학생ID		STU_ID		NUMBER PRIMARY KEY
+-학생이름	STU_NAME	VARCHAR2(15)	NOT NULL
+-전화번호	STU_PHONE	CHAR(13)	NOT NULL
+-주소		STU_ADDR	VARCHAR2(300)	NOT NULL
+
+
+평가기준	EVALUATION
+-평가코드	E_CODE		NUMBER	PRIMARY KEY
+-교수ID		PROF_ID		NUMBER	REFERENCES PROFESSOR(PROF_ID)
+-강좌ID		CLASS_ID	NUMBER	REFERENCES CLASS(CLASS_ID)
+-출석		ATTEND_SCORE	NUMBER	NOT NULL	
+-중간		MTEST_SCORE	NUMBER	NOT NULL
+-기말		FTEST_SCORE	NUMBER	NOT NULL
+-과제		HW-SCORE	NUMBER	NOT NULL
+
+
+수강신청	APPLY
+-수강신청ID	A_CODE	NUMBER	
+-강좌ID		CLASS_ID NUMBER REFERENCES CLASS(CLASS_ID)
+-학생ID		STU_ID	NUMBER	REFERENCES STUDENT(STU_ID)
+*/
+
+-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- PROFESSOR Table Create SQL
+CREATE TABLE PROFESSOR
+(
+    PROF_ID       NUMBER           NOT NULL, 
+    PROF_NAME     VARCHAR2(15)     NOT NULL, 
+    PROF_PHONE    CHAR(13)         NOT NULL, 
+    PROF_ADDR     VARCHAR2(300)    NOT NULL, 
+    CONSTRAINT PROFESSOR_PK PRIMARY KEY (PROF_ID)
+)
+/
+
+CREATE SEQUENCE PROFESSOR_SEQ
+START WITH 1
+INCREMENT BY 1;
+/
+
+
+-- PROFESSOR Table Create SQL
+CREATE TABLE SUBJECT
+(
+    SUB_ID      NUMBER          NOT NULL, 
+    SUB_NAME    VARCHAR2(30)    NOT NULL, 
+    CONSTRAINT SUBJECT_PK PRIMARY KEY (SUB_ID)
+)
+/
+
+CREATE SEQUENCE SUBJECT_SEQ
+START WITH 1
+INCREMENT BY 1;
+/
+
+-- PROFESSOR Table Create SQL
+CREATE TABLE CLASS
+(
+    CLASS_ID       NUMBER    NOT NULL, 
+    SUBJECT_ID     NUMBER    NOT NULL, 
+    PROF_ID        NUMBER    NOT NULL, 
+    TIMES          NUMBER    NOT NULL, 
+    CLASS_DAY      DATE      NOT NULL, 
+    CLASS_START    NUMBER    NOT NULL, 
+    CLASS_TIME     NUMBER    NOT NULL, 
+    CONSTRAINT CLASS_PK PRIMARY KEY (CLASS_ID)
+)
+/
+
+CREATE SEQUENCE CLASS_SEQ
+START WITH 1
+INCREMENT BY 1;
+/
+
+
+-- PROFESSOR Table Create SQL
+CREATE TABLE STUDENT
+(
+    STU_ID       NUMBER           NOT NULL, 
+    STU_NAME     VARCHAR2(15)     NOT NULL, 
+    STU_PHONE    CHAR(13)         NOT NULL, 
+    STU_ADDR     VARCHAR2(300)    NOT NULL, 
+    CONSTRAINT STUDENT_PK PRIMARY KEY (STU_ID)
+)
+/
+
+CREATE SEQUENCE STUDENT_SEQ
+START WITH 1
+INCREMENT BY 1;
+/
+
+-- PROFESSOR Table Create SQL
+CREATE TABLE EVALUATION
+(
+    E_CODE          NUMBER    NOT NULL, 
+    PROF_ID         NUMBER    NULL, 
+    CLASS_ID        NUMBER    NULL, 
+    ATTEND_SCORE    NUMBER    NULL, 
+    MTEST_SCORE     NUMBER    NULL, 
+    FTEST_SCORE     NUMBER    NULL, 
+    HW_SCORE        NUMBER    NULL, 
+    CONSTRAINT EVALUATION_PK PRIMARY KEY (E_CODE)
+)
+/
+
+CREATE SEQUENCE EVALUATION_SEQ
+START WITH 1
+INCREMENT BY 1;
+/
+
+-- PROFESSOR Table Create SQL
+CREATE TABLE APPLY
+(
+    A_CODE      NUMBER    NOT NULL, 
+    CLASS_ID    NUMBER    NULL, 
+    STU_ID      NUMBER    NULL, 
+    CONSTRAINT APPLY_PK PRIMARY KEY (A_CODE)
+)
+/
+
+CREATE SEQUENCE APPLY_SEQ
+START WITH 1
+INCREMENT BY 1;
+/
+
