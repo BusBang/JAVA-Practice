@@ -34,7 +34,7 @@
             <li><b><u>수제햄버거</u></b></li>
             <li>우유</li>
             <li><u>스프</u></li>
-            <li>단무지<sub><mark>2개</mark></sub></li>
+            <li>단무지<sub><mark><u>2개</u></mark></sub></li>
         </ol>   
         <br>
         <li>목요일 <em>식단</em></li>
@@ -48,7 +48,7 @@
         <li> 금요일 <em>식단</em></li>
         <ol type='a' reversed>
             <li><b><mark>치즈피자</mark></b></li>
-            <li>피클</li>
+            <li><em>피클</em></li>
             <li>콜라</li>
             <li>스파게티</li>
         </ol>
@@ -56,7 +56,7 @@
     <hr>
     <pre>       일하지 않는자 먹지도 말라 
         
-                        <em>- 김x만 - </em></pre>
+                        <em><small>- 김x만 - </small></em></pre>
 
 <p><cite>식단출처 : kh 정보 교육원 (http://iei.or.kr)</cite></p>
 </body>
