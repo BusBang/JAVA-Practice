@@ -8,25 +8,27 @@
 
 <body>
     <hr>
-    <fieldset>
-        <legend>납품자정보</legend>
-        <ol>
-            <li><label>납품자명 : <input type="text" name="name" placeholder="name"></lable>
-            </li><br>
-            <li><label>email: <input type="email" name="email" placeholder="answs@naver.com"></label></li><br>
-            <li><label>홈페이지: <input type="url" name="url" placeholder="http://"></label></li>
-        </ol>
-    </fieldset>
-    <br>
-    <fieldset>
-        <legend>납품정보</legend>
-        <ul>
-            <li><label>상품명 : <input type="text" name="name"> </label></li><br>
-            <li><label>납품수량: <input type="text" name="number" size="5" placeholder="최소100" </label></li><br>
-            <li><label>납품등급: <input type=range name="grade" min="100" max="1000"></label></li><br>
-            <li><label>기타사항: <textarea rows=2 cols=22></textarea></label></li>
-        </ul>
-    </fieldset>
-    <br>
-    <input type="submit" value="send message">
+    <form action="ProductFrom" method="get">
+        <fieldset>
+            <legend>납품자정보</legend>
+            <ol>
+                <li><label>납품자명 : <input type="text" name="name" placeholder="name"></lable>
+                </li><br>
+                <li><label>email: <input type="email" name="email" placeholder="answs@naver.com"></label></li><br>
+                <li><label>홈페이지: <input type="url" name="url" placeholder="http://"></label></li>
+            </ol>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>납품정보</legend>
+            <ul>
+                <li><label>상품명 : <input type="text" name="name"> </label></li><br>
+                <li><label>납품수량: <input type="text" name="number" size="5" placeholder="최소100" </label></li><br>
+                <li><label>납품등급: <input type=range name="grade" min="100" max="1000"></label></li><br>
+                <li><label>기타사항: <textarea rows=2 cols=22></textarea></label></li>
+            </ul>
+        </fieldset>
+        <br>
+        <input type="submit" value="send message">
+    </form>
 </body></html>
