@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Example 7</title>
+    <style>
+        .wrap {
+            border: 1px solid black;
+            width: 640px;
+            height: 640px;
+            padding: 30px;
+            background-color: beige;
+
+        }
+
+        .d1-1 {
+            border: 1px solid black;
+            width: 320px;
+            height: 320px;
+            background-color: white;
+            box-sizing: border-box;
+            position: relative;
+
+        }
+
+        .d1-2 {
+            border: 1px solid black;
+            width: 320px;
+            height: 320px;
+            background-color: white;
+            box-sizing: border-box;
+            position: relative;
+
+        }
+
+        .d2-1 {
+            border: 1px solid black;
+            width: 320px;
+            height: 320px;
+            background-color: white;
+            box-sizing: border-box;
+            position: relative;
+
+        }
+
+        .d2-2 {
+            border: 1px solid black;
+            width: 320px;
+            height: 320px;
+            background-color: white;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .d {
+            float: left;
+            box-sizing: content-box;
+        }
+
+        .img11 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .img12 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .img21 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .img22 {
+
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+        }
+
+        .img11:hover+.bigImg11 {
+            overflow: visible;
+            display: block;
+            position: absolute;
+            z-index: 1000;
+
+        }
+
+        .img12:hover+.bigImg12 {
+            overflow: visible;
+            display: block;
+            position: absolute;
+            z-index: 1000;
+
+        }
+
+        .img21:hover+.bigImg21 {
+            overflow: visible;
+            display: block;
+            position: absolute;
+            z-index: 1000;
+
+        }
+
+        .img22:hover+.bigImg22 {
+            overflow: visible;
+            display: block;
+            position: absolute;
+            z-index: 1000;
+
+        }
+        .bigImg11 {
+            width:200%;
+            height:200%;
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+        }
+
+        .bigImg12 {
+            width:200%;
+            height:200%;
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+        }
+
+        .bigImg21 {
+            width:200%;
+            height:200%;
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+        }
+
+        .bigImg22 {
+            width:200%;
+            height:200%;
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+        }
+
+        */
+
+    </style>
+</head>
+
+<body>
+    <h1>사진 갤러리 만들기</h1>
+    <hr>
+    <div class="wrap">
+        <div class="d">
+            <div class="d1-1">
+                <img class="img11" src="../imgs/%EA%B3%A0%EC%96%91%EC%9D%B4.jpg">
+                <img class="bigImg11" src="../imgs/%EA%B3%A0%EC%96%91%EC%9D%B4.jpg">
+            </div>
+            <div class="d2-1">
+                <img class="img21" src="../imgs/dog.jpg">
+                <img class="bigImg21" src="../imgs/dog.jpg">
+            </div>
+        </div>
+        <div class="d">
+            <div class="d1-2">
+                <img class="img12" src="../imgs/dora.png">
+                <img class="bigImg12" src="../imgs/dora.png">
+            </div>
+            <div class="d2-2">
+                <img class="img22" src="../imgs/bgsample.png">
+                <img class="bigImg22" src="../imgs/bgsample.png">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
