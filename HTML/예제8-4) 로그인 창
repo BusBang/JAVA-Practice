@@ -49,23 +49,25 @@
             background-color: #a8edea;
         }
         .email {
-            margin : 18px;
-            width: 260px;
-            height: 25px;
+            margin : 20px;
+            width: 263px;
+            height: 30px;
             font-family: 'Noto Sans KR', sans-serif;
             font-size: 1.0em;
+            border : none;
         }
         .pw {
-            margin-left : 18px;
-            width: 260px;
-            height: 25px;   
+            margin-left : 20px;
+            width: 263px;
+            height: 30px;   
             font-family: 'Noto Sans KR', sans-serif;
             font-size: 1.0em;
+            border : none;
         }
         .login {
-            margin-left : 18px;
+            margin-left : 20px;
             width: 262px;
-            height : 40px;
+            height : 48px;
             font-family: 'Noto Sans KR', sans-serif; 
             font-size :16px;
             font-weight: 600;
@@ -73,7 +75,7 @@
             border : none;
         }
         .div3 {
-            margin-left :20px;
+            margin-left :22px;
         }
 
     </style>
@@ -83,8 +85,8 @@
         <br>
         <h1 class="p1">LOGIN</h1>
         <div class="div2">
-            <form action="login.html" method="post">
-                <input class="email" type="text" placeholder="Input Your Email">
+            <form action="login.html" method="get">
+                <input class="email" type="email" placeholder="Input Your Email">
                 <input class="pw" type="password" placeholder="Password">
                 <br>
                 <br>
