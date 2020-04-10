@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    
+
+
+
+<style>
+    div{
+        border : 2px solid black;
+        width:100px;
+        height:100px;
+        margin: 5px;
+        float: left;
+    }
+</style>
+    <script>
+        var col;
+        
+        $(function() {
+            $("div").click(function() {
+                var index = $("div").index($(this));
+                if(index<2) {
+                    col = $(this).css("background-color");
+                }else {
+                    $(this).css("background-color", col);                   
+                }
+            })
+        })
+        
+//        
+//        $(function() {
+//            $("#img1").click(function() {
+//                col = $("#img1").css("background-color");
+//            });
+//        })
+//        $(function() {
+//            $("#img2").click(function() {
+//                col = $("#img2").css("background-color");
+//            });
+//        })
+//        ////////////////////
+//        $(function() {
+//            $("fieldset:last>div").click(function() {
+//                $(this).css("background-color", col);
+//            })
+//        })
+//         $(function() {
+//            $("#div2").click(function() {
+//                if(sel==1) {
+//                    $(this).css("background-color", "red");
+//                    console.log(sel);
+//                } else if(sel==2) {
+//                    $(this).css("background-color", "blue");
+//                    console.log(sel);
+//                }      
+//            })
+//        })       
+//         $(function() {
+//            $("#div3").click(function() {
+//                if(sel==1) {
+//                    $(this).css("background-color", "red");
+//                    console.log(sel);
+//                } else if(sel==2) {
+//                    $(this).css("background-color", "blue");
+//                    console.log(sel);
+//                }      
+//            })
+//        })       
+//         $(function() {
+//            $("#div4").click(function() {
+//                if(sel==1) {
+//                    $(this).css("background-color", "red");
+//                    console.log(sel);
+//                } else if(sel==2) {
+//                    $(this).css("background-color", "blue");
+//                    console.log(sel);
+//                }      
+//            })
+//        })       
+//        $(function() {
+//            $("#div5").click(function() {
+//                if(sel==1) {
+//                    $(this).css("background-color", "red");
+//                    console.log(sel);
+//                } else if(sel==2) {
+//                    $(this).css("background-color", "blue");
+//                    console.log(sel);
+//                }      
+//            })
+//        })        
+//        $(function() {
+//            $("#div6").click(function() {
+//                if(sel==1) {
+//                    $(this).css("background-color", "red");
+//                    console.log(sel);
+//                } else if(sel==2) {
+//                    $(this).css("background-color", "blue");
+//                    console.log(sel);
+//                }      
+//            })
+//        })        
+//        $(function() {
+//            $("#div7").click(function() {
+//                if(sel==1) {
+//                    $(this).css("background-color", "red");
+//                    console.log(sel);
+//                } else if(sel==2) {
+//                    $(this).css("background-color", "blue");
+//                    console.log(sel);
+//                }      
+//            })
+//        })
+        /////////////
+        
+        $(function () {
+            $("#btn1").click(function(){
+                $("div").each(function(index, item){
+                    if(index>1) {
+                        $(this).css("background-color", "white"); 
+                    };
+                });
+            });
+        })
+        
+    </script>
+문제3<br>
+다음 2개의 그림 중 선택한 후 복사 될 수 있도록 구현하여라 <br>
+<fieldset style="width:300px; margin:30px">
+<legend>2개의 그림 중 선택하시오.</legend>
+<div id="img1" style="background-color:red;">
+    
+</div>
+<div id="img2" style="background-color:blue;">
+    
+</div>
+</fieldset>
+
+<fieldset style="width:800px;  margin:30px">
+    
+        <legend>복사되는 공간</legend>
+     
+        <div id="div1">
+            
+        </div >
+        <div id="div2">
+            
+        </div>
+        <div id="div3">
+            
+        </div>
+        <div id="div4">
+            
+        </div>
+        <div id="div5">
+            
+        </div>
+        <div id="div6">
+            
+        </div>
+        <div id="div7">
+            
+        </div>
+</fieldset>
+
+   
+
+<button id="btn1"> 초기화 </button>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
