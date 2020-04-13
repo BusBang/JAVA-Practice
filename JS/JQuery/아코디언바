@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            display: block;
+        }
+
+        ul>li {
+            border: 0.03px solid white;
+            width: 200px;
+            line-height: 50px;
+            display: block;
+        }
+
+        .main>li {
+            background-color: rgb(234, 57, 75);
+        }
+
+        .sub>li {
+            background-color: rgb(56, 56, 56);
+        }
+
+        .sub>li {
+            background-color: rgb(36, 36, 36);
+        }
+
+        a {
+            height: 50px;
+            text-decoration-line: none;
+            color: white;
+        }
+
+        .main>li>a {
+            margin-left: 10px;
+        }
+
+        .sub>li>a {
+            margin-left: 20px;
+        }
+
+        .sub2>li>a {
+            margin-left: 30px;
+        }
+
+        .sub {
+            display: none;
+        }
+
+        span {
+            color: white;
+            float: right;
+        }
+        .rot {
+            transform: rotate(45deg);
+        }
+        .bar {
+
+        }
+        .main>li:hover {
+              border-left: 5px solid white;          
+        }
+        .sub>li:hover {
+              border-left: 5px solid white;          
+        }
+    </style>
+    <script>
+        $(function() {
+            $(".main>li").click(function() {
+                var index = $(this).children().length;
+                if (index > 1) {
+                    $(this).children().last().slideToggle(700);
+                    $(this).children().eq(1).toggleClass("rot");
+                }
+            });
+            $(".sub>li").click(function(event) {
+                var subindex = $(this).children().length;
+                if (subindex > 1) {
+                    $(this).children().last().slideToggle(700);
+                    $(this).children().eq(1).toggleClass("rot");
+                }
+                event.stopPropagation();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="menu">
+        <ul class="main">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">JAVA</a></li>
+            <li><a href="#">Oracle</a></li>
+            <li><a href="#">FrontEnd</a><span class="pl">+</span>
+                <ul class="sub">
+                    <li><a href="#">HTML5</a></li>
+                    <li><a href="#">CSS3</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">JQuery</a><span class="pl">+</span>
+                        <ul class="sub sub2">
+                            <li><a href="#">객체탐색</a></li>
+                            <li><a href="#">객체조작</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">효과</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Server</a></li>
+            <li><a href="#">Framework</a><span class="pl">+</span>
+                <ul class="sub">
+                    <li><a href="#">Mybatis</a></li>
+                    <li><a href="#">Spring</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body></html>
