@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+    <style>
+     /*        #D7FFF1 #8CD790 #77AF9C #C5E99B*/
+        div {
+            box-sizing: border-box;
+        }
+        .wrap{
+            background-color: #8CD790;
+            width : 1200px;
+            height : 1000px;
+            padding: 100px;
+        }
+        .wrap>h1{
+            margin-left: 150px;
+            text-shadow: 1px 1px 3px gray;
+        }
+        .main{
+            background-color: aliceblue;
+            width: 700px;
+            height: 500px;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        .bnt{
+            width : 180px;
+            height : 50px;
+            background-color: #77AF9C;
+            border-style : none;
+            color : white;
+            font-weight: bold;
+            font-size:14px;
+            margin: 0 auto;
+/*            display : inline-block;*/
+            margin-bottom: 10px;
+            
+        }
+        .t1 {
+            margin: 0 auto;
+            border: 1px solid border;
+            padding-top: 50px;
+        }
+        .tLayer {
+            width: 100%;
+            height : 420px;
+        }
+        .btnLayer {
+            width:100%;
+            height:80px;
+            text-align: center;
+        }
+        .t1 tr td {
+            width : 280px;
+            height: 80px;
+        }
+        .t1 tr td>input {
+            width: 280px;
+            height: 30px;
+            border-style:none;
+            background-color: aliceblue;
+            border-bottom: 0.5px solid #77AF9C;
+            display: block;
+        }
+        #tn {
+            font-size : 1.2em;
+            font-weight: bold;
+
+/*                        overflow: hidden;*/
+            position: absolute;
+/*            transform: translateY(100px);*/
+        }
+        #ww {
+            position : absolute;
+            font-size : 0.5em;
+            top:10px;
+            left :90px;
+            color:red;
+            font-weight: bold;
+            display:none;
+        }
+        .t1 tr td {
+            position: relative;
+        }
+        #ww2 {
+            position : absolute;
+            font-size : 0.5em;
+            top:10px;
+            left :150px;
+            color:red;
+            font-weight: bold;
+            display:none;           
+        }
+        #uAddr {
+         width: 564px;            
+        }
+
+    </style>
+    <script>
+        var result = true;
+        
+        $(function () {
+            $(".t1 tr td>input").focusin(function() {
+//                console.log($(this).prev().prev().html());
+                $(this).prev().prev().animate({
+                    top:'0px'
+                });
+            });
+//            $(".t1 tr td>input").blur(function() {
+//                $(this).prev().prev().animate({
+//                    top:'25px'
+//                });
+//            });
+            $("#userId").blur(function() {
+                var input = $(this).val();
+                var exp = /^[a-zA-Z][a-zA-Z0-9]{3,11}$/;
+                if(exp.test(input)) {
+                    $(this).prev().css("display", "none");
+                } else {
+                    $(this).prev().css("display", "block");
+                    result = false;
+                }
+                if(input=="") {
+                    $(this).prev().prev().animate({
+                        top:'25px'
+                    });
+                }
+            });
+            $("#userName").blur(function() {
+                var input = $(this).val();
+                var exp = /^[가-힣]{2,4}$/;
+                if(exp.test(input)) {
+                    $(this).prev().css("display", "none");
+                } else {
+                    $(this).prev().css("display", "block");
+                    result = false;
+                }
+                if(input=="") {
+                    $(this).prev().prev().animate({
+                        top:'25px'
+                    });
+                }
+            });
+            $("#uPW").blur(function() {
+                var input = $(this).val();
+                var exp = /^[a-zA-Z0-9]{6,18}$/;
+                if(exp.test(input)) {
+                    $(this).prev().css("display", "none");
+                } else {
+                    $(this).prev().css("display", "block");
+                    result = false;
+                }
+                if(input=="") {
+                    $(this).prev().prev().animate({
+                        top:'25px'
+                    });
+                }
+            });
+            $("#uPWD").blur(function() {
+                var input = $(this).val();
+                var pw = $("#uPW").val();
+                if(input==pw) {
+                    $(this).prev().css("display", "none");
+                } else {
+                    $(this).prev().css("display", "block");
+                    result = false;
+                }
+                if(input=="") {
+                    $(this).prev().prev().animate({
+                        top:'25px'
+                    });
+                }
+            });
+            $("#uEmail").blur(function() {
+                var input = $(this).val();
+                var exp = /^[a-zA-Z0-9]+[@][a-zA-Z0-9]+$/;
+                if(exp.test(input)) {
+                    $(this).prev().css("display", "none");
+                } else {
+                    $(this).prev().css("display", "block");
+                    result = false;
+                }
+                if(input=="") {
+                    $(this).prev().prev().animate({
+                        top:'25px'
+                    });
+                }
+            });            
+            $("#uPhone").blur(function() {
+                var input = $(this).val();
+                var exp = /^[0-9]{3}[-][0-9]{4}[-][0-9]{4}$/;
+                if(exp.test(input)) {
+                    $(this).prev().css("display", "none");
+                } else {
+                    $(this).prev().css("display", "block");
+                    result = false;
+                }
+                if(input=="") {
+                    $(this).prev().prev().animate({
+                        top:'25px'
+                    });
+                }
+            });
+            $("#uAddr").blur(function() {
+                var input = $(this).val();
+                if(input=="") {
+                    $(this).prev().prev().animate({
+                        top:'25px'
+                    });
+                }
+            });
+            
+            
+        });
+//        function submitTest() {
+//            console.log(result);
+//            if(!result) {
+//                $("#userID").prev().prev().animate({
+//                    top:'0px'
+//                });
+//                $("#userID").prev().css("display", "block");
+//            }
+//            return result; 
+//        }
+    </script>
+<body>
+    <div class="wrap">
+        <h1>회원가입</h1>
+        <div class="main">
+            <form action="#"  method="get">
+                <div class="tLayer">
+                    <table class="t1">
+                        <tr>
+                            <td>
+                                <span id="tn">아이디*</span>               
+                                <span id="ww">영어소문자+숫자 4~12자리/영어로 시작</span>
+                                <input type=id id=userId>
+                            </td>
+                            <td>
+                                <span id="tn">이름*</span>
+                                <span id="ww">한글 2~4글자</span>
+                                <input type=name id=userName>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="tn">비밀번호*</span>
+                                <span id="ww">영문대소문자+숫자 6~18자리</span>
+                                <input type="password" id="uPW" >
+                            </td>
+                            <td>
+                                <span id="tn">비밀번호확인*</span>
+                                <span id="ww2">비밀번호와 일치해야합니다</span>
+                                <input type="password" id="uPWD">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span id="tn">Email*</span>
+                                <span id="ww">Email형식에 맞지 않습니다.</span>
+                                <input type=email id=uEmail>
+                            </td>
+                            <td>
+                                <span id="tn">PHONE*</span>
+                                <span id="ww">전화번호 형식(000-0000-0000)</span>
+                                <input type=text id=uPhoned>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span id="tn">주소</span>
+                                <span id="ww"></span>
+                                <input type=text id=uAddr>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="btnLayer">
+                    <input class="bnt" type=submit value="회원가입">
+                    <input class="bnt" type=reset value="초기화">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
