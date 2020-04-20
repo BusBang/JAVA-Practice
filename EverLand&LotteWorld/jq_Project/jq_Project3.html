@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <style>
+        .wrap {
+            width: 1280px;
+            overflow: hidden;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .headersub {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .insertlogo2 {
+            width: 900px;
+            margin-left: 200px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .insertlogo {
+            font-size: 40px;
+            font-weight: 800;
+            margin-left: 200px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            text-shadow: 2px 2px 8px gray;
+        }
+
+        .insertuer {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .hr {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .check {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .check input {
+            width: 100px;
+            padding: 5px;
+            background-color: azure;
+            margin: 10px;
+
+        }
+
+        .check .nameinput {
+            width: 358px;
+
+        }
+
+        .table1 td>span {
+            text-align: right;
+            right: 10px;
+        }
+
+        .next {
+            width: 900px;
+            margin: 0 auto;
+            margin-top: 150px;
+            text-align: center;
+            margin-bottom: 30px;
+
+        }
+
+        .next a {
+            text-decoration-line: none;
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .next>#cansel {
+            background-color: black;
+            color: white;
+        }
+
+        .next>#okok {
+            background: rgb(252, 171, 73);
+            color: white;
+        }
+
+        .table1 td {
+            padding-top: 20px;
+            width: 400px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            height: 120px;
+            background-color: rgb(224, 224, 224);
+            text-align: center;
+            width: 100%;
+            padding-top: 20px;
+            margin: 0 auto;
+
+        }
+    </style>
+    <script>
+        function allcheck() {
+            var allcheck = document.getElementsByTagName("input");
+            if (allcheck[0].checked) {
+                
+                for (var i = 0; i < allcheck.length; i++) {
+                    allcheck[i].checked = true;
+                }
+            } else {
+                for (var i = 0; i < allcheck.length; i++) {
+                    allcheck[i].checked = false;
+                    
+                }
+            }
+        }
+
+        $(function() {
+                $("#okok").click(function() {
+                var arr = $("input:checked");
+                    console.log(arr);
+                if (arr.length >= 3) {
+                    $(this).attr("href", "jq_Project4.html");
+                } else {
+                        alert("본인확인 동의를 해주셔야합니다.");
+                }
+            });
+        });
+        
+        
+        
+        
+    </script>
+
+    <div class="wrap">
+        <div class="header">
+            <div class="headersub">
+                <a href="jq_Project1.html"><img src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C%EB%A1%9C%EA%B3%A0_(2).png" width="100px" height="100px">
+                <img src="../imgs/m_logo.png" width="100px" height="100px"></a>
+            </div>
+            <hr>
+        </div>
+
+
+        <div class="content">
+            <div class="insertuser">
+                <div class="insertlogo">회원가입</div>
+                <div class="insertlogo2">회원 가입을 위해 휴대폰 본인 인증 해주세요. </div>
+                <div class="hr">
+                    <hr>
+                </div>
+                <div class="check">
+                    <input type="checkbox" class="all" onclick="allcheck();">휴대폰 본인확인 전체동의
+                    <hr>
+                    <table class="table1">
+                        <tr>
+                            <td><input type="checkbox">개인정보 이용 동의(필수)<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자세히</span></td>
+                            <td><input type="checkbox">고유식별 정보 처리 동의(필수)<span>&nbsp;&nbsp;&nbsp;자세히</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox">서비스 이용약관 동의(필수)<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자세히</span></td>
+                            <td><input type="checkbox">통신사 이용약관 동의(필수)<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자세히</span></td>
+                        </tr>
+                    </table>
+                    <br><br><br><br>
+                    <b>인증정보 입력</b>
+                    <hr>
+                    <table>
+                        <tr>
+                            <td>이름</td>
+                            <td><input class="nameinput" name="name" type="text" placeholder="한글 또는 영문으로 입력해주세요."> </td>
+                        </tr>
+
+                        <tr>
+                            <td>생년월일</td>
+                            <td><input name="year" type="text" placeholder="(년도)"> -
+                                <input name="month" type="text" placeholder="(월)"> -
+                                <input name="day" type="text" placeholder="(일)"></td>
+                        </tr>
+                        <tr>
+                            <td>휴대폰번호</td>
+                            <td><input id="phone" name="phone1" type=text placeholder="(010)"> -
+                                <input id="phone" name="phone2" type=text> -
+                                <input id="phone" name="phone3" type=text></td>
+                        </tr>
+                    </table>
+                    <hr>
+                    <p>
+                        <h5>휴대폰 본인확인 시 타인 명의를 도용할 경우, "정보통신망법 제49조"에 의거하여 5년 이하의 징역 또는 5천만원 이하의 벌금에 처할 수 있습니다.</h5>
+                    </p>
+                </div>
+                <div class="next">
+                    <a id="cansel" href="jq_Project1.html">취소</a>
+                    <a id="okok" href="#">다음단계</a>
+                </div>
+            </div>
+            <div class="footer">
+                <pre>
+경기도 용인시 처인구 포곡읍 에버랜드로 199 삼성물산(주)
+대표이사 : 정금용 | 사업자등록번호 : 135-85-04288 | 통신판매업 신고번호 : 제2006-용인처인-0216호 | 사업자정보확인▶
+손님상담센터 : 031-320-5000(유료) | 개인정보 처리방침
+Copyright ⓒ Samsung C&T Corporation. All rights reserved.
+            </pre>
+            </div>
+
+
+
+
+        </div>
+
+</body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        /*        헤더 스타일*/
+        .wrap {
+            width: 1280px;
+            margin: auto;
+
+        }
+
+        .header {
+            width: 100%;
+            position: relative;
+
+        }
+
+
+        #logo {
+            width: 100%;
+        }
+
+        #logo {
+            width: 80px;
+            margin: auto;
+        }
+
+        /*        헤더-네비*/
+        .navi {
+            width: 800px;
+            margin: auto;
+        }
+
+        .mainNavi {
+            list-style: none;
+            padding: 0;
+            width: 800px;
+            overflow: hidden;
+            margin: auto;
+
+        }
+
+        .mainNavi>li {
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        .mainNavi>li>a {
+            display: block;
+            width: 200px;
+            font-size: 24px;
+            text-decoration: none;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #f08020;
+            font-weight: 900;
+            font-family: 'Staatliches', cursive;
+            text-shadow: 1px 1px 1px darkgray;
+        }
+
+        .subNavi {
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            height: 0px;
+            overflow: hidden;
+
+        }
+
+        .subNavi>li {
+            height: 35px;
+        }
+
+        .subNavi>li>a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            color: #404020;
+            background-color: whitesmoke;
+            opacity: 0.5;
+        }
+
+        .mainNavi>li:hover>a {
+            color: #804080;
+        }
+
+        .mainNavi>li:hover>.subNavi {
+            transition-duration: 1s;
+            height: 300px;
+        }
+
+        /*        풋터 스타일*/
+
+        .footer {
+            clear: left;
+            width: 100%;
+            background-color: #002040;
+            height: 180px;
+        }
+
+        .footer>p {
+            color: aliceblue;
+            font-size: 12px;
+            text-align: center;
+            line-height: 180px;
+        }
+
+        .mid {
+            width: 1280px;
+            height: 900px;
+            clear: left;
+
+        }
+
+        #background {
+
+            background-image: url("http://www.everland.com/web/upload/images/favorite/2397_imgBg0.jpg");
+            background-repeat: no-repeat;
+            height: 1150px;
+            padding-top: 100px;
+        }
+
+        #title {
+            clear: left;
+            font-size: 36px;
+            width: 570px;
+            font-weight: 900;
+            height: 50px;
+            margin-left: 100px;
+            color: #f0f0e0;
+            text-shadow: 1px 1px 4px black;
+
+        }
+
+        #div11>div {
+            float: left;
+        }
+
+        #box {
+            width: 55%;
+            height: 550px;
+            margin: 70px 100px;
+            background-color: rgba(250, 250, 250, 0.7);
+            border-radius: 20px;
+            padding: 0dpx;
+        }
+
+        #box>div>div {
+            float: left;
+            margin-top: 20px;
+        }
+
+        #box>div {
+            width: 655px;
+            margin: 10px auto;
+        }
+
+        .photo {
+            width: 188px;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        .name {
+            text-align: center;
+        }
+
+        .name>a {
+
+            line-height: 50px;
+            color: #002040;
+            text-shadow: 1px 1px 1px gray;
+            text-decoration: none;
+        }
+
+        #menu {
+            margin-top: 100px;
+            width: 230px;
+            height: 230px;
+            background-color: rgba(100, 100, 100, 0.9);
+            border-radius: 10px;
+        }
+
+        #menu>div {
+            margin: 30px;
+            margin-left: 0px;
+        }
+
+        #menu>div>a {
+            text-decoration: none;
+            display: block;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #DFDFDF;
+
+        }
+
+        #boxtitle {
+            padding-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            border-bottom: 2px solid #002040;
+            line-height: 36px
+        }
+
+    </style>
+</head>
+
+<body>
+    <script>
+        function windowPop1() {
+            window.open("http://www.everland.com/service/front/front1Pop.do", 'attraction warning', 'width=600, height=700, left=0, top=0');
+        }
+
+        function windowPop2() {
+            window.open("http://www.everland.com/service/front/front2Pop.do", 'attraction warning', 'width=600, height=700, left=0, top=0');
+        }
+
+        function windowPop3() {
+            window.open("http://www.everland.com/web/everland/how/Everland_attraction_safe_guidebook.pdf", 'attraction warning', 'width=900, height=700, left=0, top=0');
+        }
+
+        function windowPop4() {
+            window.open("https://www.everland.com/web/everland/main/popup/person_notice.html", 'attraction warning', 'width=600, height=700, left=0, top=0');
+        }
+
+    </script>
+
+    <div class="wrap">
+        <div class="header">
+            <div id="logo">
+                <a href="Everland_main.html"><img src="../imgs/%25BF%25A1%25B9%25F6%25B7%25A3%25B5%25E5%25B7%CE%B0%25ED_(3).png" width="80px"></a>
+            </div>
+            <div id="navi">
+                <ul class="mainNavi">
+                    <li><a href="#">Information</a>
+                        <ul class="subNavi">
+                            <li><a href="everland01.html">운영 시간</a></li>
+                            <li><a href="everland00.html">이용 요금</a></li>
+                            <li><a href="NC-reserve3-2.html">QnA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Attraction</a>
+                        <ul class="subNavi">
+                            <li><a href="everland02.html">Magic Land</a></li>
+                            <li><a href="everland04.html">Europian Adventure</a></li>
+                            <li><a href="everland05.html">Zootopia</a></li>
+                            <li><a href="everland06.html">Global Fair</a></li>
+                            <li><a href="everland07.html">American Adventure</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Editer_pick.html">Editor's pick</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mid">
+            <div id="background">
+
+                <div id="title">Global Fair</div>
+                <div id="div11" width="1280px">
+                    <div id="box">
+                        <div id="boxtitle">Global Fair</div>
+                        <div>
+                            <div class="photo">
+                                <a href="everland16.html"><img src="../imgs/%ED%97%AC%EB%A1%9C%20%ED%84%B0%EB%8B%9D%20%EC%96%B4%EB%93%9C%EB%B2%A4%EC%B2%98.jpg"></a>
+                                <div class="name"><a href="everland16.html">헬로 터닝 어드벤처</a></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div id="menu">
+                        <div><a href="#" onclick="windowPop1();">· 어트랙션 기본 주의사항</a></div>
+                        <div><a href="#" onclick="windowPop2();">· 기상 상황별 운휴 기준</a></div>
+                        <div><a href="#" onclick="windowPop3();">· 안전 가이드북</a></div>
+                        <div><a href="#" onclick="windowPop4();">· 장애인 어트랙션 이용 안내</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Copyright © 1996~2019 Samsung Corporation. All rights reserved.</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

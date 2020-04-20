@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+      <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<style>
+      .body {
+        text-shadow: 0.5px 0.5px gray;
+        width: 1280px;
+        height: 900px;
+          
+    }
+
+    .top {
+        border-bottom: 0.1px solid gray;
+        width: 100%;
+        height: 15%;
+ font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    .mid {
+        font-family: 'Nanum Gothic', sans-serif;
+        width: 100%;
+        height: 72%;
+    }
+
+    .bottom {
+      background-color: whitesmoke;
+        width: 100%;
+        height: 13%;
+    }
+
+    .lotte {
+       
+        width: 200px;
+        height: 133px;
+        float: left;
+
+
+    }
+
+    .tap {
+        
+        width: 870px;
+        height: 100%;
+        margin-left: 0px;
+        float: left;
+
+
+    }
+
+    .mainPg{
+        width: 200px;
+        height: 180px;
+        
+
+    }
+
+    .logo1 {
+        margin: 1px;
+        width: 198px;
+        height: 153px;
+       
+
+    }
+
+    .logo2 {
+        margin: 1px;
+        width: 198px;
+        height: 133px;
+
+    }
+    .u1 {
+        list-style: none;
+        padding: 0;
+        position: relative;
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+
+    .l1 {
+        float: left;
+        width: 150px;
+      
+        height: 133px;
+        margin-left: 50px;
+        line-height: 130px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .a1{
+        text-decoration: none;
+        color: black;
+    text-shadow: 10px 10px 10px 10px gray;
+       
+    }
+
+    .midPt{
+       
+        width: 100%;
+        height: 100%;
+        float: left;
+        
+    }
+
+    
+     .logo3 {
+       
+        margin-top: -35px;
+        margin-left: 20px;
+        width: 140px;
+        height: 180px;
+        float: left;
+         margin-right: 60px;
+
+    }
+    select{
+        position: absolute;
+        margin-top: -45px;
+        margin-left: 260px;
+        height: 30px;
+    }
+     .logo4{
+        width: 200px;
+        height: 200px;
+         margin-top: -60px;
+        margin-left: -35px;
+        position: absolute;
+    }
+</style>
+    <style>
+        .midb1{
+         
+            
+            margin-left: 385px;
+            
+            
+        }
+       
+        .b1{
+            margin-top: 20px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+            border: 1px solid gray;
+            background-color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .midp1{
+            width: 1280px;
+            height: 240px;
+            border: 0.07px solid gray;
+            margin-top: 30px;
+            display: block;
+        }
+        
+        .midp2{
+            width: 1280px;
+            height: 240px;
+            border: 0.07px solid gray;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .midp3{
+            width: 1280px;
+            height: 240px;
+            border: 0.07px solid gray;
+            margin-top: 30px;
+            display: none;
+        }
+        .p1{
+          width: 220px;
+            height: 240px;
+            float: left
+             
+        }
+        .img1{
+            width: 220px;
+            height: 240px;
+            
+        
+        }
+        .p2{
+            margin-left: 300px;
+            
+            width: 900px;
+            height: 240px;
+        }
+        .b2{
+            width: 100px;
+            height: 50px;
+            border: 2px solid blue;
+            background-color: white;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: bold;
+            margin-left: 800px;
+            margin-top: -20px;
+            
+        }
+        .b3{
+            background-color: mediumslateblue;
+        }
+    </style>
+    
+    
+    <script>
+        var a=2;
+    $(function(){
+        $(".b5").click(function(){
+            $(".midp3").css("display","none");
+            $(".midp1").css("display","none");
+            $(".midp2").css("display","block");
+            $(".b5").css("background-color", "mediumslateblue");
+            $(".b5").siblings().css("background-color", "white");
+            a=3;
+            
+        });
+    });
+         $(function(){
+         $(".b3").click(function(){
+            $(".midp2").css("display","none");
+            $(".midp3").css("display","none");
+            $(".midp1").css("display","block");
+            $(".b3").css("background-color", "mediumslateblue");
+            $(".b3").siblings().css("background-color", "white");
+             a=2;
+            
+        });
+    });
+          $(function(){
+         $(".b4").click(function(){
+            $(".midp2").css("display","none");
+            $(".midp1").css("display","none");
+            $(".midp3").css("display","block");
+            $(".b4").css("background-color", "mediumslateblue");
+            $(".b4").siblings().css("background-color", "white");
+            a=1;
+        });
+    });
+        
+        $(function(){
+            $(".b7").click(function(){
+            if(a==2){    
+            $(".midp3").css("display","none");
+            $(".midp1").css("display","none");
+            $(".midp2").css("display","block");
+            $(".b5").css("background-color", "mediumslateblue");
+            $(".b5").siblings().css("background-color", "white");
+                a=3;
+                 }else if(a==1){
+                     $(".midp2").css("display","none");
+            $(".midp3").css("display","none");
+            $(".midp1").css("display","block");
+            $(".b3").css("background-color", "mediumslateblue");
+            $(".b3").siblings().css("background-color", "white");
+             a=2;
+                 }
+            });
+        });
+         
+        $(function(){
+            $(".b6").click(function(){
+                if(a==2){
+                
+           
+             $(".midp2").css("display","none");
+            $(".midp1").css("display","none");
+            $(".midp3").css("display","block");
+            $(".b4").css("background-color", "mediumslateblue");
+            $(".b4").siblings().css("background-color", "white");
+            a=1;
+                }else if(a==3){
+                     $(".midp2").css("display","none");
+            $(".midp3").css("display","none");
+            $(".midp1").css("display","block");
+            $(".b3").css("background-color", "mediumslateblue");
+            $(".b3").siblings().css("background-color", "white");
+             a=2;
+                }
+                
+            });
+        });
+         $(function(){
+            $("select").change(function(){
+                var a = $(this).children(":selected").val();   
+              
+                if(a=="main 페이지"){
+                    location.href="jq_Project1.html";
+                }else if(a=="에버랜드 페이지"){
+                     location.href="Everland_main.html";
+                }
+               
+        });
+        });
+    </script>
+
+<body>
+    <div class="body">
+        <div class="top">
+              <a class="lotte" href="LOTTE.html"><img class="logo1" src="../imgs/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C%EB%A1%9C%EA%B3%A0.png" ></a>
+
+            <div class="tap">
+                
+              <ul class="u1">
+                    <li class="l1">
+                        <a class="a1" href="Main2.html">
+                        
+                    놀이기구 소개</a></li>
+                      <li class="l1"><a class="a1" href="Price.html">
+                     
+                  이용요금 확인</a></li>
+                    <li class="l1"><a class="a1" href="LOTTEReserve.html">
+                    
+                    공연 참여신청</a></li>
+                <li class="l1"><a class="a1" href="NC-reserve3-2.html">
+                    
+                    문의하기 Q&A</a></li>
+                    
+                </ul>
+                
+            </div>
+
+            <a class="mainPg" href="Everland_main.html"><img class="logo2" src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C%EB%A1%9C%EA%B3%A0.png"></a>
+        </div>
+        <div class="mid">
+            
+            <div class="midb1">
+            <button class="b1 b6">&lt;</button>
+           <button class="b1 b4">4/18</button>
+           <button class="b1 b3">4/19</button>
+           <button class="b1 b5">4/20</button>
+            <button class="b1 b7">&gt;</button>
+            </div>
+            <form action="LOTTEConfirm.html">
+            <div class="midp1">
+                <div class="p1">
+                <img class="img1" src="../imgs/%EA%B3%B5%EC%97%B01.jpg"></div>
+                    <div class="p2"><a><h2>환타지 마스크 퍼레이드</h2>
+                        환상적인 베니스 가면 축제와 어우러진 동화 속 주인공들의 신나는 마스크 퍼레이드<br><br>
+                        <b>공연시간 </b>14:00<br><br>  
+                        <b>공연장소 </b>어드벤처 1층 퍼레이드 코스</a><br>
+                 <button class="b2" >신청하기</button></div>
+            </div>
+        </form>
+            <form action="LOTTEConfirm2.html">
+           <div class="midp1">
+                <div class="p1">
+                <img class="img1" src="../imgs/%EA%B3%B5%EC%97%B02.jpg"></div>
+                    <div class="p2"><a><h2>로티의 모험2 : 사이버 어드벤처</h2>
+                        사이버 대마왕 다이노에게 붙잡힌 샤론캣을 구출하기 위해 모험을 떠나는 로티의 모험<br><br>
+                        <b>공연시간 </b>15:30<br><br>
+                        <b>공연장소 </b>가든 스테이지</a><br>
+                 <button class="b2">상세보기</button></div>
+            </div>
+                </form>
+            <form action="LOTTEConfirm3.html">
+                 <div class="midp2">
+                <div class="p1">
+                <img class="img1" src="../imgs/%EA%B3%B5%EC%97%B03.jpg"></div>
+                    <div class="p2"><a><h2>렛츠 드림 나이트 퍼레이드</h2>
+                        스펙타클한 멀티 미디어 쇼와 함께하는 환상의 나이트 퍼레이드<br><br>
+                        <b>공연시간 </b>20:00<br><br>
+                        <b>공연장소 </b>어드벤처 1층 퍼레이드 코스</a><br>
+                 <button class="b2">신청하기</button></div>
+            </div> 
+            </form>
+            <form action="LOTTEConfirm4.html">
+           <div class="midp2">
+                <div class="p1">
+                <img class="img1" src="../imgs/%EA%B3%B5%EC%97%B04.jpg"></div>
+                    <div class="p2"><a><h2>락큰롤 빅 밴드 쇼</h2>
+                       다양한 스타일의 락큰롤 음악과 함께 하는 남성 밴드 콘서트<br><br>
+                        <b>공연시간 </b>11:30 | 17:30<br><br>
+                        <b>공연장소 </b>어드벤처 1층 만남의 광장</a><br>
+                 <button class="b2">참여하기</button></div>
+            </div>
+            </form>
+            <form action="LOTTEConfirm5.html">
+             <div class="midp3">
+                <div class="p1">
+                <img class="img1" src="../imgs/%EA%B3%B5%EC%97%B05.jpg"></div>
+                    <div class="p2"><a><h2>펀!펀! 앨리스</h2>
+                        마스크 축제에 초대된 앨리스와 이상한 나라의 친구들이 고객들과 함께하는 서브 퍼레이드<br><br>
+                        <b>공연시간 </b>17:00<br><br>
+                        <b>공연장소 </b>어드벤처 1층 퍼레이드 코스</a><br>
+                 <button class="b2">참여하기</button></div>
+     
+            </div> 
+            </form>
+            <form action="LOTTEConfirm6.html">
+           <div class="midp3">
+                <div class="p1">
+                <img class="img1" src="../imgs/%EA%B3%B5%EC%97%B06.jpg"></div>
+                    <div class="p2"><a><h2>브로드웨이 밴드 쇼</h2>
+                       브로드웨이 히트 곡으로 구성된 신나는 여성 밴드 쇼<br><br>
+                        <b>공연시간 </b>11:00 | 16:30<br><br>
+                        <b>공연장소 </b>어드벤처 1층 만남의 광장</a><br>
+                 <button class="b2">참여하기</button></div>
+            </div>       
+            </form>
+       
+        
+        </div>
+        <div class="bottom">
+            <div class="bot1"><img class="logo3" src="../imgs/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C%EB%A1%9C%EA%B3%A0.png"><br><a class="a2">경기도 용인시 처인구 포곡읍 에버랜드로 199 삼성물산(주)
+대표이사 : 정금용 | 사업자등록번호 : 135-85-04288 <br> 통신판매업 신고번호 : 제2006-용인처인-0216호 | 사업자정보확인▶
+손님상담센터 : 031-320-5000(유료) <br> 개인정보 처리방침
+Copyright ⓒ Samsung C&T Corporation. All rights reserved.</a>
+                <select>
+        <option>홈페이지 관련 사이트</option>
+        
+        <option>main 페이지</option>
+        <option>에버랜드 페이지</option>
+        
+    </select>
+            </div>
+            
+        </div>
+    </div>
+</body></html>

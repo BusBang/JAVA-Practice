@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        /*        헤더 스타일*/
+        .wrap {
+            width: 1280px;
+            margin: auto;
+
+        }
+
+        .header {
+            width: 100%;
+            position: relative;
+
+        }
+
+
+        #logo {
+            width: 100%;
+        }
+
+        #logo {
+            width: 80px;
+            margin: auto;
+        }
+
+        /*        헤더-네비*/
+        .navi {
+            width: 800px;
+            margin: auto;
+        }
+
+        .mainNavi {
+            list-style: none;
+            padding: 0;
+            width: 800px;
+            overflow: hidden;
+            margin: auto;
+
+        }
+
+        .mainNavi>li {
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        .mainNavi>li>a {
+            display: block;
+            width: 200px;
+            font-size: 24px;
+            text-decoration: none;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #f08020;
+            font-weight: 900;
+            font-family: 'Staatliches', cursive;
+            text-shadow: 1px 1px 1px darkgray;
+        }
+
+        .subNavi {
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            height: 0px;
+            overflow: hidden;
+
+        }
+
+        .subNavi>li {
+            height: 35px;
+        }
+
+        .subNavi>li>a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            color: #404020;
+            background-color: white;
+            opacity: 0.8;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .mainNavi>li:hover>a {
+            color: #804080;
+        }
+
+        .mainNavi>li:hover>.subNavi {
+            transition-duration: 1s;
+            height: 300px;
+        }
+
+        /*        풋터 스타일*/
+
+        .footer {
+            clear: left;
+            width: 100%;
+            background-color: #002040;
+            height: 180px;
+        }
+
+        .footer>p {
+            color: aliceblue;
+            font-size: 12px;
+            text-align: center;
+            line-height: 180px;
+        }
+
+        .mid {
+            width: 1280px;
+            height: 1140px;
+            clear: left;
+
+        }
+
+        #background {
+
+            background-image: url("https://wwwcdn.everland.com/web/images/front/everland/plan/bg_plan_now.jpg");
+            height: 1150px;
+            padding-top: 100px;
+        }
+
+        #title {
+            clear: left;
+            font-size: 36px;
+            width: 270px;
+            font-weight: 900;
+            height: 50px;
+            margin-left: 100px;
+            color: #f0f0e0;
+            text-shadow: 1px 1px 4px black;
+            font-family: 'Nanum Gothic', sans-serif;
+
+        }
+
+        #menu {
+            width: 230px;
+            height: 300px;
+            background-color: #f08020;
+            border-radius: 20px;
+            box-shadow: 1px 1px 3px gray;
+            margin-left: 20px;
+            margin-top: 150px;
+            margin-top: 150px;
+            position: fixed;
+        }
+
+        #menu>div {
+            font-size: 28px;
+            text-align: center;
+            height: 90px;
+            line-height: 90px;
+            color: #f0f0e0;
+            text-shadow: 1px 1px 1px black;
+            font-family: 'Staatliches', cursive;
+        }
+
+        #menu>ul {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        #menu>ul>li>a {
+            margin: auto;
+            text-decoration: none;
+            display: block;
+            width: 170px;
+            height: 55px;
+            color: #f0f0e0;
+            line-height: 55px;
+            text-align: center;
+            font-weight: 900;
+            text-shadow: 1px 1px 1px black;
+            border-bottom: 1px solid #B87C5A;
+            font-size: 20px;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        #menu>ul>li:hover>a {
+            color: #E35809;
+        }
+
+        #box {
+            width: 65%;
+            height: 75%;
+            margin-top: 70px;
+            margin-left: 300px;
+            background-color: rgba(250, 250, 250, 0.7);
+            border-radius: 20px;
+            padding: 10px;
+            
+        }
+
+        .title {
+            font-weight: 900;
+            width: 200px;
+            height: 40px;
+            margin-left: 30px;
+            margin-top: 50px;
+            color: #f08020;
+            font-size: 16px;
+            text-shadow: 1px 1px 1px gray;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+
+
+        table {
+            width: 700px;
+            height: 25px;
+            margin: 0 auto;
+            font-size: 12px;
+        }
+
+        th {
+            width: 150px;
+            height: 24px;
+            background-color: #f08020;
+            color: #f0f0e0;
+            text-shadow: 1px 1px 1px black;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        td {
+            height: 65px;
+            text-align: center;
+            border-bottom: 1px solid lightgray;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        #tdrowspan>div {
+            margin-top: 10px;
+            text-align: left;
+        }
+        #tb2 td{
+            height: 30px;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <script>
+
+    </script>
+
+    <div class="wrap">
+        <div class="header">
+            <div id="logo">
+                <a href="Everland_main.html"><img src="../imgs/%25BF%25A1%25B9%25F6%25B7%25A3%25B5%25E5%25B7%CE%B0%25ED_(3).png" width="80px"></a>
+            </div>
+            <div id="navi">
+                <ul class="mainNavi">
+                    <li><a href="#">Information</a>
+                        <ul class="subNavi">
+                            <li><a href="everland01.html">운영 시간</a></li>
+                            <li><a href="everland00.html">이용 요금</a></li>
+                            <li><a href="NC-reserve3-2.html">QnA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Attraction</a>
+                        <ul class="subNavi">
+                            <li><a href="everland02.html">Magic Land</a></li>
+                            <li><a href="everland04.html">Europian Adventure</a></li>
+                            <li><a href="everland05.html">Zootopia</a></li>
+                            <li><a href="everland06.html">Global Fair</a></li>
+                            <li><a href="everland07.html">American Adventure</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Editer_pick.html">Editor's pick</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mid">
+            <div id="background">
+
+                <div id="title">이용 요금</div>
+
+                <div id="menu">
+                    <div>Information</div>
+                    <ul>
+                        <li><a href="everland01.html">운영 시간</a></li>
+                        <li><a href="everland00.html">이용 요금</a></li>
+                        <li><a href="NC-reserve3-2.html">QnA</a></li>
+                    </ul>
+                </div>
+                <div id="box">
+                   
+                    <div>
+                        <div class="title">⊙ 이용권</div>
+                        <div class="tbl">
+                            <table>
+                                <tr>
+                                    <th>종류</th>
+                                    <th>대인</th>
+                                    <th>청소년</th>
+                                    <th>소인/경로</th>
+                                    <th>비고</th>
+                                </tr>
+                                <tr>
+                                    <td>주간권</td>
+                                    <td>56,000원</td>
+                                    <td>47,000원</td>
+                                    <td>44,000원</td>
+                                    <td id="tdrowspan" rowspan="3">
+                                        <div>※에버랜드 입장 및 놀시시설 이용(코인물/대여물/기획전 등 일부 시설 별도 요금)</div>
+                                        <div>※당일 호암미술관 무료 입장</div>
+                                        <div>※2일권 스마트 예약 불가</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>야간권</div>
+                                        <div>(16시~)</div>
+                                    </td>
+                                    <td>46,000원</td>
+                                    <td>40,000원</td>
+                                    <td>37,000원</td>
+                                </tr>
+                                <tr>
+                                    <td>2일권</td>
+                                    <td>87,000원</td>
+                                    <td>73,000원</td>
+                                    <td>69,000원</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <pre>
+                        ※정가 이용권(주간권) 입장 시 5EP(에버파워) 자동 충전
+                        ※정가 EP(에버파워)는 스마트예약 / 현장매표소 구입 시 모두 동일하게 적용</pre>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="title">⊙ 연간회원</div>
+                        <div class="tbl">
+                            <table id="tb2">
+                                <tr>
+                                    <th>종류</th>
+                                    <th>구분</th>
+                                    <th>신규</th>
+                                    <th>재가입</th>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div>레귤러 플러스</div>
+                                        <div>Regular Plus</div>
+                                    </td>
+                                    <td>대인/청소년</td>
+                                    <td>420,000</td>
+                                    <td></td>
+
+                                </tr>
+                                <tr>
+                                    <td>소인</td>
+                                    <td>340,000</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div>레귤러</div>
+                                        <div>Regular</div>
+                                    </td>
+                                    <td>대인/청소년</td>
+                                    <td>220,000</td>
+                                    <td>170,000</td>
+                                </tr>
+                                <tr>
+                                    <td>소인</td>
+                                    <td>180,000</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2">
+                                        <div>셀렉트</div>
+                                        <div>Select</div>
+                                    </td>
+                                    <td>대인/청소년</td>
+                                    <td>140,000</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>소인</td>
+                                    <td>120,000</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>시니어 Senior</td>
+                                    <td>만 55세 이상</td>
+                                    <td>100,000</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>베이비 Baby</td>
+                                    <td>36개월 미만</td>
+                                    <td>80,000</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <pre>
+                        ※ 베이비권은 36개월 생일 전일까지 가입 가능
+                        ※ 시니어/베이비권은 나이를 증명할 수 있는 서류 지참 후 현장 가입만 가능 
+                        (주민등록증/주민등록등본/여권/건강보험증 등)</pre>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <p>Copyright © 1996~2019 Samsung Corporation. All rights reserved.</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<style>
+    .body {
+        text-shadow: 0.5px 0.5px gray;
+        width: 1280px;
+        height: 900px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .top {
+        border-bottom: 0.1px solid gray;
+        width: 100%;
+        height: 15%;
+        font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    .mid {
+        font-family: 'Nanum Gothic', sans-serif;
+        width: 100%;
+        height: 72%;
+    }
+
+    .bottom {
+        background-color: whitesmoke;
+        width: 100%;
+        height: 13%;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .lotte {
+
+        width: 200px;
+        height: 133px;
+        float: left;
+        font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    .tap {
+
+        width: 870px;
+        height: 100%;
+        margin-left: 0px;
+        float: left;
+        font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    .mainPg {
+        width: 200px;
+        height: 180px;
+        font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    .logo1 {
+        margin: 1px;
+        width: 198px;
+        height: 133px;
+        font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    .logo2 {
+        margin: 1px;
+        width: 198px;
+        height: 133px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .u1 {
+        list-style: none;
+        padding: 0;
+        position: relative;
+        margin-top: 30px;
+        margin-left: 20px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .l1 {
+        float: left;
+        width: 150px;
+
+        height: 133px;
+        margin-left: 50px;
+        line-height: 130px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .a1 {
+        text-decoration: none;
+        color: black;
+        text-shadow: 10px 10px 10px 10px gray;
+
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+
+    .midPt {
+
+        width: 100%;
+        height: 100%;
+        float: left;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+
+    .logo3 {
+
+        margin-top: -35px;
+        margin-left: 20px;
+        width: 140px;
+        height: 180px;
+        float: left;
+        margin-right: 60px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    select {
+        position: absolute;
+        margin-top: -45px;
+        margin-left: 260px;
+        height: 30px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+</style>
+<style>
+    .ad {
+        float: left;
+        width: 30%;
+
+        height: 92%;
+        margin: 2px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .p {
+        float: right;
+        width: 68%;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .price {
+        height: 50%;
+        margin: 2px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .price1 {
+        height: 20%;
+        margin: 2px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .price2 {
+        height: 20%;
+        margin: 2px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .p1 {
+        float: left;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .pp {
+        height: 320px;
+
+        width: 49%;
+        margin: 4px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .pp2 {
+        height: 320px;
+
+        width: 49%;
+        margin: 4px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    li {
+        list-style: none;
+        text-align: center;
+        font-size: 15px;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+        background-color: mediumpurple;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+</style>
+<script>
+
+ $(function(){
+            $("select").change(function(){
+                var a = $(this).children(":selected").val();   
+              
+                if(a=="main 페이지"){
+                    location.href="jq_Project1.html";
+                }else if(a=="에버랜드 페이지"){
+                     location.href="Everland_main.html";
+                }
+               
+        });
+        });
+
+</script>
+
+<body>
+    <div class="body">
+        <div class="top">
+            <a class="lotte" href="LOTTE.html"><img class="logo1" src="../imgs/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C%EB%A1%9C%EA%B3%A0.png"></a>
+
+            <div class="tap">
+
+                <ul class="u1">
+                    <li class="l1">
+                        <a class="a1" href="Main2.html">
+                        
+                    놀이기구 소개</a></li>
+                      <li class="l1"><a class="a1" href="Price.html">
+                     
+                  이용요금 확인</a></li>
+                    <li class="l1"><a class="a1" href="LOTTEReserve.html">
+                    
+                    공연 참여신청</a></li>
+                <li class="l1"><a class="a1" href="NC-reserve3-2.html">
+                    
+                    문의하기 Q&A</a></li>
+                    
+                </ul>
+            </div>
+
+            <a class="mainPg" href="Everland_main.html"><img class="logo2" src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C%EB%A1%9C%EA%B3%A0.png"></a>
+        </div>
+        <div class="mid">
+            <div class="ad">
+                <a class="ad1" href="everland00.html"><img class="ad2" src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C.JPG" width="380px" height="550px"></a>
+            </div>
+            <div class="p price">
+                <div class="p1 pp">
+
+                    <h2>종합이용권 1Day</h2>
+                    <li>어른 59,000원</li>
+                    <li>청소년 52,000원</li>
+                    <li>어린이 47,000원</li>
+                    <li>베이비 15,000원</li>
+                    <h2>종합이용권 After4(오후4시부터 입장)</h2>
+                    <li>어른 48,000원</li>
+                    <li>청소년 42,000원</li>
+                    <li>어린이 36,000원</li>
+                    <li>베이비 15,000원</li>
+                </div>
+                <div class="p1 pp2">
+                    <h2>파크이용권 1Day</h2>
+                    <li>어른 56,000원</li>
+                    <li>청소년 50,000원</li>
+                    <li>어린이 46,000원</li><br>
+                    <h2>파크이용권 After4(오후4시부터 입장)</h2>
+                    <li>어른 45,000원</li>
+                    <li>청소년 40,000원</li>
+                    <li>어린이 35,000원</li>
+                </div>
+            </div>
+            <div class="p price1">
+                <h2>이달의 혜택</h2>
+                <li>휴가장병 우대 2020.04.01-2020.04.30</li>
+                <li>폐휴대폰 우대 2020.04.01-2020.04.30</li>
+            </div>
+            <div class="p price2">
+                <h2>제한 사항</h2>
+                <li>연령별 우대(나이 확인이 가능한 신분증 또는 서류 제시)</li>
+                <li>0-12개월미만: 파크 입장 및 유아 놀이시설(키즈토리아 등) 무료이용</li>
+            </div>
+
+
+
+        </div>
+
+        <div class="bottom">
+            <div class="bot1"><img class="logo3" src="../imgs/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C%EB%A1%9C%EA%B3%A0.png"><br><a class="a2">경기도 용인시 처인구 포곡읍 에버랜드로 199 삼성물산(주)
+                    대표이사 : 정금용 | 사업자등록번호 : 135-85-04288 <br> 통신판매업 신고번호 : 제2006-용인처인-0216호 | 사업자정보확인▶
+                    손님상담센터 : 031-320-5000(유료) <br> 개인정보 처리방침
+                    Copyright ⓒ Samsung C&T Corporation. All rights reserved.</a>
+               <select>
+        <option>홈페이지 관련 사이트</option>
+        
+        <option>main 페이지</option>
+        <option>에버랜드 페이지</option>
+        
+    </select>s
+            </div>
+
+        </div>
+    </div>
+</body></html>

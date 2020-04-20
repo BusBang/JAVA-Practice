@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        /*        헤더 스타일*/
+        .wrap {
+            width: 1280px;
+            margin: auto;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .header {
+            width: 100%;
+            position: relative;
+
+        }
+
+
+        #logo {
+            width: 100%;
+        }
+
+        #logo {
+            width: 80px;
+            margin: auto;
+        }
+
+        /*        헤더-네비*/
+        .navi {
+            width: 800px;
+            margin: auto;
+        }
+
+        .mainNavi {
+            list-style: none;
+            padding: 0;
+            width: 800px;
+            overflow: hidden;
+            margin: auto;
+
+        }
+
+        .mainNavi>li {
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        .mainNavi>li>a {
+            display: block;
+            width: 200px;
+            font-size: 24px;
+            text-decoration: none;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #f08020;
+            font-weight: 900;
+            font-family: 'Staatliches', cursive;
+            text-shadow: 1px 1px 1px darkgray;
+        }
+
+        .subNavi {
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            height: 0px;
+            overflow: hidden;
+            z-index: 10;
+
+        }
+
+        .subNavi>li {
+            height: 35px;
+        }
+
+        .subNavi>li>a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            color: #404020;
+            background-color: whitesmoke;
+            opacity: 0.5;
+        }
+
+        .mainNavi>li:hover>a {
+            color: #804080;
+        }
+
+        .mainNavi>li:hover>.subNavi {
+            transition-duration: 1s;
+            height: 300px;
+        }
+
+        /*        풋터 스타일*/
+
+        .footer {
+            clear: left;
+            width: 100%;
+            background-color: #002040;
+            height: 180px;
+        }
+
+        .footer>p {
+            color: aliceblue;
+            font-size: 12px;
+            text-align: center;
+            line-height: 180px;
+        }
+
+        .mid {
+            width: 1280px;
+            height: 800px;
+            clear: left;
+            margin: 0 auto;
+            padding-top: 50px;
+
+        }
+
+        .mtext {
+            margin: 0 auto;
+            width: 900px;
+            height: 80px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            line-height: 3;
+            font-family: 'Nanum Gothic', sans-serif;
+            color: rgb(252, 171, 73);
+            border-bottom-style: dashed;
+            border-bottom-color: whitesmoke;
+            width: 1200px;
+            height: 100px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .img {
+            padding-top: 50px;
+            margin-top: 300px;
+            margin: 0 auto;
+            display: block;
+            width: 1200px;
+            height: 750px;
+        }
+
+        .clayer1 {
+            padding-top: 10px;
+            margin: 0 auto;
+            position: relative;
+            width: 1000px;
+            height: 600px;
+        }
+
+        .clayer1 ul {
+            position: absolute;
+            margin: 0px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .cimg {
+            position: absolute;
+            z-index: 1;
+            float: left;
+            margin: 0;
+            padding: 0;
+            width: 1000px;
+            height: 400px;
+            opacity: 0.9;
+        }
+
+        .cdiv {
+            background-color: whitesmoke;
+            margin-top: 400px;
+            text-align: center;
+            position: absolute;
+            z-index: 2;
+            width: 1000px;
+            height: 300px;
+        }
+
+        .h1-1 {
+            padding: 10px;
+            margin-top: 20px;
+            color: saddlebrown;
+        }
+
+        .h1-2 {
+            padding: 10px;
+            margin-top: 20px;
+            color: darkgreen;
+        }
+
+        .h1-3 {
+            padding: 10px;
+            margin-top: 20px;
+            color: darkblue;
+        }
+
+        .h1-4 {
+            padding: 10px;
+            margin-top: 20px;
+            color: saddlebrown;
+        }
+
+        .h1-5 {
+            padding: 10px;
+            margin-top: 20px;
+            color: darkslateblue;
+        }
+
+        .h1-6 {
+            padding: 10px;
+            margin-top: 20px;
+            color: darkblue;
+        }
+
+        .btn {
+            z-index: 10;
+
+            position: absolute;
+            width: 70px;
+            height: 50px;
+            margin-top: 300px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .btn2 {
+            z-index: 10;
+            position: absolute;
+            width: 70px;
+            height: 50px;
+            margin-left: 1200px;
+            margin-top: 300px;
+            cursor: pointer;
+        }
+
+        .li1 {
+            display: block;
+        }
+
+        .li2 {
+            display: none;
+        }
+
+        .li3,.li4,.li5,.li6 {
+            display: none;
+        }
+        
+
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+     
+              var a=1;
+        
+        $(function(){
+            $(".btn2").click(function(){
+                
+              if(a!=6){
+                $(".li"+[a]).css("display","none");
+                $(".li"+[a+1]).css("display","block");
+             
+              }
+                a++;
+                
+                if(a>6){
+                    
+                $(".li"+[6]).css("display","none");
+                $(".li"+[1]).css("display","block");
+                    a=1;
+                }
+                
+            });
+        });
+         
+         $(function(){
+            $(".btn").click(function(){
+                if(a!=1){
+                $(".li"+[a-1]).css("display","block");
+                $(".li"+[a]).css("display","none");
+                    
+                }
+                a--;
+                 
+                if(a<1){
+                $(".li"+[1]).css("display","none");
+                $(".li"+[6]).css("display","block");
+                    a=6; 
+                }
+             
+            
+            });
+        });
+        
+    </script>
+<!--
+    
+    <div class="mid">
+            <button onclick="button1" class="but1 but2">&lt;</button>
+            <div class="midPt">
+            <img class="cimg" src="../imgs/%EC%82%AC%EC%A7%843.jpg">
+            <img class="cimg img2" src="../imgs/%EC%82%AC%EC%A7%841.jpg">
+            <img class="cimg img3" src="../imgs/%EC%82%AC%EC%A7%842.jpg">
+                 <img class="cimg img4" src="../imgs/%EC%82%AC%EC%A7%844.jpg">
+                <img class="cimg img5" src="../imgs/%EC%82%AC%EC%A7%845.jpg">
+                
+            </div>
+            <button onclick="button2" class="but1 but3">&gt;</button>
+        </div>
+    
+-->
+    
+    <div class="wrap">
+        <div class="header">
+            <div id="logo">
+                <a href="Everland_main.html"><img src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C%EB%A1%9C%EA%B3%A0.png" width="80px"></a>
+            </div>
+            <div id="navi">
+                <ul class="mainNavi">
+                    <li><a href="#">Information</a>
+                        <ul class="subNavi">
+                            <li><a href="everland01.html">운영 시간</a></li>
+                            <li><a href="everland00.html">이용 요금</a></li>
+                            <li><a href="NC-reserve3-2.html">QnA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Attraction</a>
+                        <ul class="subNavi">
+                            <li><a href="everland02.html">Magic Land</a></li>
+                            <li><a href="everland04.html">Europian Adventure</a></li>
+                            <li><a href="everland05.html">Zootopia</a></li>
+                            <li><a href="everland06.html">Global Fair</a></li>
+                            <li><a href="everland07.html">American Adventure</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Editer_pick.html">Editor's pick</a>
+                        <ul class="subNavi">
+                            <li><a href="Editer_pick_sub.html">동물 먹이주기 체험</a></li>
+                            <li><a href="Editer_pick_sub2.html">판다월드 라이브타임</a></li>
+                            <li><a href="Editer_pick_sub3.html">에버랜드 인기투표</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mid">
+            <div class="mtext"><img class="mtext" src="../imgs/%ED%8C%90%EB%8B%A4%EC%9B%94%EB%93%9Clogo.png"></div>
+            <div><img class="btn" src="../imgs/pngwing.com.png"></div>
+            <div><img class="btn2" src="../imgs/%EC%95%9E%EC%9C%BC%EB%A1%9C%EA%B0%80%EA%B8%B0.png"></div>
+            <div class="clayer1">
+                <ul>
+                    <li class="li1">
+                        <img class="cimg" src="../imgs/%ED%8C%90%EB%8B%A41.jpg">
+                        <div class="cdiv">
+                            <br>
+                            Best 01
+                            <h1 class="h1-1">아침 문 열릴 때<br>
+                                &nbsp;"산책하러 가 볼까~"</h1>
+                            <h3>밤새 꿀잠 자고 일어난 판다는 아침마다 힘차게 판다월드를 둘러보곤 해요.<br> 아침밥을 더 맛있게 먹기위해서 살짝 몸풀기로 산책을 하거든요.<br> 매일 판다월드가 오픈하는 시간에는 귀여운 판다들이 구석구석 돌아다니는 모습을 구경할 수 있어요!<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li2">
+                        <img class="cimg" src="../imgs/%ED%8C%90%EB%8B%A42.jpg">
+                        <div class="cdiv">
+                            <br>
+                            Best 02
+                            <h1 class="h1-2">대나무 먹을 때<br>
+                                &nbsp;"즐거운 식사시간!"</h1>
+                            <h3>판다가 세상에서 제일 좋아하는 대나무는 판다의 잠을 깨우는 비밀무기에요.<br> 매일 사육사가 신선하게 공수해온 대나무들의 향기가 잠에 든 판다를 깨우나봐요.<br> 판다는 보통 하루에도 수십kg의 대나무를 먹어 치우는데요. <br>식사 시간은 판다의 컨디션에 따라 달라지지만 보통 1~2시 사이에 점심시간이 있어요.<br>
+                            </h3>
+                        </div>
+
+
+                    </li>
+                    <li class="li3">
+                        <img class="cimg" src="../imgs/%ED%8C%90%EB%8B%A43.jpg">
+                        <div class="cdiv">
+                            <br>
+                            Best 03
+                            <h1 class="h1-3">밥 먹었으니 운동~<br>
+                                &nbsp;"장난감을 좋아해요"</h1>
+                            <h3>판다는 나무타기도 잘하고, 물놀이도 좋아하는 장난꾸러기에요.<br> 판다월드 곳곳에는 사육사에게 선물받은 다양한 장난감도 많지요.<br> 대나무를 먹고 나면 간간히 일어나서 운동을 하는데요.<br> 판다들의 재롱을 직접 눈으로 보고싶다면 식사시간부터 기다려보는 것이 좋아요.<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li4">
+                        <img class="cimg" src="../imgs/%ED%8C%90%EB%8B%A44.jpg">
+                        <div class="cdiv">
+                            <br>
+                            Best 04
+                            <h1 class="h1-4">운동했으니 간식~<br>
+                                &nbsp;"출출할땐 간식이지"</h1>
+                            <h3>사육사가 가끔 별식으로 만들어주는 간식이 오면 잠자던 판다들도 눈을 번쩍 뜬답니다.<br> 하지만 안타깝게도 간식을 주는 시간대는 확실하게 정해져있지는 않다고 하네요.<br> 오후에 판다가 낮잠을 자고 난 뒤나 날이 너무 덥거나 추워서 판다의 입맛이 떨어질 때 보통 간식을 먹는다고 해요.<br> 만약 '워토우(옥수수로 만든 판다의 빵)'를 먹는 판다를 만났다면 정말 운이 좋으신 거에요!<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li5">
+                        <img class="cimg" src="../imgs/%ED%8C%90%EB%8B%A45.jpg">
+                        <div class="cdiv">
+                            <br>
+                            Best 05
+                            <h1>저녁 인사할 때<br>
+                                &nbsp;"만나서 반가워"</h1>
+                            <h3>판다월드가 문을 닫는 시간이 가까워지면 판다가 잠을 덜 잔다는 놀라운 정보!<br> 계절별로 조금씩 다르지만 판다월드의 운영시간이 되는 저녁에는 활발하게 돌아다니는 판다를 만날 확률이 높아요.<br> 혹시 판다가 잠을 자고 있어서 아쉬웠다면 다시 한번 찾아가보는건 어떨까요?<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li6">
+                        <img class="cimg" src="../imgs/%ED%8C%90%EB%8B%A46.jpg">
+                        <div class="cdiv">
+                            <br>
+                            Special
+                            <h1>눈사람 친구를 만날 때!<br>
+                                &nbsp;"눈사람이다!!"</h1>
+                            <h3>흰 눈이 내리는 겨울에만 만나 볼 수 있는 '눈 만난 판다'!<br> 호기심이 많은 판다는 특히 눈사람을 아주 좋아해요.<br> 자신을 똑같이 닮은 판다를 만나면 잠도 잊고 아주 신나게 움직인답니다!<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="clayer2"></div>
+        </div>
+        <div class="footer">
+            <p>Copyright © 1996~2019 Samsung Corporation. All rights reserved.</p>
+        </div>
+    </div>
+
+
+</body></html>

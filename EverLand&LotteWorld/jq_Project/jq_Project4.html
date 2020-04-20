@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <style>
+        .wrap {
+            width: 1280px;
+            overflow: hidden;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .headersub {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .insertlogo2 {
+            width: 900px;
+            margin-left: 200px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .insertlogo {
+            font-size: 40px;
+            font-weight: 800;
+            margin-left: 200px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            text-shadow: 2px 2px 8px gray;
+        }
+
+        .insertuer {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .hr {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .check {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .check input {
+            width: 100px;
+            padding: 5px;
+            background-color: azure;
+            margin: 10px;
+
+        }
+
+        .check .info {
+            width: 358px;
+
+        }
+
+        .table1 td>span {
+            text-align: right;
+            right: 10px;
+        }
+
+        .next {
+            width: 900px;
+            margin: 0 auto;
+            margin-top: 100px;
+            text-align: center;
+            margin-bottom: 30px;
+
+        }
+
+        .next a {
+            text-decoration-line: none;
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .next>#cansel {
+            background-color: black;
+            color: white;
+        }
+
+        .next>#okok {
+            background: rgb(252, 171, 73);
+            color: white;
+        }
+
+        .table1 td {
+            padding-top: 20px;
+            width: 400px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            height: 120px;
+            
+            background-color: rgb(224, 224, 224);
+            text-align: center;
+            padding-top: 20px;
+            width: 100%;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        .sub1 {
+            color: cornflowerblue;
+            font-size: 13px;
+        }
+
+        td .emailcheck {
+            background-color: black;
+            color: white;
+            width: 100px;
+            height: 30px;
+        }
+
+        .info span {
+
+            font-size: 10px;
+        }
+
+        .next button {
+            padding: 15px;
+            border-radius: 10px;
+
+        }
+    </style>
+    <script>
+        $(function() {
+            var check = [false, false, false, false];
+            $('input').val('');
+
+
+            $('.info').filter('input').focusin(function() {
+                $(this).css("border-bottom", "2px solid black");
+            });
+
+            $('.info').filter('input').focusout(function() {
+                if ($(this).val() == "") {
+                    $(this).css("border-bottom", "2px solid #E1E1E1");
+                    $(this).css("background-color", "azure");
+                } else {
+                    $(this).css("color", "darkslategray");
+                    $(this).css("background-color", "white");
+                }
+            });
+
+
+
+            $('#email').change(function() {
+                $(this).next().html("");
+                var reg = /^[a-z][a-z0-9_-]{3,11}@([a-z\d\.-]+)\.([a-z\.]{2,6})$/;
+                if (reg.test($(this).val())) {
+                    check[0] = true;
+                } else {
+                    check[0] = false;
+                    $(this).next().html("Email형식에 맞지 않습니다.");
+                }
+            });
+
+            $('#pass').change(function() {
+                $(this).next().html("");
+                var reg = /^[A-Za-z0-9]{6,18}$/;
+                if (reg.test($(this).val())) {
+                    check[1] = true;
+                } else {
+                    check[1] = false;
+                    $(this).next().html("영문대소문자+숫자 6~18자리");
+                }
+            });
+            $('#pass2').change(function() {
+                $(this).next().html("");
+
+                if ($(this).val() == $("#pass").val()) {
+
+                    check[2] = true;
+                } else {
+                    check[2] = false;
+                    $(this).next().html("비밀번호가 일치하지 않습니다.");
+                }
+            });
+
+            $('#name').change(function() {
+                $(this).next().html("");
+                var reg = /^[가-힝]{2,4}$/;
+                if (reg.test($(this).val())) {
+                    check[3] = true;
+                } else {
+                    check[3] = false;
+                    $(this).next().html("한글 2~4글자");
+                }
+            });
+
+            $('form').submit(function() {
+                var count = 0;
+                for (var i = 0; i < check.length; i++) {
+                    var arr = $("input:checked");
+                    if (check[i] == true) {
+                        if (arr.length == 2) {
+                            count++;
+                        }else{
+                            
+                        }
+                    }
+                }
+                
+                if (count < 4) {
+                    alert("회원정보 입력란 확인 부탁드립니다");
+                    return false;
+                }
+                
+            });
+
+        });
+    </script>
+
+    <div class="wrap">
+        <div class="header">
+            <div class="headersub">
+                <a href="jq_Project1.html"><img src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C%EB%A1%9C%EA%B3%A0_(2).png" width="100px" height="100px">
+                <img src="../imgs/m_logo.png" width="100px" height="100px"></a>
+            </div>
+            <hr>
+        </div>
+
+
+        <div class="content">
+            <div class="insertuser">
+                <div class="insertlogo">벌써 마지막 단계에요~</div>
+                <div class="check">
+                    <form target="_self" action="jq_Project1.html" method="post" >
+                        <p><b>회원정보입력</b><span class="sub1">*는 필수입력 항목입니다</span></p>
+                        <hr>
+                        <table class="aa">
+                            <tr>
+                                <td><span class="sub1">*</span>이메일주소</td>
+                                <td><input class="info" name="email" id="email" type="text" placeholder="영문으로 입력해주세요."><span class="sub1"></span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="sub1">*</span>비밀번호</td>
+                                <td><input class="info" name="pass" id="pass" type="password" placeholder="비밀번호를 입력해주세요."><br><span class="sub1">&nbsp;&nbsp;&nbsp;8~15자리의영문/숫자/특수문자를 함께 입력해주세요.</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="sub1">*</span>비밀번호확인</td>
+                                <td><input class="info" name="pass2" id="pass2" type="password" placeholder="입력하신 비밀번호를 다시 한번 입력해주세요."><span class="sub1"></span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="sub1">*</span>이름</td>
+                                <td><input class="info" name="name" id="name" type="text" placeholder="이름을 입력해 주세요."><span class="sub1"></span> </td>
+                            </tr>
+                            <tr>
+                                <td>주소</td>
+                                <td><input class="info" name="addr" id="addr" type="text" placeholder="주소를 입력해 주세요."><span></span> </td>
+                            </tr>
+
+
+
+
+                        </table>
+
+                        <hr>
+                        <p><b>개인정보 유효기간</b><span class="sub1">*는 필수입력 항목입니다</span></p>
+                        <hr>
+                        <table>
+                            <tr>
+                                <td><input type=radio checked> 통합계정</td>
+                                <td><input type="checkbox">1년</td>
+                                <td><input type="checkbox">탈퇴시 파기</td>
+                            </tr>
+                        </table>
+
+                        <p>
+                            <h5>개인정보 유효기간 경과 이후 개인정보를 저장/관리 또는 파기합니다.</h5>
+                        </p>
+
+                </div>
+                <div class="next">
+                    <a id="cansel" href="jq_Project3.html">뒤로가기</a>
+                    <button id="okok" type="submit">가입완료</button>
+
+                </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <pre>
+경기도 용인시 처인구 포곡읍 에버랜드로 199 삼성물산(주)
+대표이사 : 정금용 | 사업자등록번호 : 135-85-04288 | 통신판매업 신고번호 : 제2006-용인처인-0216호 | 사업자정보확인▶
+손님상담센터 : 031-320-5000(유료) | 개인정보 처리방침
+Copyright ⓒ Samsung C&T Corporation. All rights reserved.
+            </pre>
+        </div>
+    </div>
+
+</body></html>

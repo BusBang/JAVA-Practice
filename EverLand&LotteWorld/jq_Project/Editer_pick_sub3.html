@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        /*        헤더 스타일*/
+        .wrap {
+            width: 1280px;
+            margin: auto;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        .header {
+            width: 100%;
+            position: relative;
+
+        }
+
+
+        #logo {
+            width: 100%;
+        }
+
+        #logo {
+            width: 80px;
+            margin: auto;
+        }
+
+        /*        헤더-네비*/
+        .navi {
+            width: 800px;
+            margin: auto;
+        }
+
+        .mainNavi {
+            list-style: none;
+            padding: 0;
+            width: 800px;
+            overflow: hidden;
+            margin: auto;
+
+        }
+
+        .mainNavi>li {
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        .mainNavi>li>a {
+            display: block;
+            width: 200px;
+            font-size: 24px;
+            text-decoration: none;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #f08020;
+            font-weight: 900;
+            font-family: 'Staatliches', cursive;
+            text-shadow: 1px 1px 1px darkgray;
+        }
+
+        .subNavi {
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            height: 0px;
+            overflow: hidden;
+            z-index: 10;
+
+        }
+
+        .subNavi>li {
+            height: 35px;
+        }
+
+        .subNavi>li>a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            color: #404020;
+            background-color: whitesmoke;
+            opacity: 0.5;
+        }
+
+        .mainNavi>li:hover>a {
+            color: #804080;
+        }
+
+        .mainNavi>li:hover>.subNavi {
+            transition-duration: 1s;
+            height: 300px;
+        }
+
+        /*        풋터 스타일*/
+
+        .footer {
+            clear: left;
+            width: 100%;
+            background-color: #002040;
+            height: 180px;
+        }
+
+        .footer>p {
+            color: aliceblue;
+            font-size: 12px;
+            text-align: center;
+            line-height: 180px;
+        }
+
+        .mid {
+            width: 1280px;
+            height: 750px;
+            clear: left;
+            margin: 0 auto;
+            padding-top: 50px;
+
+        }
+
+        .mtext {
+            margin: 0 auto;
+            width: 1200px;
+            height: 100px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            line-height: 3;
+            font-family: 'Nanum Gothic', sans-serif;
+            color: rgb(252, 171, 73);
+            border-bottom-style: dashed;
+            border-bottom-color: whitesmoke;
+            width: 1200px;
+            height: 100px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .img {
+            padding-top: 50px;
+            margin-top: 300px;
+            margin: 0 auto;
+            display: block;
+            width: 1200px;
+            height: 750px;
+        }
+
+        .clayer1 {
+            margin-top: 30px;
+            position: relative;
+            width: 1280px;
+            height: 600px;
+        }
+
+        .clayer1 ul {
+            position: absolute;
+            margin: 0px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .cimg {
+            position: absolute;
+            z-index: 1;
+            float: left;
+            margin: 0;
+            padding: 0;
+            width: 1280px;
+            height: 600px;
+            opacity: 0.9;
+        }
+
+        .cdiv {
+            background-color: whitesmoke;
+            opacity: 0.7;
+            margin-top: 300px;
+            margin-left: 140px;
+            text-align: center;
+            position: absolute;
+            z-index: 2;
+            border-radius: 10px;
+            width: 1000px;
+            height: 270px;
+        }
+
+        h1 {
+            
+            margin-top: 20px;
+            color: saddlebrown;
+            font-weight: bold;
+        }
+
+        .btn {
+            z-index: 10;
+
+            position: absolute;
+            width: 70px;
+            height: 50px;
+            margin-top: 300px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .btn2 {
+            z-index: 10;
+            position: absolute;
+            width: 70px;
+            height: 50px;
+            margin-left: 1200px;
+            margin-top: 300px;
+            cursor: pointer;
+        }
+
+        .li1 {
+            display: block;
+        }
+
+        .li2,
+        .li3,
+        .li4,
+        .li5,
+        .li6,
+        .li7,
+        .li8,
+        .li9,
+        .li10 {
+            display: none;
+        }
+
+
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script>
+        var ind = 0;
+        var ind1 = 0;
+
+
+        $(function() {
+
+            var a = 1;
+
+            $(function() {
+                $(".btn2").click(function() {
+
+                    if (a != 6) {
+                        $(".li" + [a]).css("display", "none");
+                        $(".li" + [a + 1]).css("display", "block");
+
+                    }
+                    a++;
+
+                    if (a > 6) {
+
+                        $(".li" + [6]).css("display", "none");
+                        $(".li" + [1]).css("display", "block");
+                        a = 1;
+                    }
+
+                });
+            });
+
+            $(function() {
+                $(".btn").click(function() {
+                    if (a != 1) {
+                        $(".li" + [a - 1]).css("display", "block");
+                        $(".li" + [a]).css("display", "none");
+
+                    }
+                    a--;
+
+                    if (a < 1) {
+                        $(".li" + [1]).css("display", "none");
+                        $(".li" + [6]).css("display", "block");
+                        a = 6;
+                    }
+
+
+                });
+            });
+        });
+
+    </script>
+
+    <div class="wrap">
+        <div class="header">
+            <div id="logo">
+                <a href="Everland_main.html"><img src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C%EB%A1%9C%EA%B3%A0.png" width="80px"></a>
+            </div>
+            <div id="navi">
+                <ul class="mainNavi">
+                    <li><a href="#">Information</a>
+                        <ul class="subNavi">
+                            <li><a href="everland01.html">운영 시간</a></li>
+                            <li><a href="everland00.html">이용 요금</a></li>
+                            <li><a href="NC-reserve3-2.html">QnA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Attraction</a>
+                        <ul class="subNavi">
+                            <li><a href="everland02.html">Magic Land</a></li>
+                            <li><a href="everland04.html">Europian Adventure</a></li>
+                            <li><a href="everland05.html">Zootopia</a></li>
+                            <li><a href="everland06.html">Global Fair</a></li>
+                            <li><a href="everland07.html">American Adventure</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Editer_pick.html">Editor's pick</a>
+                        <ul class="subNavi">
+                            <li><a href="Editer_pick_sub.html">동물 먹이주기 체험</a></li>
+                            <li><a href="Editer_pick_sub2.html">판다월드 라이브타임</a></li>
+                            <li><a href="Editer_pick_sub3.html">에버랜드 인기투표</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mid">
+            <div class="mtext"><img class="mtext" src="../imgs/%EC%9D%B8%EA%B8%B0%ED%88%AC%ED%91%9Clogo.png"></div>
+            <div><img class="btn" src="../imgs/pngwing.com.png"></div>
+            <div><img class="btn2" src="../imgs/%EC%95%9E%EC%9C%BC%EB%A1%9C%EA%B0%80%EA%B8%B0.png"></div>
+            <div class="clayer1">
+                <ul>
+                    <li class="li1">
+                        <img class="cimg" src="../imgs/best1.jpg">
+                        <div class="cdiv">
+                            <h2>주토피아</h2>
+                            <h1>로스트밸리</h1>
+                            <h3>세계 최초! 수륙양용차로 즐기는 초식사파리 [로스트밸리]가 영예의 인기투표 1위!<br>
+                                야생의 초원을 닮은 로스트밸리는 기린, 코끼리, 얼룩말 등등<br>
+                                신비로운 초식동물들을 가까이에서 만나볼 수 있는 에버랜드만의 신개념 동물원인데요.<br>
+                                국내뿐 아니라 해외에서도 많은 사랑을 받으며 가장 최고의 에버랜드의 명소로 뽑혔네요!<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li2">
+                        <img class="cimg" src="../imgs/best2.jpg">
+                        <div class="cdiv">
+                            <h2>어트랙션</h2>
+                            <h1>T익스프레스</h1>
+                            <h3>시속 104km의 엄청난 속도! 낙하각 77도!<br>
+                                세계 최고의 우든 코스터 [T익스프레스]는
+                                학생친구들의 전폭적인 지지로 인기투표 2위!<br>
+                                3분, 즉 180초동안 10번 내리꽂고 굽이치는 레일을 타면
+                                인생의 명장면들이 파노라마처럼 스쳐지나간다는데....<br>
+                                "내가 왜 이것을 탔을까"로 후회(?)하지만 마지막
+                                승강장으로 <br>되돌아올 때쯤엔 스트레스가 싹 사라지면서
+                                "역시 최고! 또 타러 가자!"를 외치고 있을거에요!<br>
+
+                            </h3>
+                        </div>
+
+
+                    </li>
+                    <li class="li3">
+                        <img class="cimg" src="../imgs/best3.jpg">
+                        <div class="cdiv">
+                            <h2>주토피아</h2>
+                            <h1>사파리월드</h1>
+                            <h3>동물과의 교감이 가능한 생태공간 [사파리월드]는
+                                2위와 박빙을 펼치며 간발의 차로 3위!<br>
+                                육식동물 맹수들의 서식지 사파리월드는
+                                무리 생활을 하는 사자, 치열한 서열다툼이 있는 호랑이,<br>
+                                신비로운 전설이 있는 백호, 똑똑하고 재주많은 곰 등등이
+                                각자 다양한 이야기를 가진 공간이에요.<br>
+                                오랫동안 에버랜드를 대표한 동물원인만큼
+                                기나긴 전통과 재미있는 스토리가 많아서<br>
+                                사파리월드는 올 때마다
+                                타고 또 타도 이야기가 매번 달라요<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li4">
+                        <img class="cimg" src="../imgs/best4.jpg">
+                        <div class="cdiv">
+                            <h2>엔터테인먼트</h2>
+                            <h1>문라이트 퍼레이드</h1>
+                            <h3>환상적 조명의 항연, 대표 야간 퍼레이드
+                                [문라이트 퍼레이드]는 에버랜드하면
+                                생각나는 공연답게 4위!<br>
+                                갑자기 조용해지며 주변 조명이 꺼졌다면
+                                퍼레이드가 열리는 광장으로 서두르세요!<br>
+                                번쩍번쩍 광채가 나는 거대한 퍼레이드 카가 등장하면
+                                에버랜드에서 가장 신나는 야간 행렬이 시작됩니다.<br>
+                                머리부터 발끝까지 오색찬란하게
+                                빛나는 황홀한 공연을 놓치지마세요<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li5">
+                        <img class="cimg" src="../imgs/best5.jpg">
+                        <div class="cdiv">
+                            <h2>엔터테인먼트</h2>
+                            <h1>멀티미디어 불꽃쇼</h1>
+                            <h3>초대형 스크린과 화려한 불꽃쇼의 만남!<br>
+                                [멀티미디어 불꽃쇼]는 높은 밤하늘을 수놓는 꽃처럼
+                                훌쩍 뛰어올라 5위!<br>
+                                시즌 축제마다 달라지는 연출과 음악으로
+                                빵! 빵! 터지는 불꽃쇼는 <br>
+                                퇴장시간까지 나갈 수 없게 만드는 마성의 공연이지요!<br>
+                                또한 매년 연말에는 새해를 맞이하는
+                                카운트다운까지 합세해 가장 성대한 불꽃놀이가
+                                펼쳐진답니다!<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li6">
+                        <img class="cimg" src="../imgs/best6.jpg">
+                        <div class="cdiv">
+                            <h2>어트랙션</h2>
+                            <h1>아마존 익스프레스</h1>
+                            <h3>마치 아마존에 온 듯한 생생한 보트 탐험!<br>
+                                [아마존 익스프레스]가 급류타듯
+                                순위변동을 하더니 6위에 안착!<br>
+                                아마존의 밀림은 빠른 물살을 타고 세차게 흔들리면서
+                                정신없이 숲 속을 헤매는 곳이 아닐까요?<br>
+                                (사실 에디터도 아직 못가봤지만!) 짜릿하고 시원한
+                                래프팅을 즐기다가 옷이 흠뻑 젖었더라도 걱정마세요.<br>
+                                퇴장구에 설치된 빵빵한 선풍기와
+                                난로로 뽀송뽀송 말릴 수 있어요~
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li7">
+                        <img class="cimg" src="../imgs/best7.jpg">
+                        <div class="cdiv">
+                            <h2>어트랙션</h2>
+                            <h1>판다월드</h1>
+                            <h3>최첨단 IT기술이 결합된 판다 체험관 [판다월드]는
+                                세상 가장 귀여운 판다들을 닮은 행운의 7위!<br>
+                                도도하고 새침한 사랑둥이 암컷 '아이바오' 와 친화력좋고
+                                장난끼많은 수컷 '러바오'가 살고있는<br>
+                                판다월드는 지난 2016년 오픈한 신생 동물원이지만
+                                벌써 에버랜드의 필수코스로 자리를 잡았어요.<br>
+                                통통한 엉덩이를 씰룩대며 나무를 올라가는
+                                아이바오의 뒷모습과 대나무 질겅질겅 먹다가<br>
+                                갑자기 낮잠자는 러바오의 엉뚱한 눈빛은
+                                너무나 사랑스러워요<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li8">
+                        <img class="cimg" src="../imgs/best8.jpg">
+                        <div class="cdiv">
+                            <h2>어트랙션</h2>
+                            <h1>썬더폴스</h1>
+                            <h3>국내 최초 백워드 드롭! 슈퍼 후룸라이드 [썬더폴스]는
+                                뒤로 넘어가도 순위는 올라간다! 8위!<br>
+                                이제 앞으로만 가는 후룸라이드는 잊어주세요~<br>
+                                그 어느자리도 물로부터 벗어날 수 없는 썬더폴스!<br>
+                                마무리는 20미터동안 45도 경사를 타고
+                                쭉- 내려오면 거대한 물보라가 솟구칩니다.<br>
+                                후두둑 떨어지는 폭풍우에 홀딱 젖지 않으려면
+                                우비는 필수! 전자제품은 방수팩에 꼭 보관하세요~<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li9">
+                        <img class="cimg" src="../imgs/best9.jpg">
+                        <div class="cdiv">
+                            <h2>플랜토피아</h2>
+                            <h1>포시즌스가든</h1>
+                            <h3>사계절의 매력을 가득 담은 아름다운 가든
+                                [포시즌스 가든]은 최소 9가지 꽃이 가득하니까 9위!<br>
+                                봄에 열리는 튤립축제의 메인 꽃밭이자,
+                                겨울에는 로맨틱한 조명으로 야경까지 멋있는<br>
+                                포시즌스 가든은 단연 에버랜드 최고의 인생사진
+                                포토스팟입니다!<br> 깜짝 거리공연과 불꽃놀이가 열리는
+                                무대로도 변신하는 포시즌스가든은 낮만큼 밤에도<br>
+                                화려하게 아름다워서
+                                여러분들이 9위로 뽑아주신거겠지요?
+                            </h3>
+                        </div>
+
+                    </li>
+                    <li class="li10">
+                        <img class="cimg" src="../imgs/best10.jpg">
+                        <div class="cdiv">
+                            <h2>테마</h2>
+                            <h1>뮤직가든</h1>
+                            <h3>자연과 음악이 어우러진 [뮤직가든]은<br>
+                                10명이면 10명~ 모두가 힐링할 수 있는 공간으로
+                                온 세대에게 사랑받으며 10위!<br>
+                                돌고 도는 미로처럼 꾸며진 길을 따라 걷다보면
+                                싱그러운 풀냄새를 맡을 수 있어요<br> 계절마다 모습을 바꾸는
+                                뮤직가든에서 사랑하는 사람과 함께 산책하며
+                                일상의 스트레스를 잊고 힐링하세요!<br>
+                            </h3>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="clayer2"></div>
+        </div>
+        <div class="footer">
+            <p>Copyright © 1996~2019 Samsung Corporation. All rights reserved.</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        /*        헤더 스타일*/
+        .wrap {
+            width: 1280px;
+            margin: auto;
+
+        }
+
+        .header {
+            width: 100%;
+            position: relative;
+
+        }
+
+
+        #logo {
+            width: 100%;
+        }
+
+        #logo {
+            width: 80px;
+            margin: auto;
+        }
+
+        /*        헤더-네비*/
+        .navi {
+            width: 800px;
+            margin: auto;
+        }
+
+        .mainNavi {
+            list-style: none;
+            padding: 0;
+            width: 800px;
+            overflow: hidden;
+            margin: auto;
+
+        }
+
+        .mainNavi>li {
+            float: left;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+
+        .mainNavi>li>a {
+            display: block;
+            width: 200px;
+            font-size: 24px;
+            text-decoration: none;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            color: #f08020;
+            font-weight: 900;
+            font-family: 'Staatliches', cursive;
+            text-shadow: 1px 1px 1px darkgray;
+        }
+
+        .subNavi {
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            height: 0px;
+            overflow: hidden;
+
+        }
+
+        .subNavi>li {
+            height: 35px;
+        }
+
+        .subNavi>li>a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            color: #404020;
+            background-color: whitesmoke;
+            opacity: 0.5;
+        }
+
+        .mainNavi>li:hover>a {
+            color: #804080;
+        }
+
+        .mainNavi>li:hover>.subNavi {
+            transition-duration: 1s;
+            height: 300px;
+        }
+
+        /*        풋터 스타일*/
+
+        .footer {
+            clear: left;
+            width: 100%;
+            background-color: #002040;
+            height: 180px;
+        }
+
+        .footer>p {
+            color: aliceblue;
+            font-size: 12px;
+            text-align: center;
+            line-height: 180px;
+        }
+
+        .mid {
+            width: 1280px;
+            height: 1000px;
+            clear: left;
+
+        }
+
+        #background {
+
+            background-image: url("https://wwwcdn.everland.com/web/images/front/everland/plan/bg_plan_now.jpg");
+            background-repeat: no-repeat;
+            height: 1150px;
+            padding-top: 100px;
+        }
+
+        #title {
+            clear: left;
+            font-size: 36px;
+            width: 270px;
+            font-weight: 900;
+            height: 50px;
+            margin-left: 100px;
+            color: #f0f0e0;
+            text-shadow: 1px 1px 4px black;
+
+        }
+
+        #menu {
+            width: 230px;
+            height: 300px;
+            background-color: #f08020;
+            border-radius: 20px;
+            box-shadow: 1px 1px 3px gray;
+            margin-left: 20px;
+            margin-top: 150px;
+            margin-top: 150px;
+            position: fixed;
+        }
+
+        #menu>div {
+            font-size: 28px;
+            text-align: center;
+            height: 90px;
+            line-height: 90px;
+            font-weight: 900;
+            color: #f0f0e0;
+            text-shadow: 1px 1px 1px black;
+        }
+
+        #menu>ul {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        #menu>ul>li>a {
+            margin: auto;
+            text-decoration: none;
+            display: block;
+            width: 170px;
+            height: 55px;
+            color: #f0f0e0;
+            line-height: 55px;
+            text-align: center;
+            font-weight: 900;
+            text-shadow: 1px 1px 1px black;
+            border-bottom: 1px solid #B87C5A;
+            font-size: 20px;
+        }
+
+        #menu>ul>li:hover>a {
+            color: #E35809;
+        }
+
+        #box {
+            width: 65%;
+            height: 60%;
+            margin-top: 70px;
+            margin-left: 300px;
+            background-color: rgba(250, 250, 250, 0.7);
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        #mm {
+            font-size: 28px;
+            font-weight: 900;
+            color: #E35809;
+            margin-top: 70px;
+            margin-left: 50px;
+            text-shadow: 1px 1px 1px gray;
+        }
+
+        table {
+            width: 700px;
+            margin: 50px auto;
+        }
+
+        th {
+            background-color: #f08020;
+            color: #f0f0e0;
+        }
+
+        th:first-child {
+            border-top-left-radius: 10px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 10px;
+        }
+
+        td {
+            font-size: 13px;
+            height: 80px;
+            width: 100px;
+            border: 1px solid darkgray;
+        }
+
+        td>div:first-child {
+            width: 70px;
+            height: 40px;
+            margin-left: 10px;
+            line-height: 30px;
+        }
+
+        td>div:last-child {
+            height: 30px;
+            width: 70px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+    </script>
+
+    <div class="wrap">
+        <div class="header">
+            <div id="logo">
+                <a href="Everland_main.html"><img src="../imgs/%25BF%25A1%25B9%25F6%25B7%25A3%25B5%25E5%25B7%CE%B0%25ED_(3).png" width="80px"></a>
+            </div>
+            <div id="navi">
+                <ul class="mainNavi">
+                    <li><a href="#">Information</a>
+                        <ul class="subNavi">
+                            <li><a href="everland01.html">운영 시간</a></li>
+                            <li><a href="everland00.html">이용 요금</a></li>
+                            <li><a href="NC-reserve3-2.html">QnA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Attraction</a>
+                        <ul class="subNavi">
+                            <li><a href="everland02.html">Magic Land</a></li>
+                            <li><a href="everland04.html">Europian Adventure</a></li>
+                            <li><a href="everland05.html">Zootopia</a></li>
+                            <li><a href="everland06.html">Global Fair</a></li>
+                            <li><a href="everland07.html">American Adventure</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Editer_pick.html">Editor's pick</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mid">
+            <div id="background">
+
+                <div id="title">운영 시간</div>
+
+                <div id="menu">
+                    <div>Information</div>
+                    <ul>
+                        <li><a href="everland01.html">운영 시간</a></li>
+                        <li><a href="everland00.html">이용 요금</a></li>
+                        <li><a href="NC-reserve3-2.html">QnA</a></li>
+                    </ul>
+                </div>
+                <div id="box">
+                    <div id="mm">2020. 4</div>
+                    <div id="calender">
+                        <table>
+                            <tr>
+                                <th>일</th>
+                                <th>월</th>
+                                <th>화</th>
+                                <th>수</th>
+                                <th>목</th>
+                                <th>금</th>
+                                <th>토</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div></div>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div>01</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>02</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>03</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                                <td>
+                                    <div>04</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>05</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>06</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>07</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>08</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>09</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>10</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                                <td>
+                                    <div>11</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>12</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>13</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>14</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>15</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>16</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>17</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                                <td>
+                                    <div>18</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>19</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>20</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>21</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>22</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>23</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>24</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                                <td>
+                                    <div>25</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>26</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>27</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>28</div>
+                                    <div>10:00~20:00</div>
+                                </td>
+                                <td>
+                                    <div>29</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                                <td>
+                                    <div>30</div>
+                                    <div>10:00~21:00</div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                    <div></div>
+                                </td>
+                                <td>
+                                    <div></div>
+                                    <div></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="date">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <p>Copyright © 1996~2019 Samsung Corporation. All rights reserved.</p>
+        </div>
+    </div>
+
+
+</body></html>

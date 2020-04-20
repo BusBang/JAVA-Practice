@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>단체예약 페이지</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+</head>
+
+<style>
+    /*  
+        <img src="https://wwwcdn.everland.com/everedu/img/officer/bg_step_on1.png">
+        rgb(252,171,73);
+        */
+    div {
+        box-sizing: border-box;
+    }
+
+    .wrap {
+        width: 1280px;
+        height: 100%;
+        margin: 0 auto;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    .head {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(252, 171, 73);
+    }
+
+    .head>div {
+        width: 100%;
+    }
+
+    .footer {
+        height: 120px;
+        width: 100%;
+        background-color: rgb(224, 224, 224);
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .hStep {
+        text-align: center;
+        line-height: 200px;
+        font-size: 40px;
+        color: white;
+/*        font-weight: bold;*/
+/*        text-shadow: 1px 1px 1px whitesmoke;*/
+    }
+
+    .hTitle {
+        text-align: center;
+        background-color: white;
+
+    }
+
+    /*************************/
+    .contents {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .selectMain {
+        width: 100%;
+        height: 100px;
+        text-align: center;
+    }
+
+    .selectMain>div {
+        display: inline-block;
+        width: 240px;
+        height: 60px;
+        font-size: 25px;
+        border-radius: 10px;
+        line-height: 60px;
+        margin: 20px;
+    }
+    .selectMain>div>a{
+       font-size: 25px;
+        text-decoration-line: none;
+        color : black;
+    }
+
+    .selected {
+        background-color: rgb(252, 171, 73);
+        font-weight: bold;
+    }
+
+    .unselected {
+        background-color: beige;
+    }
+    .con>div {
+        border-top: 0.5px solid gray;
+    }
+    .con>div:first-child {
+        width: 100%;
+        height :60px;
+        line-height: 60px;
+        font-size:20px;
+        font-weight: bold;
+/*        margin-left: 50px;*/
+/*        background-color: whitesmoke;*/
+    }
+    .con>div>span {
+        font-size:30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        color: rgb(252,171,73);
+    }
+    .con>div:last-child {
+        width:100%;
+        height : 100%;
+        line-height: 40px;
+        background-color: whitesmoke;
+        padding-left: 30px;
+        padding-right: 30px;
+        display: none;
+    }
+    #v {
+        display: inline-block;
+        font-weight: normal;
+        float: right;
+    }
+    .rotated {
+        transition-duration: 0.5s;
+        transform: rotate(180deg);        
+    }
+    .oranged {
+        color: rgb(252,171,73);
+        font-size: 22px;
+    }
+    .btn1, .btn2 {
+        text-shadow: 0.5px 0.5px 1px gray;        
+    }
+    .btn2:hover {
+        cursor:pointer;
+        background-color: rgb(252,171,73);
+    }
+
+
+</style>
+
+<script>
+    //script구문 내부에 해당 메소드를 입력합니다.
+    $(function() {
+        var arr = new Array(7);
+        arr=[false,false,false,false,false,false];
+        $(".con>div").click(function () {
+            console.log(arr);
+            var index = $(this).parent().index();
+            var text = $(this);
+//            var v = $("#v");
+            
+            console.log($(this).parent().index())
+            if(!arr[index]){
+                $(this).next().css("display","block");                
+                arr[index]=true;
+                $(this).children().eq(1).addClass("rotated");
+                text.addClass("oranged");
+
+            }else if(arr[index]){
+                $(this).next().css("display","none");
+                arr[index]=false
+                $(this).children().eq(1).removeClass("rotated");
+                text.removeClass("oranged");
+            }
+        });
+    });
+</script>
+
+<body>
+    <div class="wrap">
+        <div class="head">
+            <div class="hTitle logo">
+                <a href="LOTTE.html"><img src="../imgs/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C.png"></a>
+                <a href="Everland_main.html"><img src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C.gif"></a>
+            </div>
+            <div class="hStep">
+                자주 묻는 질문
+            </div>
+        </div>
+        <div class="body">
+            <br>
+            <div class="selectMain">
+                <div class="btn1 selected">자주 묻는 질문</div>
+                <div class="btn2 unselected"><a href="NC-reserve3-2.html">1:1 문의하기</a></div>
+            </div>
+            <h1 style="color : rgb(252,171,73)">질문 목록</h1>
+            <div class="contents">
+                <div class="con">
+                    <div><span>Q</span>[공통] 에버랜드/롯데월드 입장권이 없어졌나요?<span id="v">v</span></div>
+                    <div>
+                        새로운 시스템 도입에 따라 그 동안 분리 운영하던 입장권과 이용권이 하나의 '에버랜드 이용권'으로 통합되었습니다.
+                        첨단 IT 기술을 활용한 새로운 이용 시스템에서는 종이티켓을 분실할 경우 등의 불편함이 사라지고, 어트랙션 탑승 시
+                        티켓을 확인하는 절차도 생략되어 고객의 편의성과 서비스 품질 및 효율이 향상 되었습니다.
+                    </div>
+                </div>
+                <div class="con">
+                    <div><span>Q</span>[공통] 학생단체요금 적용기준 최소인원이 어떻게 되나요?<span id="v">v</span></div>
+                    <div>당일행사: 학생기준 15명 이상의 단체인 경우 적용, 숙박행사: 학생기준 20명 이상의 단체인 경우 적용</div>
+                </div>
+                <div class="con">
+                    <div><span>Q</span>[공통]선생님/학생 무료적용 기준이 어떻게 되나요?<span id="v">v</span></div>
+                    <div>학교장이 주관하는 학급,학년 행사에 적용됨
+                        학생 유료 결제인원의 10%는 선생님, 5%는 학생을 지원합니다.
+                        * 무료적용기준 임의변경 불가
+                        ※ 안전지도권 대상 : 행사를 진행하는 인솔교사
+                        ※ 학생무료적용대상 : 학교장이 인정한 기초생활수급자
+                        * 무료지원 신청서 양식을 다운로드 받아 작성, 학교장 직인을 받은 후 행사 당일 단체매표소에 제출 후 수령
+                    </div>
+                </div>
+                <div class="con">
+                    <div><span>Q</span>[공통] 홈페이지 예약 후 행사진행은 어떻게 해야 하나요?<span id="v">v</span></div>
+                    <div>홈페이지로 예약완료 시 신청자의 휴대폰으로 예약번호가 자동발송 됩니다.
+                        행사당일 단체매표소를 방문하여 예약번호 확인 후 발권하시기 바랍니다.
+                        * 행사정보(날짜,인원,취소) 수정은 영업소로 연락주시기 바랍니다.</div>
+                </div>
+                <div class="con">
+                    <div><span>Q</span>[공통]학습가이드는 없나요?<span id="v">v</span></div>
+                    <div>평일에 한하여
+                        에버랜드 : 유아, 초등학교 저학년(1~3학년)단체이고
+                        최소인원 50명이상인 경우
+                        * 학생 50명 기준 가이드1명 배정
+                        캐리비안베이 : 유아, 초등학교 저학년(1~3학년)단체이고
+                        최소인원 100명이상인 경우
+                        *학생 100명 기준 가이드1명 배정)
+
+                        *현재 유료 예정으로 추후 재문의 필요</div>
+                </div>
+                <div class="con">
+                    <div><span>Q</span>[공통]도시락 지참 시 이용장소는 어떻게 되나요?<span id="v">v</span></div>
+                    <div>에버랜드: 피크닉 에어리어(백합피크닉, 장미원, 오아시스)에서 드실 수 있으며, 별도의 좌석 예약은 불가능 합니다.
+                        캐리비안베이: 음식물 반입이 금지되어 있으므로 도시락은 입장전 좌측에 있는 "음식물 보관소"에 맡겨야 합니다.
+                        피크닉 에어리어(백합피크닉)에서 식사 후 재입장 하면 됩니다.</div>
+                </div>
+                <div class="con">
+                    <div><span>Q</span>[공통]전세버스 운영을 하고 있나요?<span id="v">v</span></div>
+                    <div>에버랜드에서는 전세버스를 운영하지 않습니다. 행정실을 통해 별도 섭외 바랍니다.</div>
+                </div>
+
+            </div>
+            <br><br><br><br><br>
+        </div>
+        <div class="footer">
+            <pre>
+경기도 용인시 처인구 포곡읍 에버랜드로 199 삼성물산(주)
+대표이사 : 정금용 | 사업자등록번호 : 135-85-04288 | 통신판매업 신고번호 : 제2006-용인처인-0216호 | 사업자정보확인▶
+손님상담센터 : 031-320-5000(유료) | 개인정보 처리방침
+Copyright ⓒ Samsung C&T Corporation. All rights reserved.
+            </pre>
+        </div>
+    </div>
+</body></html>

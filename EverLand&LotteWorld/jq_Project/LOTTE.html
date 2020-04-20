@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+      <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<style>
+      .body {
+        text-shadow: 0.5px 0.5px gray;
+        width: 1280px;
+        height: 900px;
+          
+    }
+
+    .top {
+        border-bottom: 0.1px solid gray;
+        width: 100%;
+        height: 15%;
+ font-family: 'Nanum Gothic', sans-serif;
+
+    }
+
+    .mid {
+        font-family: 'Nanum Gothic', sans-serif;
+        width: 100%;
+        height: 72%;
+    }
+    .bottom {
+        
+      background-color: whitesmoke;
+        width: 100%;
+        height: 13%;
+    }
+
+    .lotte {
+       
+        width: 200px;
+        height: 133px;
+        float: left;
+
+
+    }
+
+    .tap {
+        
+        width: 870px;
+        height: 100%;
+        margin-left: 0px;
+        float: left;
+
+
+    }
+
+    .mainPg{
+        width: 200px;
+        height: 180px;
+        
+
+    }
+
+    .logo1 {
+        margin: 1px;
+        width: 198px;
+        height: 153px;
+       
+
+    }
+
+    .logo2 {
+        margin: 1px;
+        width: 198px;
+        height: 133px;
+
+    }
+    .u1 {
+        list-style: none;
+        padding: 0;
+        position: relative;
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+
+    .l1 {
+        float: left;
+        width: 150px;
+      
+        height: 133px;
+        margin-left: 50px;
+        line-height: 130px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .a1{
+        text-decoration: none;
+        color: black;
+    text-shadow: 10px 10px 10px 10px gray;
+       
+    }
+     .but1{
+            margin-top: 300px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 0px solid black;
+            font-size: 30px;
+            float: left;
+            position: absolute;
+            
+        }
+    .but2{
+        margin-left: 80px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-top: 300px;
+    }
+    .but3{
+        margin-left: -150px;
+       
+       
+    }
+    .midPt{
+       
+        width: 100%;
+        height: 100%;
+        float: left;
+        
+    }
+    .img1{
+        height: 100%;
+        width: 700px;
+        margin-left: 300px;
+        display: block;
+    }
+    .imgAll{
+        height: 100%;
+        width: 700px;
+        margin-left: 300px;
+        display: none;
+    }
+    
+     .logo3 {
+       
+        margin-top: -35px;
+        margin-left: 20px;
+        width: 140px;
+        height: 180px;
+        float: left;
+         margin-right: 60px;
+
+    }
+    select{
+        position: absolute;
+        margin-top: -45px;
+        margin-left: 260px;
+        height: 30px;
+    }
+     .logo4{
+        width: 200px;
+        height: 200px;
+         margin-top: -60px;
+        margin-left: -35px;
+        position: absolute;
+    }
+    
+    .bot1{
+        height: 100%;
+    }
+</style>
+    <script>
+        var a=1;
+        
+        $(function(){
+            $(".but3").click(function(){
+              if(a!=5){
+                $(".img"+[a]).css("display","none");
+                $(".img"+[a+1]).css("display","block");
+             
+              }
+                a++;
+                
+                if(a>5){
+                    
+                $(".img"+[5]).css("display","none");
+                $(".img"+[1]).css("display","block");
+                    a=1;
+                }
+                
+            });
+        });
+         
+         $(function(){
+            $(".but2").click(function(){
+                if(a!=1){
+                $(".img"+[a-1]).css("display","block");
+                $(".img"+[a]).css("display","none");
+                    
+                }
+                a--;
+                 
+                if(a<1){
+                $(".img"+[1]).css("display","none");
+                $(".img"+[5]).css("display","block");
+                    a=5; 
+                }
+             
+            
+            });
+        });
+        
+        $(function(){
+            $("select").change(function(){
+                var a = $(this).children(":selected").val();   
+              
+                if(a=="main 페이지"){
+                    location.href="jq_Project1.html";
+                }else if(a=="에버랜드 페이지"){
+                     location.href="Everland_main.html";
+                }
+               
+        });
+        });
+    </script>
+
+<body>
+    <div class="body">
+        <div class="top">
+              <a class="lotte" href="LOTTE.html"><img class="logo1" src="../imgs/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C%EB%A1%9C%EA%B3%A0.png" ></a>
+
+            <div class="tap">
+                
+               <ul class="u1">
+                    <li class="l1">
+                        <a class="a1" href="Main2.html">
+                        
+                    놀이기구 소개</a></li>
+                      <li class="l1"><a class="a1" href="Price.html">
+                     
+                  이용요금 확인</a></li>
+                    <li class="l1"><a class="a1" href="LOTTEReserve.html">
+                    
+                    공연 참여신청</a></li>
+                <li class="l1"><a class="a1" href="NC-reserve3-2.html">
+                    
+                    문의하기 Q&A</a></li>
+                    
+                </ul>
+                
+            </div>
+
+            <a class="mainPg" href="Everland_main.html"><img class="logo2" src="../imgs/%EC%97%90%EB%B2%84%EB%9E%9C%EB%93%9C%EB%A1%9C%EA%B3%A0.png"></a>
+        </div>
+        <div class="mid">
+            <button onclick="button1" class="but1 but2">&lt;</button>
+            <div class="midPt">
+            <img class="img1" src="../imgs/%EC%82%AC%EC%A7%843.jpg">
+            <img class="imgAll img2" src="../imgs/%EC%82%AC%EC%A7%841.jpg">
+            <img class="imgAll img3" src="../imgs/%EC%82%AC%EC%A7%842.jpg">
+                 <img class="imgAll img4" src="../imgs/%EC%82%AC%EC%A7%844.jpg">
+                <img class="imgAll img5" src="../imgs/%EC%82%AC%EC%A7%845.jpg">
+                
+            </div>
+            <button onclick="button2" class="but1 but3">&gt;</button>
+        </div>
+        <div class="bottom">
+            <div class="bot1"><img class="logo3" src="../imgs/%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C%EB%A1%9C%EA%B3%A0.png"><br><a class="a2">경기도 용인시 처인구 포곡읍 에버랜드로 199 삼성물산(주)
+대표이사 : 정금용 | 사업자등록번호 : 135-85-04288 <br> 통신판매업 신고번호 : 제2006-용인처인-0216호 | 사업자정보확인▶
+손님상담센터 : 031-320-5000(유료) <br> 개인정보 처리방침
+Copyright ⓒ Samsung C&T Corporation. All rights reserved.</a>
+                
+                <select>
+        <option>홈페이지 관련 사이트</option>
+        
+        <option>main 페이지</option>
+        <option>에버랜드 페이지</option>
+        
+    </select>
+            </div>
+            
+        </div>
+    </div>
+</body></html>
