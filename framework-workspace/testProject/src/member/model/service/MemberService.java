@@ -1,5 +1,8 @@
 package member.model.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import common.SqlSessionTemplate;
@@ -25,6 +28,24 @@ public class MemberService {
 			session.rollback();
 		}
 		session.close();
+		return result;
+	}
+
+	public ArrayList<Member> selectAllMember() {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		List list = new MemberDao().selectAllMember(session);
+		session.close();
+		return (ArrayList<Member>)list;
+	}
+
+	public int updateMember(Member m) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		int result = new MemberDao().updateMember(session, m);
+		if(result>0) {
+			session.commit();
+		}else {
+			session.rollback();
+		}
 		return result;
 	}
 

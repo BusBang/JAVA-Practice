@@ -1,5 +1,7 @@
 package member.model.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import member.model.vo.Member;
@@ -13,6 +15,15 @@ public class MemberDao {
 	public int insertMember(SqlSession session, Member m) {
 		
 		return session.insert("member.insertMember", m);
+	}
+
+	public List selectAllMember(SqlSession session) {
+		return session.selectList("member.selectAllMember");
+	}
+
+	public int updateMember(SqlSession session, Member m) {
+
+		return session.update("member.updateMember", m);
 	}
 
 }

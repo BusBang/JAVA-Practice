@@ -21,6 +21,8 @@
 		<h2>[${sessionScope.member.memberName }]님</h2>
 		<hr>
 		<a href="/allMember">전체 회원 조회</a><br>
+		<a href="/mypage">내 정보 보기</a><br>
+		<a href="/delete">회원탈퇴</a><br>
 		<a href="/logout">로그아웃</a><br>		
 	</c:if>
 </body>
