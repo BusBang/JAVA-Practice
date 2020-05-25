@@ -1,5 +1,21 @@
 package company.model.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import common.SqlSessionTemplate;
+import company.model.dao.CompanyDao;
+import company.model.vo.Company;
+
 public class CompanyService {
+
+	public ArrayList<Company> selectAllCompany() {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		List list = new CompanyDao().selectAllCompany(session);
+		session.close();
+		return (ArrayList<Company>)list;
+	}
 
 }
