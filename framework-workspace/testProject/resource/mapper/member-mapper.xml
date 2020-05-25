@@ -23,4 +23,8 @@
 		update member set member_pw = #{memberPw}, member_name=#{memberName}
 		 where member_id=#{memberId}
 	</update>
+	<delete id="deleteMember" parameterType="string">
+		delete from member where member_id = #{_parameter}
+	
+	</delete>
 </mapper>

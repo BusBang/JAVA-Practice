@@ -7,6 +7,13 @@
 <title>메인 화면입니다.</title>
 </head>
 <body>
-	asd
+	<h1>로그인페이지</h1>
+	<form action="/login">
+		아이디 : <input type="text" name="memberId"><br> 
+		비밀번호 : <input type="text" name="memberPw"><br>
+		<input type="submit" value="로그인">
+		<input type="reset" value="취소">
+		<a href="/joinFrm">회원가입</a> 	
+	</form>
 </body>
 </html>

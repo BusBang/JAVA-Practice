@@ -46,6 +46,19 @@ public class MemberService {
 		}else {
 			session.rollback();
 		}
+		session.close();
+		return result;
+	}
+
+	public int deleteMember(String memberId) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		int result = new MemberDao().deleteMember(session, memberId);
+		if(result>0) {
+			session.commit();
+		}else {
+			session.rollback();
+		}
+		session.close();
 		return result;
 	}
 
