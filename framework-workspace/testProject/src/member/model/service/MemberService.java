@@ -142,4 +142,11 @@ public class MemberService {
 		session.close();
 		return (ArrayList<Member>)list;
 	}
+
+	public ArrayList<Member> search(String[] memberId) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		List list = new MemberDao().search(session, memberId);
+		session.close();
+		return (ArrayList<Member>)list;
+	}
 }

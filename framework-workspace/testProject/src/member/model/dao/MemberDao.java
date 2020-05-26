@@ -53,4 +53,14 @@ public class MemberDao {
 		return session.selectList("member.search2", m);
 	}
 
+	public List search(SqlSession session, String[] memberId) {
+		//배열을 매개변수로 사용하는 경우
+/*		HashMap<String, String[]> map = new HashMap<String, String[]>();
+		map.put("array", "배열 객체");
+		//리스트인 경우
+		map.put("list", "리스트 객체"); */		
+		//array가 키값으로 됨.
+		return session.selectList("member.search3", memberId);
+	}
+
 }

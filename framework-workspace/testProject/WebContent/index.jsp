@@ -29,6 +29,7 @@
 		<a href="/views/dynamicQuery_if.html">1. 동적쿼리 if</a><br>	
 		<a href="/views/dynamicQuery_choose.html">2. 동적쿼리 choose</a><br>
 		<a href="/views/dynamicQuery_trim.html">3. 동적쿼리 trim</a><br>
+		<a href="/views/dynamicQuery_foreach.html">4. 동적쿼리 foreach</a><br>
 	</c:if>
 </body>
 </html>
