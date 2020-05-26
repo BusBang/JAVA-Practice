@@ -8,6 +8,7 @@
 		<typeAlias type="member.model.vo.Member" alias="member"/>
 		<typeAlias type="member.model.vo.Check" alias="check"/>
 		<typeAlias type="member.model.vo.Search" alias="search"/>
+		<typeAlias type="board.model.vo.Board" alias="board"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
