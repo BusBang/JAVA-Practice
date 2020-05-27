@@ -1,20 +1,25 @@
 package board.model.serivce;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
 import board.model.dao.BoardDao;
+import board.model.vo.Board;
 import board.model.vo.BoardData;
 import common.SqlSessionTemplate;
 
 public class BoardService {
 
-	public BoardData selectList(int reqPage) {
+	public BoardData selectList(int reqPage, String type, String keyword) {
 		SqlSession session = SqlSessionTemplate.getSqlSession();
 		int numPerPage = 10;
-		int totalCount = new BoardDao().totalCount(session);
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("type", type);
+		map.put("keyword", keyword);
+		int totalCount = new BoardDao().totalCount(session, map);
 		int totalPage;
 		if(totalCount%numPerPage == 0) {
 			totalPage = totalCount/numPerPage;
@@ -25,7 +30,7 @@ public class BoardService {
 		int start = (reqPage-1)*numPerPage + 1;
 		int end = reqPage*numPerPage;
 		
-		HashMap<String, String> map = new HashMap<String, String>();
+
 		//타입형식을 맞춰줘야 함
 		map.put("start", String.valueOf(start));
 		map.put("end", String.valueOf(end));
@@ -33,10 +38,48 @@ public class BoardService {
 		//PAGENAVI 작성
 		String pageNavi="";
 		int pageNaviSize = 3;
-		int pageNo = ((reqPage-1)/pageNaviSize)*pageNaviSize+1;
-		
-		
-		return null;
+		//pageNo 연산 -> 페이지 시작번호 -> 요청페이지 기준으로 -1 요청페이지 +1
+		//1페이지와 마지막 페이지가 문제가 생김
+		int pageNo = 1;
+		        if (reqPage != 1) {
+		            pageNo = reqPage - 1;
+		        }
+		//이전버튼 생성
+		if(pageNo != 1) {
+			pageNavi += "<a href='/boardList?reqPage="+(pageNo-1);
+			if(type != null) {
+				pageNavi += "&type="+type+"&keyword="+keyword;
+			}
+			pageNavi += "'>이전</a>";
+			
+		}
+		//페이지 버튼 생성
+		for (int i = 0; i <pageNaviSize; i++) {
+			if(reqPage == pageNo) {
+				pageNavi += "<span>"+pageNo+"</span>";
+			}else {
+				pageNavi += "<a href='/boardList?reqPage="+pageNo;
+				if(type != null) {
+					pageNavi += "&type="+type+"&keyword="+keyword;
+				}
+				pageNavi += "'>"+pageNo+"</a>";
+			}
+			pageNo++;
+			if(pageNo > totalPage) {
+				break;
+			}
+		}
+		//다음버튼
+		if(pageNo <= totalPage) {
+			pageNavi += "<a href='/boardList?reqPage="+pageNo;
+			if(type != null) {
+				pageNavi += "&type="+type+"&keyword="+keyword;
+			}
+			pageNavi += "'>다음</a>";
+		}
+		BoardData db = new BoardData((ArrayList<Board>)list, pageNavi);
+		session.close();
+		return db;
 	}
 
 }

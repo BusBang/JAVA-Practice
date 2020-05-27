@@ -1,15 +1,32 @@
 package member.model.vo;
 
-import java.sql.Date;
-
 public class Member {
 	private int memberNo;
 	private String memberId;
 	private String memberPw;
 	private String memberName;
-	private int companyNo;
+	private int deptNo;
+	private int grade;
 	private String phone;
-	private Date enrollDate;
+	private String enable;
+	private String enrollDate;
+	public Member() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Member(int memberNo, String memberId, String memberPw, String memberName, int deptNo, int grade,
+			String phone, String enable, String enrollDate) {
+		super();
+		this.memberNo = memberNo;
+		this.memberId = memberId;
+		this.memberPw = memberPw;
+		this.memberName = memberName;
+		this.deptNo = deptNo;
+		this.grade = grade;
+		this.phone = phone;
+		this.enable = enable;
+		this.enrollDate = enrollDate;
+	}
 	public int getMemberNo() {
 		return memberNo;
 	}
@@ -34,11 +51,17 @@ public class Member {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
-	public int getCompanyNo() {
-		return companyNo;
+	public int getDeptNo() {
+		return deptNo;
 	}
-	public void setCompanyNo(int companyNo) {
-		this.companyNo = companyNo;
+	public void setDeptNo(int deptNo) {
+		this.deptNo = deptNo;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 	public String getPhone() {
 		return phone;
@@ -46,27 +69,16 @@ public class Member {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getEnrollDate() {
+	public String getEnable() {
+		return enable;
+	}
+	public void setEnable(String enable) {
+		this.enable = enable;
+	}
+	public String getEnrollDate() {
 		return enrollDate;
 	}
-	public void setEnrollDate(Date enrollDate) {
+	public void setEnrollDate(String enrollDate) {
 		this.enrollDate = enrollDate;
 	}
-	public Member() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Member(int memberNo, String memberId, String memberPw, String memberName, int companyNo, String phone,
-			Date enrollDate) {
-		super();
-		this.memberNo = memberNo;
-		this.memberId = memberId;
-		this.memberPw = memberPw;
-		this.memberName = memberName;
-		this.companyNo = companyNo;
-		this.phone = phone;
-		this.enrollDate = enrollDate;
-	}
-	
-
 }
