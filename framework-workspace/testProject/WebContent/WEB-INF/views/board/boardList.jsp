@@ -10,9 +10,11 @@
 <body>
 	<h1>게시판</h1>
 	<hr>
-	<a href="/boardWriterFrm">글작성</a>
+	<a href="/boardWriteFrm">글작성</a>
+	<form action="/deleteBoard" method="post">
 	<table border=1>
 		<tr>
+			<th>삭제</th>
 			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
@@ -21,14 +23,17 @@
 		</tr>
 		<c:forEach items="${list }" var="b" varStatus="i">
 			<tr>
+				<td><input type="checkbox" name="delNo" value="${b.boardNo }"></td>
 				<td>${(reqPage-1)*10 + i.count }</td>
-				<td>${b.boardTitle }</td>
+				<td><a href="/boardView?boardNo=${b.boardNo}">${b.boardTitle }</a></td>
 				<td>${b.boardWriter }</td>
 				<td>${b.regDate }</td>
 				<td>${b.readCount }</td>												
 			</tr>
 		</c:forEach>
 	</table>
+	<input type="submit" value="선택항목 삭제">
+	</form>
 	<div class="pageNavi">${pageNavi }</div>
     <div class="searchBox">
         <form action="/boardList">

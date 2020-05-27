@@ -34,4 +34,36 @@
 				)
 			where rnum BETWEEN #{start} and #{end}
 	</select>
+	<insert id="insertBoard" parameterType="board">
+		insert into board values
+		(board_seq.nextval, #{boardTitle}, #{boardContent}, #{boardWriter}, 0, sysdate)
+	</insert>
+	<select id="selectOneBoard" parameterType="_int" resultType="board">
+		select 
+			board_no as boardNo, 
+			board_title as boardTitle, 
+			board_writer as boardWriter, 
+			board_content as boardContent,
+			read_count as readCount, 
+			reg_date as regDate 
+		from board where board_no = #{_parameter}
+	</select>
+	<update id="addCount" parameterType="_int">
+		update board set read_count = read_count+1 where board_no = #{_parameter}
+	</update>
+	<update id="updateBoard" parameterType="board">
+		update board set board_title = #{boardTitle}, board_content = #{boardContent}
+		where board_no = #{boardNo}
+	</update>
+	<delete id="deleteBoard" parameterType="_int">
+		delete from board where board_no=#{_parameter}
+	</delete>
+	<delete id="deleteBoard2" parameterType="map">
+		delete from board 
+		where board_no in 
+		<foreach collection="array" item="no" open="(" separator="," close=")">
+			#{no}
+		</foreach>
+	</delete>
+
 </mapper>

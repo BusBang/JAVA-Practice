@@ -82,4 +82,65 @@ public class BoardService {
 		return db;
 	}
 
+	public int insertBoard(Board b) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		int result = new BoardDao().insertBoard(session, b);
+		if(result > 0) {
+			session.commit();
+		}else {
+			session.rollback();
+		}
+		session.close();
+		return result;
+	}
+
+	public Board selectOneBoard(int boardNo) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		Board b = new BoardDao().selectOneBoard(session, boardNo);
+		int result = new BoardDao().addCount(session, boardNo);
+		if(result>0) {
+			session.commit();
+		}else {
+			session.rollback();
+		}
+		session.close();
+		return b;
+	}
+
+	public int updateBoard(Board b) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		int result = new BoardDao().updateBoard(session, b);
+		if(result > 0) {
+			session.commit();
+		}else {
+			session.rollback();
+		}
+		session.close();
+		return result;
+	}
+
+	public int deleteBoard(int boardNo) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		int result = new BoardDao().deleteBoard(session, boardNo);
+		if(result>0) {
+			session.commit();
+		}else {
+			session.rollback();
+		}
+		session.close();
+		return result;
+	}
+
+	public int deleteBoard(String[] delNo) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		int result = new BoardDao().deleteBoard(session, delNo);
+		if(result > 0) {
+			session.commit();
+		}else {
+			session.rollback();
+		}
+		session.close();
+		return result;
+	}
+
 }

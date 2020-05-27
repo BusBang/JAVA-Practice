@@ -20,6 +20,7 @@
 	<c:if test="${not empty sessionScope.member }">
 		<h2>[${sessionScope.member.memberName }]님</h2>
 		<hr>
+		<a href="/views/fileuploadTest.jsp">파일업로드</a><br>
 		<a href="/boardList?reqPage=1">게시판~</a><br>
 		<a href="/allMember">전체 회원 조회</a><br>
 		<a href="/allMemberPage?reqPage=1">전체 회원 조회 페이징</a><br>
