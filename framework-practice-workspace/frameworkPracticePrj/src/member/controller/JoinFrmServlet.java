@@ -32,7 +32,7 @@ public class JoinFrmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		
+
 		ArrayList<Company> list = new CompanyService().selectAllCompany();
 		System.out.println(list.size());
 		request.setAttribute("list", list);
