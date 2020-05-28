@@ -57,13 +57,15 @@ public class MultiUploadServlet extends HttpServlet {
 			while(item.hasNext()) {
 				FileItem fi = (FileItem)item.next();
 				if(fi.isFormField()) {	//isFormField()에서 true가 리턴되면 일반 파라미터(일반 스트링)
-					String descript = fi.getFieldName();
+					fi.getFieldName();
+					String descript = fi.getString("UTF-8");
 					params.add(descript);
 				}else { //파일인 경우
 					String fileOriginName = fi.getName();
-					String files = fi.getFieldName();
+					String files = fi.getFieldName();	//파일이름 저거 맞아 다시해볼게 앙기모띠
 					//중복파일명 처리 코드
-					//aaa.txt -> aaa_1 . txt	(쪼개고 있으면 숫자 추가)
+					//aaa.txt -> aaa_1 . txt	(쪼개고 있으면 숫자 추가) 
+					System.out.println(fileOriginName);
 					String fileNameFront = fileOriginName.substring(0, fileOriginName.lastIndexOf('.'));
 					String fileNameExtension = fileOriginName.substring(fileOriginName.lastIndexOf('.'));
 					File uploadFile = null;
@@ -79,9 +81,10 @@ public class MultiUploadServlet extends HttpServlet {
 						uploadFile = new File(getServletContext().getRealPath("/")+"upload/test/"+fileName.toString());
 						//동일한 파일명이 있으면 덮어쓰기가 되니 체크해야한다.
 						if(!uploadFile.exists()) {	//같은 파일명이 존재하지 않으면,
-							params.add(fileNameExtension.toString());
+							params.add(fileName.toString());
 							try {
 								fi.write(uploadFile);
+								break;
 							} catch (Exception e) {
 								e.printStackTrace();
 							}
@@ -89,6 +92,9 @@ public class MultiUploadServlet extends HttpServlet {
 						num++;
 					}	
 				}
+			}
+			for(String param : params) {
+				System.out.println(param);
 			}
 		} catch (FileUploadException e) {
 			// TODO Auto-generated catch block

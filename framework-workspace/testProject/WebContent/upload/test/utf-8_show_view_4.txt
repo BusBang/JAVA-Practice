@@ -1,0 +1,30 @@
+window - preferences - general - workspace(other utf-8)
+				editors - test editors - spelling(other utf-8)
+
+			json - json files(encoding utf-8)
+
+			web - css files,html files, jsp files(encoding utf-8)
+
+			server - runtimeenvironment - add - 버전 설정 - browse - 톰캣 폴더 선택
+
+
+
+
+window - show view - servers, navigator
+			other - package Explorer 
+
+
+servers 오른쪽 클릭 - new - server - 서버생성 
+
+생성된 서버 더블클릭 -  port Number 80 세팅
+
+server options
+
+맨위 클릭
+
+
+
+생성된 server 온른쪽 클릭 - add and remove - 적용가능한 프로잭트 add >
+
+
+생성된 server 더블클릭 - 하단메뉴 modules - 프로잭트 선택 - edit - path: /   입력 - ok

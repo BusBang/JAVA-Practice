@@ -17,7 +17,7 @@
 		다중파일 가능
 	</h3>
 	
-	<form action="/multiUpload" method="post" enctype="multipart.form-data">
+	<form action="/multiUpload" method="post" enctype="multipart/form-data">
 		파일업로드 : <input type="file" name="files" multiple="multiple"><br>
 		내용 : <textarea rows="3" cols="10" name="descript"></textarea><br>
 		<input type="submit" value="전송">
