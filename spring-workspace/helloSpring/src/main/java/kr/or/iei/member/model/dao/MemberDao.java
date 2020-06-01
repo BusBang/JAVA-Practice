@@ -43,4 +43,17 @@ public class MemberDao {
 		String query = "delete from member where member_id = ?";
 		return jdbcTemplate.update(query, m.getMemberId());
 	}
+
+	public List checkId(String memberId) {
+		String query = "select * from member where member_id=?";
+		Object[] params = {memberId};
+		List list = jdbcTemplate.query(query, params, new MemberRowMapper());		
+		return list;
+	}
+
+	public List selectAllMember() {
+		String query = "select * from member";
+		List list = jdbcTemplate.query(query, new MemberRowMapper());
+		return list;
+	}
 }
