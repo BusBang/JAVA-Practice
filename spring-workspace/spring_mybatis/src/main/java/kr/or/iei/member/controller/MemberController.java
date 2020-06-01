@@ -29,7 +29,7 @@ public class MemberController {
 		super();
 		System.out.println("MemberController 생성 완료");
 	}
-	/*
+	
 	@ResponseBody
 	@RequestMapping(value="/selectAllMember.do", produces = "application/json; charset=utf-8")
 	public String selectAllMember() {
@@ -44,8 +44,8 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping(value="/checkId.do", produces = "text/html; charset=utf-8")
-	public String checkId(String memberId) {
-		Member member = service.checkId(memberId);
+	public String checkId(Member m) {
+		Member member = service.checkId(m);
 		//member null -> 사용 가능
 		//member !null -> 사용 불가
 		if(member == null) {
@@ -54,7 +54,7 @@ public class MemberController {
 			return "1";
 		}
 	}
-	*/
+	
 	@RequestMapping(value="/login.do")
 	public String loginMember(HttpSession session, Member m) {
 		
@@ -69,7 +69,7 @@ public class MemberController {
 			return "member/loginFailed";
 		}
 	}
-	/*	
+	
 	@RequestMapping(value="/joinFrm.do")
 	public String joinFrm() {
 		return "member/join";
@@ -84,18 +84,20 @@ public class MemberController {
 			return "member/joinFailed";
 		}
 	}
-	
+
 	@RequestMapping(value="logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
 	}
+
 	@RequestMapping(value="mypage.do")
 	public String mypage(HttpSession session, Model model) {
 		Member m = (Member)session.getAttribute("member");
 		model.addAttribute("m",m);
 		return "member/mypage";
 	}
+	
 	@RequestMapping(value="mUpdate.do")
 	public String mUpdate(HttpSession session, Member m, Model model) {
 		int result = service.updateMember(m);
@@ -110,6 +112,7 @@ public class MemberController {
 			return "redirect:/";
 		}
 	}
+
 	@RequestMapping(value="mDelete.do")
 	public String mDelete(HttpSession session, Model model) {
 		Member m = (Member)session.getAttribute("member");
@@ -124,5 +127,5 @@ public class MemberController {
 			return "member/mypage";			
 		}
 	}
-	*/
+
 }

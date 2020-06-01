@@ -24,35 +24,25 @@ public class MemberDao {
 	public Member selectOneMember(Member m) {
 		return sqlSession.selectOne("member.selectOneMember", m);
 	}
-	/*
+	
 	public int insertMember(Member m) {
-		String query = "insert into member values (member_seq.nextval, ?, ?, ?, ?, sysdate)";
-		Object[] params = {m.getMemberId(), m.getMemberPw(), m.getMemberName(), m.getAge()};
-		return jdbcTemplate.update(query, params);
+		return sqlSession.update("member.insertMember", m);
 	}
 
 	public int updateMember(Member m) {
-		String query = "update member set member_pw=?, member_name=?, age=? where member_id=?";
-		Object[] params = {m.getMemberPw(), m.getMemberName(), m.getAge(), m.getMemberId()};
-		return jdbcTemplate.update(query, params);
+		return sqlSession.update("member.mUpdate",m);
 	}
 
 	public int deleteMember(Member m) {
-		String query = "delete from member where member_id = ?";
-		return jdbcTemplate.update(query, m.getMemberId());
+		return sqlSession.delete("member.deleteMember", m);
 	}
 
-	public List checkId(String memberId) {
-		String query = "select * from member where member_id=?";
-		Object[] params = {memberId};
-		List list = jdbcTemplate.query(query, params, new MemberRowMapper());		
-		return list;
+	public Member checkId(Member m) {
+		return sqlSession.selectOne("member.selectOneMember", m);
 	}
 
 	public List selectAllMember() {
-		String query = "select * from member";
-		List list = jdbcTemplate.query(query, new MemberRowMapper());
-		return list;
+		return sqlSession.selectList("member.selectAllMember");
 	}
-	*/
+	
 }

@@ -27,7 +27,7 @@ public class MemberService {
 		return dao.selectOneMember(m);
 	}
 
-	/*
+	
 	public int insertMember(Member m) {
 		return dao.insertMember(m);
 	}
@@ -43,21 +43,16 @@ public class MemberService {
 	}
 
 
-	public Member checkId(String memberId) {
-		List list = dao.checkId(memberId);
-		Member member = null;
-		if(!list.isEmpty()) {
-			member = (Member)list.get(0);
-		}
-		return member;
+	public Member checkId(Member m) {
+		return dao.checkId(m);
 	}
 
-
+	
 	public ArrayList<Member> selectAllMember() {
 		List list = dao.selectAllMember();
 		return (ArrayList<Member>)list;
 	}
-	*/
+	
 	
 	
 }

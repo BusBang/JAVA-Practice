@@ -14,8 +14,9 @@
 				url : "/selectAllMember.do",
 				success : function (data) {
 					html = "";
+					$(".memberList").remove();
 					for(var i=0; i<data.length; i++) {
-						html += "<tr><td>"+data[i].memberId+"</td>";
+						html += "<tr class='memberList'><td>"+data[i].memberId+"</td>";
 						html += "<td>"+data[i].memberName+"</td>";
 						html += "<td>"+data[i].age+"</td></tr>";
 					}
