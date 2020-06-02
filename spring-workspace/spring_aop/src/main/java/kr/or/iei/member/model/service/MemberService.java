@@ -6,10 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sun.xml.internal.txw2.IllegalAnnotationException;
 
 import kr.or.iei.common.LogAdvice;
+import kr.or.iei.common.SHA256Util;
 import kr.or.iei.member.model.dao.MemberDao;
 import kr.or.iei.member.model.vo.Member;
 
@@ -20,12 +22,11 @@ public class MemberService {
 	@Autowired
 	@Qualifier("memberDao")
 	private MemberDao dao;
-	private LogAdvice log;
+
 	
 	public MemberService() {
 		super();
 		System.out.println("memberService 생성 완료");
-		log = new LogAdvice();
 	}
 
 	
@@ -33,7 +34,7 @@ public class MemberService {
 		return dao.selectOneMember(m);
 	}
 
-	
+	@Transactional	//트랜잭션에 문제가 생기면 자동 롤백을 사용하지 않음
 	public int insertMember(Member m) {
 		return dao.insertMember(m);
 	}

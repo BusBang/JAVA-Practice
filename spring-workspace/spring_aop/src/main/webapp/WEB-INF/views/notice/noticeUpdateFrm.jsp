@@ -14,13 +14,11 @@
 				$(".delFile").hide();
 				$("#file").show();
 				$("input[name=status]").val('delete');
-
 			});
-
 		})
 	</script>
 <body>
-	<form action="noticeUpdate.do" method="post" enctype="multipart/form-data">
+	<form action="noticeUpdate.do" method="get" enctype="multipart/form-data">
 		<input type="hidden" value="${n.noticeNo }">
 		제목 : <input type="text" value="${n.noticeTitle }" name="noticeTitle"><br>
 		작성자 : <input type="text" value="${n.noticeWriter }" name="noticeWriter"><br>
@@ -28,7 +26,7 @@
 				 <c:if test="${not empty n.filename }">
 						<!-- 파일첨부돼있을때, 삭제 버튼을 누르면 첨부 파일이 사라져보이게 delFile 클래스를 이용 -->
 						<img src="/resources/upload/notice/${n.filepath }" width="200px" class="delFile">
-						<input type="file" name="filename" id="file"
+						<input type="file" name="file" id="file"
 							style="display: none;">
 						<!-- 첨부파일이 생기면 생기게할 것. -->
 						<span class="delFile">${n.filename }</span>
@@ -39,7 +37,7 @@
 						<input type="hidden" name="oldFilepath" value="${n.filepath }">
 					</c:if> 
 					<c:if test="${empty n.filename }">
-						<input type="file" name="filename">
+						<input type="file" name="file">
 					</c:if>
 		<br>
 		내용 : <textarea rows="5" cols="20" name="noticeContent">${n.noticeContent }</textarea>

@@ -39,8 +39,6 @@ public class NoticeController {
 		return "notice/noticeFrm";
 	}
 	
-	
-	
 	@RequestMapping(value="/noticeWrite.do")
 	public String noticeWrite(HttpServletRequest request, MultipartFile file, Notice n) {
 		if(!file.isEmpty()) {
@@ -122,15 +120,40 @@ public class NoticeController {
 		model.addAttribute("n", n);
 		return "notice/noticeUpdateFrm";
 	}
+	
 	@RequestMapping(value="/noticeUpdate.do")
-	public String noticeUpdate(Notice n) {
+	public String noticeUpdate(HttpServletRequest request, MultipartFile file, Notice n, String status, String oldFilename, String oldFilepath) {
+
+		//파일 등록 됐을 때.
+		System.out.println("파일이 없습니다.");
+		System.out.println("status:"+status);
+		if(n.getFilename() == null) {
+			if(status.equals("stay")) {
+				//파일이 등록되었고 파일이 그대로 있을 때.
+				n.setFilename(oldFilename);
+				n.setFilepath(oldFilepath);
+			}			
+		}
 		int result = service.noticeUpdate(n);
 		if(result>0) {
 			System.out.println("수정완료");
+			if(status.equals("delete")) {
+				//파일이 없는데, 삭제 되었을 때
+			}
 		}else {
 			System.out.println("수정실패");
 		}
-		return "redirect:/noticeList.do?reqPage=1";
+		
+		
+		System.out.println(n.getNoticeTitle());
+		System.out.println(n.getNoticeWriter());
+		System.out.println(n.getNoticeContent());		
+		System.out.println(n.getFilename());
+		System.out.println(n.getFilepath());
+		System.out.println("status:"+status);
+		System.out.println("파일이 있습니다.");
+		
+		return "redirect:/noticeDetail.do?noticeNo="+n.getNoticeNo();
 	}
 	@RequestMapping(value="/noticeFileDownload.do")
 	public void noticeFileDownload(HttpServletResponse response, HttpServletRequest request, String filename, String filepath) {
@@ -180,5 +203,6 @@ public class NoticeController {
 		}
 		
 	}
+
 	
 }

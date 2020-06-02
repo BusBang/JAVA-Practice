@@ -26,10 +26,10 @@
 				<td>${n.regDate }</td>	
 				<td>
 					<c:if test="${empty n.filepath}">
-						O
+						X
 					</c:if>
 					<c:if test="${not empty n.filepath}">
-						X
+						O
 					</c:if>
 				</td>	
 			</tr>
