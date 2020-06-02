@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 기본 선택자 </title>
+    <style>
+        /*기본선택자*/
+        p { 
+            color: red;
+        }
+        /*아이디선택자*/
+        #id01 {
+            color: green;
+            background: yellow;
+        }
+        /*클래선택자*/
+        .c1 {
+            color: coral;
+        }
+
+        .c2 {
+            color: purple;
+            background: gray;
+        }
+    </style>
+
+</head>
+
+<body>
+    <H1>CSS 기본 선택자</H1>
+    <p>
+        선택자란?<br>
+        특정한 HTML 태그를 선택할 때 사용하는 기능으로 태그를 선택하여 원하는 스타일과 기능을 적용할 수 있다.
+    </p>
+    <hr>
+    <h3>모든 선택자</h3>
+    <p>
+        HTML 문서 안의 모든 태그를 선택할 때 전체 선택자를 사용할 수 있다.
+    </p>
+    <ul>
+        <li>테스트1</li>
+        <li>테스트2</li>
+        <li>테스트3</li>
+    </ul>
+    <hr>
+    <h3>태그 선택자</h3>
+    <p>
+        HTML 문서 내에 같은 태그를 모두 선택할 때 사용한다.
+    </p>
+    <pre> - p {color : red;}와 같은 형태로 사용된다.</pre>
+    <hr>
+    <h3>아이디 선택자</h3>
+    <p>
+        HTML 문서 내에 해당하는 아이디 속성의 값을 가진 태그만 선택할 때 사용한다.
+    </p>
+    <pre> - #아이디명 {colo : blue:} 와 같은 형태로 사용된다.</pre>
+    <ol>
+        <li>아이디 선택지 테스트1</li>
+        <li id="id01">아이디 선택지 테스트2</li>
+        <li>아이디 선택지 테스트3</li>
+        <li>아이디 선택지 테스트4</li>
+        <li>아이디 선택지 테스트5</li>
+    </ol>
+    <hr>
+    <h3>클래스 선택자</h3>
+    <p>
+        HTML 문서 내에 여러 개의 태그를 동일한 클래스명으로 지정하여 선택할 때 사용한다.
+    </p>
+    <pre> - .클래스명 {color : purple;} 와 같은 형태로 사용된다.</pre>
+    <ul>
+        <li class="c2">클래스 선택자 테스트1</li>
+        <li class="c1">클래스 선택자 테스트2</li>
+        <li class="c2">클래스 선택자 테스트3</li>
+        <li class="c1">클래스 선택자 테스트4</li>
+        <li class="c2">클래스 선택자 테스트5</li>
+    </ul>
+    <hr>
+</body></html>

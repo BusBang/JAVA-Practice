@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+</head>
+<style>
+    div {
+        box-sizing: border-box;
+    }
+
+    .wrap {
+        width: 1280px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .header {
+        padding: 0;
+        width: 100%;
+        height: 110px;
+    }
+
+    .content {
+        width: 100%;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .footer {
+        width: 100%;
+        height: 130px;
+        background-color: black;
+        color: white;
+        line-height: 130px;
+        text-align: center;
+        font-size: 0.8em;
+        font-weight: 700;
+    }
+
+    .hLayer1 {
+        padding: 0;
+        margin: 0 auto;
+        width: 110px;
+        height: 100%;
+    }
+
+    .hLayer2 {
+        width: 990px;
+        height: 100%;
+    }
+
+    .hLayer3 {
+        margin: 0 auto;
+        padding: 0;
+        width: 180px;
+        height: 100%;
+        background-color: black;
+    }
+
+    .header>div {
+        float: left;
+    }
+
+    .hLayer2-1 {
+        background-color: black;
+        width: 100%;
+        height: 80px;
+        color: white;
+        line-height: 80px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 2.5em;
+    }
+
+    .hLayer2-2 {
+        width: 100%;
+        overflow: hidden;
+        background-color: black;
+        margin: 0 auto;
+    }
+
+    /******************좌측 상단 사진***************************************/
+    .hLayer1>img {
+        padding: 0;
+        width: 110px;
+        height: 110px;
+    }
+
+    /********************로그인/회원가입********************************************/
+    .loginDiv {
+        margin: 12px auto;
+        margin-top: 15px;
+        width: 160px;
+        height: 34px;
+        text-align: center;
+        line-height: 32px;
+        border: 1px solid white;
+        background-color: black;
+        border-radius: 5px;
+        font-size: 0.9em;
+    }
+
+    .signDiv {
+        margin: 12px auto;
+        width: 160px;
+        height: 34px;
+        text-align: center;
+        line-height: 32px;
+        border: 1px solid white;
+        background-color: black;
+        border-radius: 5px;
+        font-size: 0.9em;
+    }
+
+    .hLayer3 a {
+        text-decoration-line: none;
+        color: white;
+    }
+
+    .loginDiv:hover,
+    .signDiv:hover {
+        background-color: red;
+        cursor: pointer;
+        font-weight: bolder;
+    }
+
+    /******** 메뉴 *************************************************/
+    .menuDiv {
+        padding: 0;
+        margin-left: 60px;
+    }
+
+    .menuUl {
+        padding: 0;
+        margin: 0 auto;
+        list-style: none;
+    }
+
+    .menuUl>li {
+        box-sizing: border-box;
+        width: 220px;
+        height: 30px;
+        font-size: 0.8em;
+        border: 1px solid white;
+        /*            font-weight: 600;*/
+        text-align: center;
+        line-height: 30px;
+        background-color: black;
+        float: left;
+        border-bottom: none;
+    }
+
+    .menuUl>li:first-child {
+        border-top-left-radius: 10px;
+    }
+
+    .menuUl>li:last-child {
+        border-top-right-radius: 10px;
+    }
+
+    .menuUl a {
+        text-decoration-line: none;
+        color: white;
+    }
+
+    .menuUl>li:hover {
+        cursor: pointer;
+        background-color: crimson;
+        font-weight: bolder;
+    }
+
+    /***************************************************************/
+    /********컨텐츠******************************************/
+    .content>img {
+        width: 100%;
+    }
+
+    /**************게시글 작성창**************************************/
+    .content>div {
+        float: left;
+    }
+
+    .signMain {
+        width: 90%;
+    }
+
+    .signMain>div {
+        float: left;
+    }
+
+    .sLayer1,
+    .sLayer3 {
+        width: 10%;
+        height: 1px;
+    }
+
+    .sLayer2 {
+        width: 80%;
+
+    }
+
+    .signMain {
+        background-color: #f4f7f7;
+    }
+
+    .t1 tr:first-child {
+        height: 60px;
+        line-height: 60px;
+        font-weight: bold;
+        text-align: center;
+
+    }
+    .tHead {
+        border-bottom: 0.5px solid gray;
+    }
+    .t1 {
+        font-size: 0.8em;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /*테이블 첫 번째 열*/
+    .t1 td:first-child {
+        font-weight: bold;
+        width: 30%;
+        height: 35px;
+    }
+
+    .t1 td:last-child {
+        width: 70%;
+    }
+    textarea {
+        width:400px;
+        height: 300px;
+        resize : none;
+    }
+    .t1 tr:last-child {
+        text-align: center;
+    }
+    .butten {
+        display: inline-block;
+        border: 1px solid #80d4f6;
+        background-color: #80d4f6;
+        width: 55px;
+        height: 35px;
+        color: white;
+        font-weight: bold;
+    }
+    .inputbox{
+        height: 20px;
+        width: 250px;
+    }
+    /***************** 광고 *******************************/
+    /*광고 레이어*/
+    .popUp {
+        width: 10%;
+        overflow: hidden;
+    }
+
+    .popUp>img {
+        margin-left: 15px;
+        width: 100px;
+    }
+
+    .popUp>p {
+        font-weight: bold;
+        font-size: 0.6em;
+    }
+
+    /******************************************************************/
+
+</style>
+
+<body>
+
+    <div class="wrap">
+        <div class="header">
+            <div class="hLayer1">
+                <img src="../imgs/%EC%83%A4%EC%83%A4%EC%83%A4.gif">
+            </div>
+            <div class="hLayer2">
+                <div class="hLayer2-1">
+                    JAVA Lover
+                </div>
+                <div class="hLayer2-2">
+                    <div class="menuDiv">
+                        <ul class="menuUl">
+                            <li class="bu1"><a href="#">JAVA</a></li>
+                            <li class="bu2"><a href="#">ORACLE</a></li>
+                            <li class="bu3"><a href="#">HTML5/CSS3</a></li>
+                            <li class="bu4"><a href="#">게시판</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="hLayer3">
+                <div class="loginDiv"><a href="loginform1234.html">로그인</a></div>
+                <div class="signDiv"><a href="#">회원가입</a></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="popUp">
+                <p class="p1">Ad</p>
+                <img class="ad1" src="../imgs/%EA%B4%91%EA%B3%A01.PNG">
+                <img class="ad2" src="../imgs/%EA%B4%91%EA%B3%A02.PNG">
+            </div>
+            <div class="signMain">
+                <div class="sLayer1"></div>
+                <div class="sLayer2">
+                    <form action="#" method="post">
+                        <table class="t1">
+                            <tr>
+                                <td colspan="2" class="tHead">게시글 작성</td>
+                            </tr>
+                            <tr>
+                                <td>제목</td>
+                                <td><input class="inputbox" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>작성자</td>
+                                <td><input  class="inputbox" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>첨부파일</td>
+                                <td><input type="file"></td>
+                            </tr>
+                            <tr>
+                                <td>내용</td>
+                                <td><textarea></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input class="butten" type="submit" value="등록">
+                                    <input class="butten" type="reset" value="취소">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="sLayer3"></div>
+            </div>
+        </div>
+        <div class="footer">COPYRIGHT ⓒ BangBus</div>
+    </div>
+
+    <style>
+
+    </style>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js">
+    </script>
+</head>
+
+<body>
+    <style>
+        #div1 {
+            border: 5px solid black;
+            height: 800px;
+            width: 1000px;
+        }
+    </style>
+    <center>
+        문제1. 추가 버튼을 클릭하면 이름,나이,주소를 입력 받은 후 테이블에 추가하도록 하여라.
+
+        <table border="1" id="member">
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+                <th>상태</th>
+            </tr>
+        </table>
+
+        <button onclick="add();">추가</button>
+    </center>
+    <script>
+        var tt1;
+        var tbody1;
+        var iCount=0;
+
+        window.onload = function() {
+            tt1 = document.getElementById("member");
+            tbody1 = tt1.firstElementChild;
+        }
+
+        function add() {
+            var member = {
+                name: "",
+                age: "",
+                addr: ""
+            };
+            var t1 = document.getElementById("member");
+            member.name = prompt("이름 : ");
+            member.age = prompt("나이 : ");
+            member.addr = prompt("주소 : ");
+            var but = document.createElement("button");
+            var butText = document.createTextNode("삭제");
+
+            var tr1 = document.createElement("tr");
+            tr1.setAttribute("id","tr"+iCount);
+
+            but.appendChild(butText);
+//            but.setAttribute("onclick", "del("+iCount+");");
+//            but.setAttribute("onclick", `del(${iCount})`);
+            but.setAttribute("onclick", "del('tr"+iCount+"');"); //작은 따옴표를 안 쓰게 되면 자동으로 getElementId가 실행된다.
+            console.log(but);
+
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+            var td3 = document.createElement("td");
+            var td4 = document.createElement("td");
+            
+            var textnode1 = document.createTextNode(member.name);
+            var textnode2 = document.createTextNode(member.age);
+            var textnode3 = document.createTextNode(member.addr);
+            
+            td1.appendChild(textnode1);
+            td2.appendChild(textnode2);
+            td3.appendChild(textnode3);
+            td4.appendChild(but);
+            
+            tr1.appendChild(td1);
+            tr1.appendChild(td2);
+            tr1.appendChild(td3);
+            tr1.appendChild(td4);
+            
+            tbody1.appendChild(tr1);
+            iCount++;
+            console.log(tbody1);
+        }
+
+        function del(idid) {
+//            console.log($("#idid"));
+//            $(this).parent().parent().remove();
+            console.log($(this).html);
+            trRow = document.getElementById(idid);
+            trRow.remove();
+
+        }
+    </script>
+
+</body></html>
+    

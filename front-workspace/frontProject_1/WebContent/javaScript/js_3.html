@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <script>
+        function test1() {
+            var arr1 = [1,2,3,4,5];
+            console.log(arr1);
+            var arr2 = [1,"문자",arr1,true];
+            console.log(arr2);
+            var arr3 = new Array();
+            console.log(arr3);
+            arr3.push(1);
+            arr3.push(true);
+            arr3.push(arr2);
+            arr3.push(arr3);
+            console.log(arr3);
+            var arr4 = new Array(3); 
+            console.log(arr4);
+            arr4.push("Test");
+            console.log(arr4);
+            arr4[0] = 1;
+            arr4[1] = "test1";
+            console.log(arr4);
+        }
+        function test2() {
+            var fruits = ['망고','사과','바나나','딸기','수박'];
+            var fruit = document.getElementById("in1").value;
+            var result = fruits.indexOf(fruit);
+            alert(result);
+        }
+        function test3() {
+            var arr1 = [1,2,3,4];
+            var arr2 = ["가","나", "다", "라"];
+            var result = arr1.concat(arr2);
+            console.log(result);
+            var arr3 = ["a", "b", "c", "d"];
+            var result = arr1.concat(arr2, arr3);
+            console.log(result);
+        }
+        function test4() {
+            var arr1 = [1,2,3,4];
+            var arr2 = ["가","나", "다", "라"];
+            var arr3 = ["a", "b", "c", "d"];
+            var result = arr1.concat(arr2, arr3);
+            var joinResult = result.join("///");
+            console.log(joinResult);
+        }
+        function test5() {
+            var arr1 = [1,2,3,4,5];
+            var arr2 = [1,2,3,4,5];
+            arr2.reverse();
+            console.log(arr1);
+            console.log(arr2);
+        }
+        function test6() {
+            var arr = [1,2,5,7,10,6,3,4,9,8];
+            arr.sort();
+            console.log(arr);
+            arr.sort(sortASC);
+            console.log(arr);
+            arr.sort(sortDESC);
+            console.log(arr);
+            
+        }
+        function sortASC(a,b) {
+            return a-b;
+        }
+        function sortDESC(a,b) {
+            return b-a;
+        }
+        function test7() {
+            var arr= [1,2,3];
+            console.log(arr);
+            arr.push(4);
+            arr.push(5);
+            console.log(arr);
+            arr.pop(); //맨뒤 삭제
+            console.log(arr);
+            arr.push(6);
+            console.log(arr);
+            arr.unshift(10); //맨앞에 10추가
+            arr.unshift(11); //맨앞에 11추가
+            console.log(arr);
+            arr.shift(); //맨앞 삭제
+            console.log(arr);
+            console.log(arr.toString());
+            console.log(arr.join("/"));   
+        }
+        function test8() {
+            var arr= ["서동건", "영어공부", "언제할래", "안하다가", "큰일난다"];
+            var sl1 = arr.slice(2); //시작점부터 두 개를 자른다.
+            console.log(sl1);
+            //슬라이스를 해도 원본 데이터가 손상되지 않는다.
+            console.log(arr);
+            var sl11 = arr.slice(1); //시작점부터 한 개를 자름
+            console.log(sl11);
+            var sl2 = arr.slice(1,3); //시작점부터 한 개를 자르고 3번부터 뒤를 다 잘라낸다.
+            console.log(sl2); 
+            //시작점부터 n번까지 잘라내고 m번부터 끝까지 잘라낸다.
+        }
+        function test9() {
+            var arr= ["서동건", "영어공부", "언제할래", "안하다가", "큰일난다"];
+            var res = arr.splice(1,2,"db공부");
+            console.log(res);
+            console.log(arr);
+            var result = arr.splice(1,2);
+            console.log(result); //1번부터 2개를 자른다.
+            console.log(arr);
+        }
+
+    </script>
+    
+    <button onclick="test1();">클릭</button>
+    <input type="text" id="in1" placeholder="과일을 입력하세요">
+    <button onclick="test2();">Index of Test</button>
+    <hr>
+    <button onclick = "test3();">concat테스트</button>
+    <hr>
+    <button onclick = "test4();">Join Test</button>
+    <hr>
+    <button onclick = "test5();">reverse test</button>
+    <hr>
+    <button onclick = "test6();">Sorting</button>
+    <br>
+    <button onclick="test7()";>push/pop</button>
+    <br>
+    <button onclick="test8()";>slice</button>
+    <br>
+    <button onclick="test9()";>Pslice</button>
+    
+    
+</body>
+</html>

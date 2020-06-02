@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+    <style>
+        .off {
+            display : none;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("span").mouseenter(function () {
+                var now = $("span").index($(this));
+                console.log(now);   
+                $("span").each(function(index) {
+                   if(index<=now) {
+                        $(this).children().first().css("display","none");
+                        $(this).children().last().css("display","inline-block");
+                   }else {
+                        $(this).children().first().css("display","inline-block");
+                        $(this).children().last().css("display","none");
+                   }; 
+                });
+            });
+            
+            $("span").click(function() {
+                var now = $("span").index($(this));                
+                $("#cnt").html(now+1+"점");
+            });
+        });
+        
+        //마우스가 들어갈때.
+//        $(function () {
+//            $("span").mouseenter(function () {                
+//                $(this).children().first().removeClass("on");
+//                $(this).children().first().addClass("off");
+//                $(this).children().last().removeClass("off");
+//                $(this).children().last().addClass("on");  
+//            });
+//            $("span").mouseleave(function () {
+//                $(this).children().first().removeClass("off");
+//                $(this).children().first().addClass("on");
+//                $(this).children().last().removeClass("on");          
+//                $(this).children().last().addClass("off");               
+////            });
+//        });
+    </script>
+<body>
+    <h1>별점</h1>
+    <hr>
+    <div>별점 :
+        <span>
+            <img src="../jQuery/jqImg/star-off.png">
+            <img class="off" src="../jQuery/jqImg/star-on.png">
+        </span>
+        <span>
+            <img src="../jQuery/jqImg/star-off.png">
+            <img class="off" src="../jQuery/jqImg/star-on.png">
+        </span>
+        <span>
+            <img src="../jQuery/jqImg/star-off.png">
+            <img class="off" src="../jQuery/jqImg/star-on.png">
+        </span>
+        <span>
+            <img src="../jQuery/jqImg/star-off.png">
+            <img class="off" class="off" src="../jQuery/jqImg/star-on.png">
+        </span>
+        <span>
+            <img src="../jQuery/jqImg/star-off.png">
+            <img class="off" class="off" src="../jQuery/jqImg/star-on.png">
+        </span>
+        <span id ="cnt">
+            ?점
+        </span>
+    </div>
+    
+</body>
+</html>

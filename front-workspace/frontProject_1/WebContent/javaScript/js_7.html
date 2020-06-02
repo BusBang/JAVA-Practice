@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+    
+    #d3 {
+        width : 300px;
+        height : 300px;
+        border : 1px solid black;
+    }
+    </style>    
+</head>
+<body>
+    <script>
+        //텍스트 노드가 있는 문서 객체 생성
+        //요소노드 생성 -> 텍스트 노드 생성 -> 요소 노드에 텍스트 노드 추가 -> HTML문서에 추가
+        function test1() {
+            var text = document.getElementById("in1").value;
+            //요소노드 생성
+            var element =document.createElement("H2");
+            //텍스트노드 생성
+            var textNode = document.createTextNode(text);
+            //요소노드에 텍스트노드 추가
+            element.appendChild(textNode);
+            
+            var d1 = document.getElementById("d1");
+            d1.appendChild(element);
+        }
+        function test2() {
+            var imgTag = document.createElement("img");
+            imgTag.src= "../imgs/sun.png";
+            imgTag.width="150";
+            imgTag.height="150";
+            imgTag.myProperty="123"; //없는 속성은 들어가지 않는다. 어떻게 넣지 그럼 ?
+            //없는 속성 넣기 - setAttribute
+            imgTag.setAttribute("myProperty","123");
+            
+            var d2 = document.getElementById("d2");
+            d2.appendChild(imgTag);
+        }
+        function test3() {
+            var d3 = document.getElementById("d3");
+            d3.style.border = "5px solid hotpink";
+            d3.style.backgroundColor = "black";
+            d3.style.borderRadius = "10px";
+        }
+        function test4() {
+            var d4 = document.getElementById("d4");
+            
+            var text = document.getElementById("in2").value;
+            var element = document.createElement("p");
+            var textnode = document.createTextNode(text);
+        
+            element.setAttribute("class","p1");
+            element.appendChild(textnode);
+            d4.appendChild(element);
+            
+//            d4.style.border = "1px solid black";
+//            d4.style.width = "100";
+//            d4.style.height = "100";
+//            d4.style.borderRadius = "5px"
+        }
+        function test5() {
+            var pp = document.getElementsByClassName("p1");
+            pp[0].remove();
+        }
+        function test6() {
+            var d4= document.getElementById("d4");
+            var pp = document.getElementsByClassName("p1");
+            d4.removeChild(pp[0]);
+            console.log(pp.length);
+        }
+    </script>
+    
+    <div id="d1">
+    </div>
+    <input type="text" id="in1">
+    <button onclick = "test1();">확인</button>
+    <div id="d2"></div>
+    <button onclick = "test2();">확인2</button>
+    <div id="d3"></div>
+    <button onclick="test3();">확인3</button>
+    <hr>
+    <div id="d4"></div>
+    <input type="text" id="in2">
+    <button onclick="test4();">확인4</button>
+    <button onclick="test5();">본인 삭제</button>
+    <button onclick="test6();">부모에서 삭제</button>
+</body>
+</html>

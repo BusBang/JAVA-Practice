@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <script>
+        var num1 = document.getElementById("num1");
+        var num2 = document.getElementById("num2");
+        var res = document.getElementById("calc");
+
+        function add() {
+            res.innerHTML = parseInt(num1.value) + parseInt(num2.value);
+        }
+
+        function sub() {
+            res.innerHTML = parseInt(num1.value) - parseInt(num2.value);
+        }
+
+        function mul() {
+            res.innerHTML = parseInt(num1.value) * parseInt(num2.value);
+        }
+
+        function div1() {
+            res.innerHTML = parseInt(num1.value) / parseInt(num2.value);
+        }
+
+        function div2() {
+            res.innerHTML = parseInt(num1.value) % parseInt(num2.value);
+        }
+        //JS는 변수의 타입을 적어주지 않는다.
+
+    </script>
+
+    
+    <h2>간이 계산기 만들기</h2>
+
+    첫번째 값 : <input id="num1"><br>
+    두번째 값 : <input id="num2"><br>
+    <button onclick="add();">+</button>
+    <button onclick="sub();">-</button>
+    <button onclick="mul();">*</button>
+    <button onclick="div1();">/</button>
+    <button onclick="div2();">%</button>
+    <br><br>
+    계산결과 : <span id="calc"></span>
+    
+    <hr>
+
+    <h2>간이 계산기 만들기</h2>
+
+    첫번째 값 : <input id="num11"><br>
+    두번째 값 : <input id="num22"><br>
+    <button onclick="calculator('+');">+</button>
+    <button onclick="calculator('-');">-</button>
+    <button onclick="calculator('*');">*</button>
+    <button onclick="calculator('/');">/</button>
+    <button onclick="calculator('%');">%</button>
+    <br><br>
+    계산결과 : <span id="calc1"></span>
+    
+    
+
+    <hr>
+    <script>
+        //JS는 변수의 타입을 적어주지 않는다.
+        function calculator(oper) {
+            var num1 = document.getElementById("num11");
+            var num2 = document.getElementById("num22");
+            var res = document.getElementById("calc1");
+            var result = 0;
+            switch(oper) {
+                case "+" : result=Number(num11.value)+Number(num22.value);
+                    break;
+                case "-" : result=Number(num11.value)-Number(num22.value);
+                    break;
+                case "*" : result=Number(num11.value)*Number(num22.value);
+                    break;
+                case "/" : result=Number(num11.value)/Number(num22.value);
+                    break;
+                case "%" : result=Number(num11.value)%Number(num22.value);
+                    break;
+            }
+            res.innerHTML=result;
+        } 
+    </script>
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

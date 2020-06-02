@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    
+// jQuery UI CSS파일 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+// jQuery 기본 js파일
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
+// jQuery UI 라이브러리 js파일
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
+    <style>
+        .video_wrap video {
+            transform: translateX(-50%) translateY(0%);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+            
+        }
+        .reverse{
+            background : black;
+            color : white;
+        }
+    </style>
+    <script>
+        $(function() {
+            $("H1").hover(function() {
+                $(this).addClass("reverse");
+            }, function() {
+                $(this).removeClass("reverse");
+            });  
+//            $("h1").click(function() {
+//               $(this).addClass("reverse"); 
+//            });
+        });
+        $(function() {
+            $("#btn2").click(function() {
+                $("#btn1").on("click", function() {
+                   $("#onOff").append("!!!"); 
+                });                
+            });
+        });
+        
+        $(function() {
+            $("#btn3").click(function() {
+                $("#btn1").off("click");
+            });
+        });
+        
+        $(function() {
+            $("#a1").click(function(event){
+                event.preventDefault(); //기본 이벤트를 제거
+                alert("a태그 클릭");
+                event.stopPropagation(); //버블링현상을 막는 방법
+            });
+            $("h2").click(function() {
+               alert("H2태그 클릭"); 
+            });
+        })
+    </script>
+</head>
+<body>
+    <H1>test1</H1>
+    <H1>test2</H1>
+    <H1>test3</H1>
+    <br><hr>
+    <button id="btn1">클릭</button>
+    <button id="btn2">추가</button>
+    <button id="btn3">제거</button>
+    <h1 id="onOff"></h1>
+    <hr>
+    <h2>
+        <a id="a1" href="http://www.naver.com">이동</a>
+    </h2>
+    <hr>
+    <script>
+        $(function() {
+//           $(".btnLevel").click(function() {
+//               var level = $(this).next().html();
+//               level++;
+//               $(this).next().html(level);
+//           });
+            
+            $(".btnLevel").click(function() {
+                var index = $(".btnLevel").index($(this)); 
+                var curr = $(".level").eq(index).html();
+                var next = Number(curr)+1;
+                $(".level").eq(index).html(next);
+            });
+            $(".allLevelUp").click(function() {
+                
+                $(".btnLevel").trigger("click");
+                //$(".btnLevel").click();
+                
+            });
+            
+        });
+    </script>
+    <button class="btnLevel">레벨업</button> 자바 : <span class="level">0</span><br>
+    <button class="btnLevel">레벨업</button> DB : <span class="level">0</span><br>
+    <button class="btnLevel">레벨업</button> HTML : <span class="level">0</span><br>
+    <button class="allLevelUp">전체레벨업</button>
+    <br>
+    <script>
+        $(function() {
+            $("#click").click(function() {
+               $("#click").css("color", "red"); 
+            });
+            $("#dblclick").dblclick(function() {
+                $("#dblclick").css("color","red");
+            })
+            $("#upDown").mousedown(function() {
+                $("#upDown").css("background-color","blue");
+            })
+            $("#upDown").mouseup(function() {
+                $("#upDown").css("background-color","red");
+            })
+            $("#mouseBtn").click(function(){
+                $(document).mousemove(function(event){
+                   $("#mousePoint").html(event.pageX+" / "+event.pageY);
+                });
+            })
+        })
+    </script>
+    <p id="click">click</p>
+    <p id="dblclick">dblclick</p>
+    <div id="upDown" style="border:3px solid black; width:100px; height:100px"></div>
+    <hr>
+    <h1>Mouse is at coordiantes : <span id="mousePoint"></span></h1>
+    <button id ="mouseBtn">시작</button>
+    <hr>
+    <style>
+        .outer {
+            width : 200px;
+            height : 200px;
+            background-color: orange;
+            padding: 50px;
+        }
+        .inner {
+            width : 100%;
+            height : 100%;
+            background-color: hotpink;
+            border: 1px solid black;
+        }
+        #test {
+            width:200px;
+            height : 200px;
+            border : 1px solid black;
+        }
+
+    </style>
+    <script>
+        $(function() { 
+            var flag = 0; //mouseenter : 버블링이 발생함
+            //mouseover: 버블링이 발생하지 않음.
+            $(".outer").mouseover(function() {
+                if(flag==0) {
+                    $("#test").css("background-color","red");
+                    flag=1;
+                }else {
+                    $("#test").css("background-color","white");
+                    flag=0;
+                }
+            });
+        })
+    </script>
+    <div class ="outer">outer
+        <div class="inner">inner
+        </div>
+    </div>
+        test
+        <div id="test"></div>
+    <hr>
+    <script>
+        //키보드 누름 : keydown
+        //키보드에서 손을 뗌 : keyup
+        //글씨입력 : keypress
+        $(function () {
+            $("#inputArea").keyup(function () {
+                var inputLength = $(this).val().length; //입력한 글자 수 계산
+                var remain = 150 - inputLength;
+                $("#textResult").html("작성 가능한 글자 수 : "+remain);
+            });
+        })
+    </script>
+    <div>
+        <p>글작성</p>
+        <h1 id ="textResult">작성 가능한 글자 수 : 150</h1>
+        <textarea  style="resize: none" id="inputArea" cols="70" rows="5"></textarea>
+    </div>
+    <hr>
+    <script>
+        $(function() {
+            $("input[name=id]").change(function() { //change는 바꼈을때, focusin은 커서가 선택됐을 때.
+               $(this).css("background-color","skyblue");
+            });
+            $("input[name=id]").blur(function() {
+                $(this).css("background-color","white");
+                //유효성 검사 추가 실시
+                var regExp=/^[a-z0-9]{4,12}$/;
+                var input = $(this).val();
+                if(regExp.test(input)) {
+                    $(this).css("background-color","white");
+                }else {
+                    $(this).css("background-color","red");
+                    $(this).next().html("다시 입력해주세요.");    
+                    $(this).focus();
+                };
+            });
+        });
+    </script>
+    <form>
+        <input type="text" name="id" placeholder="아이디를 입력해주세요">
+        <span></span><br>
+        <input type="password" name="pw" placeholder="비밀번호를 입력해주세요">
+        <span></span><br>
+    </form>
+    
+    <hr>
+    <style>
+        .sub {
+            display: none;
+        }
+    </style>
+    <script>
+        $(function () {
+            var subFlag=0; //sub 클래스가 안보이는 것을 나타냄
+            $("#main>li").click(function() {
+//                $(this).children().toggle(500);
+//                $(this).children().slideToggle(5000);
+                $(this).children().fadeToggle(5000);
+                
+                //                if(subFlag==0) {
+//                    $(this).children().show(500);
+//                    subFlag=1;
+//                }else {
+//                    $(this).children().hide(500);
+//                    subFlag=0;
+//                }
+            });
+        });
+    </script>
+    <ul id = "main">
+        <li>main-1</li>
+        <li>main-2
+            <ul class="sub">
+                <li>sub-1</li>
+                <li>sub-2</li>
+                <li>sub-3</li>
+            </ul>
+        </li>
+        <li>main-3
+            <ul class="sub">
+                <li>sub-4</li>
+                <li>sub-5</li>
+                <li>sub-6</li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+    <style>
+        #div1 {
+            width :50px;
+            height:50px;
+            background-color : black;
+        }
+        .orangered {
+            width :50px;
+            height:50px;
+            background-color : orangered;
+            position : relative;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#divBtn1").click(function() {                
+                $("#div1").animate({
+                    height : '300px',
+                    width:'300px',
+                    opacity:'0.4'
+                });
+            });
+            $("#divBtn2").click(function() {                
+                $("#div1").animate({
+                    height : '50px',
+                    width:'50px',
+                    opacity:'1'
+                });
+            });
+            $(".orangered").click(function() {
+                $(".orangered").each(function(index){
+                    $(this).delay(index * 50).animate({left:500});
+                });
+            });
+        });
+    </script>
+    <div id="div1"></div>
+    <button id="divBtn1">클릭</button>
+    <button id="divBtn2">클릭</button>
+    <hr>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    <div class="orangered"></div>
+    
+    <hr>
+    
+    <script>
+        //script구문 내부에 해당 메소드를 입력합니다.
+        $(function() {
+            $( "#testDatepicker" ).datepicker({
+            });
+        });    
+        $('#myAffix').affix({
+          offset: {
+            top: 100,
+            bottom: function () {
+              return (this.bottom = $('.footer').outerHeight(true))
+            }
+          }
+        })
+    </script>
+    <input type="text" id="testDatepicker">  
+    <hr>
+    <div class="video_wrap">
+    
+        <video autoplay="autoplay" loop="loop" muted="muted" preload="preload"><source src="http://wwwcdn.everland.com/web/mp4/intro_web2.mp4" type="video/mp4"></video>
+    </div>
+    
+    <div data-spy="affix" data-offset-top="60" data-offset-bottom="200" id="myAffix">
+        ...asdfasdf
+    </div>
+</body>
+</html>

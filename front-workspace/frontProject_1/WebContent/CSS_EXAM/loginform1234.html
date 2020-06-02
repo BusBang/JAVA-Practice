@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+        .container{
+            padding: 95px;
+            height: 1000px;
+            background: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);    
+            
+        }
+        .wrapper{
+            border-radius: 10px;
+            margin: 0 auto;     
+            margin-top: 100px;
+            width:450px;
+            height: 500px;            
+            background: linear-gradient(135deg,#E3FDF5 50%,#FFE6FA 50%);            
+        }
+        .wrapper div:first-child{              
+            font-size:50px;
+            height:150px;
+            line-height: 150px;
+            text-align: center;
+            color:#333;
+            font-weight: 900;
+        }
+        .content{              
+            margin-top: 30px;
+            height:320px;            
+        }
+        loginFrm{
+            height: 200px;
+        }
+        input{
+            margin: 20px auto;
+            display: block;
+            width: 300px;
+            height: 40px;            
+            border: none;            
+            font-size:20px;
+            border-radius: 3px;            
+        }
+        .btn{
+            height: 60px;
+            background-color: white;
+        }
+        .other{
+            height: 120px;
+            text-align: center;
+        }
+        .other>a{
+            text-decoration: none;
+            display: inline-block;
+            width:150px;            
+            height: 50px;  
+            line-height: 50px;
+            color: #333;
+            font-weight: 900;   
+            background-color: #a8edea;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!--
+    폰트 : Noto Sans KR
+    사용색상 : #A8EDEA,#FED6e3,#333333,#E3FDF5,#FFE6FA,#FFF
+-->
+    <div class="container">
+        <div class="wrapper">
+            <div>LOGIN</div>
+            <div class="content">
+                <form class="loginFrm" action="/login.html" method="post">
+                    <input placeholder="Input Your Email" type="text" name="id" required>
+                    <input placeholder="Password" type="password" name="pw" required>
+                    <input class="btn" type="submit" value="Log In">
+                </form>
+                <div class="other">
+                    <a href="/searchPwd.html" id="searchPw">Forget Password</a>
+                    <a href="/searchPwd.html" id="signUp">Sign Up</a>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+</body>
+
+</html>

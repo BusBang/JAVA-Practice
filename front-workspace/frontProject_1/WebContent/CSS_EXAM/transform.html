@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        img{
+            width : 250px;
+            height:200px;
+        }
+        .trans1:hover {
+            transform: translateX(100px);
+        }
+        .trans2:hover{
+            transform: translateY(100px);
+        }
+        .trans3:hover{
+            transform:translate(100px, 100px);
+        }
+        .scale1:hover{
+            transform: scaleX(2);
+        }
+        .scale2:hover{
+            transform: scaleY(2);
+        }
+        .scale3:hover{
+            transform:scale(2,2);
+            transition-duration: 10s;
+        }        
+        .wrap{
+            width : 250px;
+            height: 200px;
+            border : 1px solid black;
+            overflow:hidden;
+        }
+        .dora:hover{
+            transform : rotate(100000000000deg);
+            transition-duration: 300000000s;
+        }
+        .trans11:hover{
+            background-color: white;
+            transition-duration: 3s;  
+        }
+        .trans11{
+            background-color: black;
+            width : 250px;
+            height: 200px;
+            border : 1px solid black;
+        }
+        
+        .trans12{
+            transition-property: background-color, transform, width, height;
+            transition-duration: 5s,3s,1s,1s;
+        }
+        .trans12:hover{
+            background-color: yellow;
+            transform: rotate(180deg);
+            width:250px;
+            height: 250px;
+        }
+        .trans13{
+            transition-delay: 2s;
+            transition-duration: 3s;
+        }
+        .trans13:hover{
+            background-color:yellow;
+            transform:rotate(180deg);
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Transform</h1>
+    <h3>지정한 크기만큼 좌우 이동</h3>
+    <img class="trans1" src="../imgs/flower1.PNG">
+    <h3>지정한 크기만큼 위아래 이동</h3>
+    <img class="trans2" src="../imgs/flower2.PNG">
+    <h3>지정한 크기만큼 좌우상하 이동</h3>
+    <img class="trans3" src="../imgs/flower3.PNG">
+    <h3>지정한 크기만큼 좌우 확대</h3>
+    <img class="scale1" src="../imgs/flower1.PNG">
+    <h3>지정한 크기만큼 상하 확대</h3>
+    <img class="scale2" src="../imgs/flower2.PNG">
+    <h3>지정한 크기만큼 상하좌우 확대</h3>
+    <img class="scale3" src="../imgs/flower3.PNG">
+    <h3>돋보기</h3>
+    <div class="wrap">
+        <img class="scale3" src="../imgs/flower3.PNG">
+    </div>
+    <h3>지정한 각도만큼 회전</h3>
+    <img class="dora" src="../imgs/dora.png">
+    <br><hr><br>
+    <h1>트랜지션</h1>
+    <h3>시간에 따른 속성 변화</h3>
+    <div class="trans11"> </div>
+    <hr>
+    <H3>여러 속성의 시간차 변화</H3>
+    <div class="div trans12 trans11"></div>
+    <br>
+    <div class="div trans13 trans11"></div>
+    <br><hr><br>
+    <style>
+        .img1{
+            margin:100px;
+            width:300px;
+            height: 300px;
+            animation-name: ani1;
+            animation-duration: 3s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+        }
+        @keyframes ani1{
+            from{
+                background-color: green;
+                border: 1px solid black;
+            }
+            to{
+                background-color:  yellow;
+                border-radius: 50%;
+                transform: rotate(360deg);
+                border: 3px solid red;
+            }
+        }
+        .dd{
+            margin: 100px;
+            width:300px;
+            height:300px;
+            animation-name: ani2;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes ani2{
+            0%{
+                background-color: green;
+                border: 3px solid black;
+            }
+            30%{
+                transform: translate(100px, 100px);
+            }
+            50%{
+                background-color : hotpink;
+                transform: scale(1.2);
+                border: 3px solid yellow;
+            }
+            100%{
+                background-color: blue;
+                transform : rotate(45deg);
+                border : 3px solid red;
+            }
+        }
+    </style>
+    <h1>기본 애니메이션 적용</h1>
+    <img class="img1" src="../imgs/dora.png">
+    <h3>중간단계적용</h3>
+    <div class="dd"></div>
+    </body>
+    
+</html>

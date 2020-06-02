@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+        window.onload = function() {
+            //버튼이 만들어지기 전에 펑션을 실행해야하기 때문에 온로드를 걸어준다.
+            var btn1 = document.getElementById("btn1");
+            var btn2 = document.getElementById("btn2");            
+            btn1.onclick=function() {
+                alert("버튼1 클릭");
+            }
+            btn2.onclick = function() {
+                alert("버튼2 클릭");
+                btn1.onclick=null;
+            }
+            var div1 = document.getElementById("div1");
+            div1.addEventListener("mouseenter",function() {
+                div1.innerHTML += "Hi"
+            });
+            
+            
+        }
+    </script>
+</head>
+<body>
+    <h3>OnClick=Null;</h3>
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+    <hr>
+    <h3>MouseEnter</h3>
+    <div id="div1" style="border:1px solid black; width: 100px;height:100px">div3</div>
+    <hr>
+    <h3>이벤트 버블링 - StopPropagation()</h3>
+    <style>
+        .div-test {
+            border : 1px solid black;
+            padding :20px;
+        }
+    </style>
+    <script>
+        function test1(msg) {
+            alert(msg);
+            //이벤트 버블링 예방//
+            window.event.stopPropagation();
+            //IE 구문
+            window.event.cancelBubble=true;
+        }
+    </script>
+    <div onclick="test1('빨강');" class="div-test" style="background: red;">
+        <div onclick="test1('노랑');" class="div-test" style="background: yellow;">
+            <div onclick="test1('파랑');" class="div-test" style="background: blue;">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h3>javascript:void(0)</h3>
+    <script>
+        function test2() {
+            alert("http://www.naver.com");
+            if(confirm("진짜 고?")) {
+                location.href="http://www.naver.com";
+            }else {
+                alert("안감");
+            }
+        }
+    </script>
+    <a href="javascript:void(0)" onclick="test2();">안녕</a>
+    <hr>
+    <h3>Return False와 OnSubmit</h3>
+    <script>
+        function test3() {
+            var id = document.getElementById("id").value;
+            var pw = document.getElementById("pw").value;
+            var pw_re = document.getElementById("pw_re").value;
+            if(pw != pw_re) {
+                return false;
+            }
+        }
+    </script>
+    <!-- onsubmit은 제출될 때 실행하라는 것이다.
+    onclick은 제출 되기 전, click되었을 때 실행되는 것. 시점이 다름-->
+    <form action="test.html" onsubmit="return test3();"> 
+        아이디 : <input type="text" id="id" required><br>
+        비밀번호 : <input type="text" id="pw" required><br>
+        비밀번호 확인 : <input type="text" id="pw_re" required><br>    
+        <input type="submit" onclick="return test3()" value="제출제출">
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <style>
+        div.d1 {
+            width : 100px;
+            height : 100px;
+            border : 1px solid black;
+        }
+    </style>
+    <script>
+/*        //javascript 방식
+//        1. 고전 이벤트 방식
+        window.onload = function() {
+            var d1 = document.getElementsByClassName("d1");
+            d1[0].onclick = function () {
+                alert("JS 고전 이벤트 방식");
+            };
+        };*/
+        //2. 인라인 모델 
+//        function test() {
+//            var d1 = document.getElementsByClassName("d1");
+//            alert("JS 인라인 모델 방식");
+//        };
+        
+//        //3. 표준 이벤트 모델
+//        window.onload = function () {        
+//            var d1 =document.getElementsByClassName("d1");
+//            d1[0].addEventListener("click",function() {
+//                alert(" JS 표준이벤트모델");
+//            });
+//        };
+        
+        //고전이벤트는 요소 객체가 갖고 있는 이벤트 속성에 이벤트 핸들러를 연결하는 방법
+        window.onload = function () {
+            var d1 = document.getElementsByClassName("d1");
+            d1[0].onclick = function () {
+                alert("");
+            }
+        }
+        //인라인이벤트 모델. 요소 내부에 인라인을 작성하는 ㅂ아법
+        function test() {
+            var d1 = document.getElementsByClassName("d1");
+            alert("");
+        }
+        //표준이벤트 모델 W3C에서 공식적으로 지정한 이벤트 모델
+        window.onload = document.getElementsByClassName("d1");
+        d1[0].addEventListener("click",function() {
+            
+        })
+        //이벤트 차단 - 버블링 제거
+        window.event.stopPropagation();
+        
+        
+
+        //jQuery
+//        $(function() {
+//            //1. 고전 이벤트 방식
+//            $(".d1").click(function() {
+//                alert("jQuery 고전이벤트 방식");
+//            })
+//        });
+        //2. 인라인
+//        function test() {
+//            alert("jQuery inline "+$(".d1").html());
+//        }
+        //표준이벤트모델
+        $(function() {
+            
+            $(".d1").on("click",function(){
+                alert("jQuery inline "+$(".d1").html());
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="d1">d1d1</div>
+<!--    인라인모델-->
+<!--    <div class="d1" onclick="test();"></div>-->
+    <hr>
+    <script>
+        window.onload = function() {         
+            var btn1 = document.getElementById("btn1");
+            btn1.onclick = function () {
+                var arr = document.getElementsByName("hobby");
+                var count = 0 ;
+                for ( var i = 0 ; i<arr.length ; i++) {
+                    if(arr[i].checked) {
+                        count++;
+                    }
+                }
+                alert(count+"개 선택했습니다. (JS)");
+            }
+            
+            var btn3 = document.getElementById("btn3");
+            btn3.onclick = function () {
+                var arr = document.getElementsByName("hobby");
+                for(var i = 0; i<arr.length; i++) {
+                    if(!arr[i].checked) {
+                        arr[i].checked=true;
+                    }else {
+                        arr[i].checked = false;
+                    }
+                }
+            }
+            
+            
+        }
+        
+        $(function() {    
+            $("#btn2").click(function () {
+                alert($("input[type=checkbox]:checked").length+"개 선택했습니다. (jQuery)");
+            });
+        });
+        
+        //전체선택
+        $(function() {
+            $("#btn4").click(function() {
+                var arr = $("input[type=checkbox]");
+                console.log(arr);
+                for(var i = 0 ; i<arr.length ; i++) {
+                    arr.eq(i).prop("checked",true);
+                }
+            });
+        });
+    </script>
+    
+    <input type="checkbox" name="hobby" value="축구">축구
+    <input type="checkbox" name="hobby" value="야구">야구
+    <input type="checkbox" name="hobby" value="농구">농구
+    <input type="checkbox" name="hobby" value="배구">배구
+    <input type="checkbox" name="hobby" value="탁구">탁구
+    <input type="checkbox" name="hobby" value="당구">당구
+    <button id ="btn1">JS로 확인</button>
+    <button id ="btn2">jQuery로 확인</button>
+    <button id ="btn3">전체 선택/취소 (js)</button>
+    <button id ="btn4">전체 선택/취소 (jQuery)</button>
+</body>
+</html>

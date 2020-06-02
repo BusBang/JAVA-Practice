@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <style>
+        .red{
+            color : red;
+        }
+        .bg-blue{
+            background-color :blue;
+        }
+    </style>
+    <script>
+//        $(function() {
+//            $("#btn1").click(function(){
+//                var arr = $(".drink>li");
+//                /*
+//                $.each(arr,function(index, item){
+//                    alert("인덱스 번호 :"+index+" / 값 : "+item.innerHTML);
+//                    //item은 javascript 객체라서 innerHTML을 써준다.
+//                    //$(item).html() 으로 해줘도 된다.
+//                });
+//                */
+//                /*
+//                $(".drink>li").each(function(index, item){
+//                    alert("인덱스번호 : "+index+"/ 값 : "+item.innerHTML);
+//                });
+//                */
+//                $(".drink>li").each(function() {
+//                    alert($(this).html());
+//                });
+//            })
+//        })
+        $(function() {
+            $("#btn2").click(function(){
+                $(".drink>li").last().addClass("red");
+            });            
+        })
+        $(function() {            
+            $("#btn3").click(function(){
+                $(".drink>li").last().addClass("bg-blue");
+            });
+        })
+        $(function() {
+            $("#btn4").click(function() {
+                alert("height : "+$("#img").attr("height")+"\nwidth : "+$("#img").attr("width"));
+            });
+        })
+        $(function() {
+            $("#btn5").click(function() {
+                $("#img").attr("width","450"); 
+                $("#img").attr("height","350"); 
+            });
+        })
+        $(function() {
+            $("#btn6").click(function() {
+               $("#img").removeAttr("width"); 
+               $("#img").removeAttr("height"); 
+            });
+        })
+        $(function() {
+            $("#btn7").click(function() {
+               $(".drink>li").first().remove(); 
+            });
+        })
+        $(function() {
+            $("#btn8").click(function() {
+               $(".drink").empty(); 
+            });
+        })
+        //////////////////////////////////////////////
+        $(function() {
+            $("#btn9").click(function() {
+                $("<span>추가</span>").appendTo("#p1");
+            });  
+        })
+        $(function() {
+            $("#btn10").click(function() {
+                $("<span>추가</span>").prependTo("#p2");
+            });
+        })
+
+        //insertAfter는 다음 행에 추가된다.
+        $(function() {
+            $("#btn11").click(function() {
+                $("<span>추가</span>").insertAfter("#p3");
+            });
+        })
+ 
+        //insertBefore는 다음 행에 추가된다.
+        $(function() {
+            $("#btn12").click(function() {
+                $("<span>추가</span>").insertBefore("#p4");
+            });
+        })       
+        //////////////////////////////////////////////
+        $(function() {
+            $("#btn13").click(function() {
+                $("#p1").append("<span>추가</span>");
+            });  
+        })
+        $(function() {
+            $("#btn14").click(function() {
+                $("#p2").prepend("<span>추가</span>");
+            });  
+        })
+        $(function() {
+            $("#btn15").click(function() {
+                $("#p3").after("<span>추가</span>");
+            });  
+        })
+        $(function() {
+            $("#btn16").click(function() {
+                $("#p4").before("<span>추가</span>");
+            });  
+        })  
+        $(function() {
+            $("#btn17").click(function() {
+                $("#p1").append($("label").clone());
+            });  
+        })        
+        
+    </script>
+    
+    <button id = "btn1">목록 가져오기</button>
+    <button id = "btn2">Red</button>
+    <button id = "btn3">Blue</button>
+    <ul class="drink">
+        <li>coffee</li>
+        <li>milk</li>
+        <li>coke</li>
+    </ul>
+    <hr>
+    <img id="img" src="../imgs/%EB%82%A0%EC%B0%8C%EB%A1%9C%EA%B3%A0.jpg" width="350" height="250">
+    <br><button id = "btn4">파일 정보 알아오기</button>
+    <button id = "btn5">350*250px으로 바꾸기</button>
+    <button id = "btn6">그림의 원본 크기로</button>
+    <button id = "btn7">문서 객체 제거</button>
+    <button id = "btn8">비우다</button>
+    <hr>
+    <label>TestLabel</label>
+    <p id="p1">test1</p>
+    <p id="p2">test2</p>
+    <p id="p3">test3</p>
+    <p id="p4">test4</p>
+    <button id="btn9">appendTo</button>
+    <button id="btn10">prependTo</button>
+    <button id="btn11">insertAfter</button> 
+    <button id="btn12">insertBefore</button>
+    <br>
+    <button id="btn13">append</button>
+    <button id="btn14">prepend</button>
+    <button id="btn15">After</button> 
+    <button id="btn16">Before</button>
+    <button id="btn17">label</button>
+
+    </body>
+</html>

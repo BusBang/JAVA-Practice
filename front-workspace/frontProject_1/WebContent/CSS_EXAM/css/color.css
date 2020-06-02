@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/*
+    하늘색, 회색
+
+*/
+.t-1{
+    color : #80d4f6;
+}
+.t-2{
+    color : beige;
+}
+.bg-1{
+    background-color: #f4f7f7;
+}
+.bg-2{
+    background-color: crimson;
+}
+.bg-3{
+    background-color: #80d4f6;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FONT CSS</title>
+    <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
+    <style>
+        #p1{
+            font-family : "궁서체";
+            font-size : 2em;
+            font-weight : bold;
+            font-style : italic;
+        }
+        #p2{
+            font-family : "궁서체";
+            font-size : 2em;
+            font-weight : bolder;
+            font-style : oblique;
+        }
+        #p3{
+            font-family : "sunflower";
+            font-size:40pt;
+            font-weight:900; 
+        }
+        #p4{
+            font-family: 'Sunflower', sans-serif;
+        }
+        #p5{
+            font-family : "맑은고딕";
+        }
+        p.small{
+            font-variant:small-caps;
+        }
+        #p6{
+            font : italic bold 20px/50px "궁서체";
+        }
+        /******************************************/
+        /*R G B*/
+        .p1{
+            color : #ff0000;
+            text-transform: uppercase;
+
+            text-decoration: underline;
+        }
+        .p2{
+            color : #f00;
+            text-decoration: overline;
+            text-transform: lowercase;
+        }
+        .p3{
+            color : rgb(255,0,0);
+            text-decoration: line-through;
+            text-transform: capitalize
+        }
+        .p4{
+            color : rgba(255,0,0,0.5);
+        }
+        .p4:hover{
+            cursor:pointer;
+        }
+        .p5{
+            text-decoration: none;
+        }
+        /********************************************/
+        /*Shadow Test*/
+        .shadow1{
+            font-size : 40px;
+        }
+        .shadow2{
+            color: orangered;
+            text-shadow: -10px -10px 1px orange;
+            /*가로 세로 번짐정도 그림자색*/
+        }
+        .shadow3{
+            font-size: 30px;
+            color:blue;
+            text-shadow: 2px 2px 5px #66FF00;
+        }
+        .shadow4{
+            color:black;
+            text-shadow: 10px 10px 3px #5d5d5d,
+                        10px -10px 3px #d9418c,
+                        -10px -10px 3px #d9418c,
+                        -10px 10px 3px #453154;
+
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <p id="p1">글꼴 TEST</p>
+    <p id="p2">글꼴 TEST</p>
+    <p id="p3">글꼴 TEST</p>
+    <p id="p4">글꼴 TEST / Sunflower</p>
+    <p id="p5">글꼴 TEST</p>
+    <p class="small">Hello</p>
+    <p>Hello</p>
+    <p id="p6">FontTest</p>
+    <hr>
+    <p class="p1">test</p>
+    <p class="p2">TEST</p>
+    <p class="p3">teSt</p>
+    <p class="p4">TEST</p>
+    <a class="p5" href="#">테스트 TEST</p></a>
+    <hr>
+    <p class="shadow1">Example Test</p>
+    <p class="shadow2">Example Test</p>
+    <p class="shadow3">Example Test</p>
+    <p class="shadow4">Example Test</p>
+    <p class="shadow5">Example Test</p>
+    
+    
+    <hr>
+    <style>
+        .letter1{
+            letter-spacing: 10px;
+        }
+        .letter2{
+            letter-spacing: 20px;
+        }
+        .word1{
+            word-spacing: 10px;
+        }
+        .word2{
+            word-spacing: 20px;
+        }
+    </style>
+    <p class="letter1">나는 지금 너무 피곤하지 않다.</p>
+    <p class="letter2">나는 지금 너무 피곤하지 않다.</p>
+    <p class="word1">나는 지금 너무 피곤하지 않다.</p>
+    <p class="word2">나는 지금 너무 피곤하지 않다.</p>
+</body>
+</html>

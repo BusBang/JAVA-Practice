@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--    <style type="text/css"-->
+<!--    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>-->
+    <style>
+        #box{
+/*            display: block;*/
+            background: black;
+            width : 100px;
+            height: :100px;
+        }
+    </style>
+</head>
+<body>
+    <P>
+        사각형의 색상을 선택하세요. <br>
+        <button id="btn" value="a">Red</button>
+        <button id="btn">Orange</button>
+        <button id="btn">Yellow</button>
+        <button id="btn">Green</button>
+        <button id="btn">Blue</button>
+    </P>
+    <div id='box'></div>
+    <p>선택한 색상은 <strong class='color'>검정색</strong>입니다.</p>
+    <script>
+        var btn = document.getElementById('btn');
+        console.log(btn);
+        alert(btn.value);
+        var selectedColor = document.getElementsByClassName('color');
+        for(i = 0; i<btn.length; i++) {
+            btn.addEventListener('click', function () {
+                box = document.getElementById("box");
+                box.style.width = "100px";
+                box.style.height = "100px";
+                box.style.background = this.innerText;
+                selectedColor[0].style.color = this.innerText;   
+                selectedColor[0].innerHTML= this.innerText;
+            });
+        }
+        
+    </script>
+</body>
+</html>

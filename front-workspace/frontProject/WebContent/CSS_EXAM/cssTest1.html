@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+
+    <!--내부스타일방식
+    <style>
+        p{
+            color:red;
+        }
+        h1{
+            color:aquamarine
+        }
+    </style>
+-->
+    <!--
+    외부스타일방식
+    <link href="css/first.css" rel="stylesheet" type="text/css">    
+-->
+
+    <!--인라인방식
+    <h1 style="color:blue;">테스트문구</h1>
+	-->
+    <style>
+        /* 자바의 범위 주석
+        *{
+            color : darkblue;
+        }
+        */
+        /*
+        p, h2 {
+            color: darkblue;
+        }
+
+        #p2 {
+            color:white;
+        }
+        */
+        .c1 {
+            background: yellow;
+        }
+
+        /*
+        
+        #id03 {
+            background : crimson;
+        }
+*/
+        .c2 {
+            color: crimson;
+        }
+
+        /*
+        .c4 {
+            background : black;
+        }
+*/
+        p[name=p1] {
+            color: red;
+        }
+
+        p[id=p2] {
+            background: red;
+        }
+
+        div>h1 {
+            background: blue;
+        }
+        div>ul {
+            background: coral;
+        }
+        div>ul>li>a {
+            background: green;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--
+    <h1 class="c2">테스트 문구</h1>
+    <h2>테스트 문구</h2>
+    <h3>테스트 문구</h3>
+    <p class="c1 c2">테스트 문구</p>
+    <h1>테스트 문구</h1>
+    <p class="c1">테스트 문구</p>  아이디 
+    <p id="id03">테스트 문구</p>
+    
+-->
+    <p name="p1">테스트</p>
+    <p id="p2">테스트</p>
+    <p class="p3">테스트</p>
+    <hr>
+    <h1>hi</h1>
+    <div>
+        <h1>div>hi</h1>
+        <div>
+            <h1>div>div>hi1</h1>
+        </div>
+        <h2>hello</h2>
+        <ul>
+            <li>테스트1</li>
+            <li><a>div a</a></li>
+            <li><a>div>ul>li>a</a></li>
+        </ul>
+    </div>
+    <hr>
+    <style>
+        /*동위 선택자*/
+        #d1>h1+p {
+            color : blueviolet;
+        }
+        #d1>h1~p {
+            background : yellow;
+        }
+        #d2, #d3 {
+            width:100px;
+            height: 100px;
+            border:1px solid black;
+        }
+/*        반응 선택자*/
+        #d2:hover {
+            color : beige;
+            background: blue;
+        }
+        #d3:active{
+            color : darkblue;
+            background:red;
+        }
+    </style>
+    
+    <div id="d1">
+        <h1>제목</h1>
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+    </div>
+<!--    반응 선택자 -->
+    <div id="d2">
+        d2
+    </div>
+    <div id="d3">
+        d3
+    </div>
+    <style>
+        input:focus{
+            color:white;
+            background:gray;
+        }
+        input:checked{
+            height:30px;
+            width:30px;
+        }
+        input:enabled{
+            background : beige;
+        }
+        input:disabled{
+            background : coral;
+        }
+    </style>
+    
+    <form action="/test.html" method="get">
+        <fieldset>
+            <legend>회원가입</legend>
+            ID : <input type="text" name="id"><br>
+            PW : <input type="password" name="pw" disabled><br>
+            NAME : <input type="text" name="name"><br>
+            성별 : <input type="radio" name="gender" value="남">남자
+            <input type="radio" name="gender" value="여">여자<br>
+            <input type="submit" value="가입하기">
+            
+            
+        </fieldset>
+    </form>
+    
+</body></html>

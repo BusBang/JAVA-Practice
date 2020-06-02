@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>스텝 메뉴</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<style>
+    /*        #D7FFF1 #8CD790 #77AF9C #C5E99B*/
+    div {
+        box-sizing: border-box;
+    }
+
+    .wrap {
+        width: 1000px;
+        height: 600px;
+        margin: 0 auto;
+        background-color: #D7FFF1;
+/*        box-shadow: 0.5px 0px 2px gray;*/
+    }
+
+    .head {
+        width: 100%;
+        height: 17%;
+    }
+
+    .content {
+        width: 100%;
+        height: 73%;
+/*        border-top : 1px solid gray;*/
+        border-bottom : 0.5px solid #77AF9C;
+/*        box-shadow: 0.5px 0px 2px gray;*/
+    }
+
+    .content>div {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+
+    .foot {
+        width: 100%;
+        height: 10%;
+        line-height: 60px;
+/*        box-shadow: 0.5px 0px 2px gray;*/
+/*        box-shadow: 0.5px 0px 3px gray;*/
+    }
+
+    .head>div {
+        float: left;
+        width: 25%;
+        height: 100%;
+        padding: 5px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        box-shadow: 0px 1px 3px gray;
+    }
+
+    a {
+        text-decoration-line: none;
+        color: black;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .step {
+        font-size: 1.5em;
+        font-weight: bold;
+/*        text-shadow: 1.5px 1px 3px gray;*/
+    }
+
+    .subStep {
+        font-size: 0.9em;
+/*        text-shadow: 1.5px 1px 3px gray;*/
+    }
+
+    button {
+        width: 110px;
+        height: 35px;
+        border-style: none;
+        background-color: #8CD790;
+        color: black;
+        font-size: 1.1em;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px gray;
+        text-shadow: 1px 1px 5px gray;
+        /*            font-weight: bolder;*/
+    }
+
+    #pre {
+        margin-top: 12px;
+        margin-left: 10px;
+        float: left;
+    }
+
+    #next {
+        margin-top: 12px;
+        margin-right: 10px;
+        float: right;
+    }
+
+    .off {
+        display: none;
+    }
+
+    .on {
+        display: block;
+    }
+
+    .selected {
+        background-color: #77AF9C;
+    }
+
+    .unsel {
+        background-color: #8CD790;
+    }
+</style>
+<script>
+
+    $(function() {
+        var step = 0;
+
+        function btnChange() {
+            if (step == 0) {
+                $("#pre").html("Done");
+            } else {
+                $("#pre").html("&lt; Back");
+            }
+            if (step == $(".head").children().length - 1) {
+                $("#next").html("Done");
+            } else {
+                $("#next").html("Next &gt;");
+            }
+        };
+        
+        $(".head>div").click(function() {
+            var sel = $(".head>div").index($(this));
+            if(sel-step<2) {
+                $(".head").children().removeClass("selected");
+                $(".content").children().removeClass("on");
+                $(".head>div").eq(sel).removeClass("unsel");
+
+                $(".head>div").each(function(index) {
+                    if (index < sel) {
+                        $(".head").children().eq(index).addClass("unsel");
+                    } else if (index == sel) {
+                        $(".head>div").eq(index).addClass("selected");
+                        $(".content>div").eq(sel).addClass("on");
+                        step = sel;
+                    } else {
+                        console.log(index);
+                        $(".head>div").eq(index).removeClass("unsel");
+                        $(".head>div").eq(index).removeClass("selected");
+                    }
+                });
+                btnChange();   
+            }
+        });
+
+        $("#next").click(function() {
+            if (step < $(".head").children().length - 1) {
+
+                var sel = $(".head>div").index();
+
+                $(".head").children().removeClass("selected");
+                $(".content").children().removeClass("on");
+                $(".head>div").eq(step).removeClass("unsel");
+                
+                for(var i = 0; i <=step; i++) {
+                    $(".head").children().eq(i).addClass("unsel");                  
+                }
+                
+                $(".head>div").eq(step+1).addClass("selected");
+                $(".content>div").eq(step+1).addClass("on");                
+                step++;
+            }
+            btnChange();
+        });
+
+        $("#pre").click(function() {
+            console.log(step + "스텝");
+            if (step > 0) {
+                var sel = $(".head>div").index();
+                
+                $(".head").children().removeClass("selected");
+                $(".content").children().removeClass("on");
+                $(".head>div").eq(step).removeClass("unsel");
+                
+                for (var i = 0; i < step - 1; i++) {
+                    $(".head").children().removeClass("selected");
+                    $(".head").children().eq(i).addClass("unsel");
+                }
+                $(".head>div").eq(step - 1).removeClass("unsel");
+                $(".head>div").eq(step - 1).addClass("selected");
+                $(".content>div").eq(step - 1).addClass("on");
+                step--;
+            }
+            btnChange();
+        });
+    });
+</script>
+
+<body>
+    <h1>스텝 메뉴</h1>
+    <hr>
+    <div class="wrap">
+        <div class="head">
+            <div class="selected">
+                <a href="#">
+                    <p class="step">Step 1</p>
+                    <p class="subStep">HTML5</p>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <p class="step">Step 2</p>
+                    <p class="subStep">CSS</p>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <p class="step">Step 3</p>
+                    <p class="subStep">JavaScript</p>
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <p class="step">Step 4</p>
+                    <p class="subStep">jQuery</p>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="off on">
+                <h2 style="text-shadow: 1px 1px 1px gray">HTML5</h2>
+                <hr>
+                <p>
+                    W3C가 발표하는 HTML의 최신 버전으로, 2014년 10월 28일 완전히 표준화되었다. XHTML에서 다시 HTML로 회귀하게 되었다. 따라서 HTML5는 XHTML의 상위 버전이 아니라, HTML4.01의 상위 버전이다. 완전히 XHTML 문법을 버린 것은 아니고 선택적으로 이용할 수 있게 되어있다. 어도비 플래시나 실버라이트 등의 플러그인을 기반으로 하는 응용 프로그램에 대한 필요성을 줄이는 것에 초점을 맞추고 있다. 이러한 방향성 덕분에 한국에서는 웹 표준에 대한 문제가 이슈로 떠오르면서 함께 주목을 받기도 하였다.
+                </p>
+                <p>
+                    HTML5라는 말은 의미가 넓어져, 꼭 W3C의 HTML5 표준만이 아닌 최신 웹 기술(HTML Living Standard, CSS3+, ECMAScript 6+ 등)을 통틀어 칭하기도 한다. HTML5가 상용화되면서 어도비 플래시는 지원 중단 절차를 밟게 되었다.
+                </p>
+            </div>
+            <div class="off">
+                <h2 style="text-shadow: 1px 1px 1px gray">CSS</h2>
+                <hr>
+                <p>
+                    HTML 등의 마크업 언어로 작성된 문서가 실제로 웹사이트에 표현되는 방법을 정해주는 언어. CSS의 C가 Cascading의 약자인데, 이는 상위 요소의 스타일 속성을 자손 요소들에게 상속시켜주는 모습이 DOM 트리구조에서 마치 폭포수처럼 내려가는 모습을 닮았기 때문이다.
+                </p>
+            </div>
+            <div class="off">
+                <h2 style="text-shadow: 1px 1px 1px gray">Javascript</h2>
+                <hr>
+                <p>
+                    프로토타입기반의 객체지향 프로그래밍 언어로, 스크립트 언어에 해당된다. 특수한 목적이 아닌 이상 모든 웹 브라우저에 인터프리터가 내장되어 있다. 오늘날 HTML, CSS와 함께 웹을 구성하는 요소 중 하나다. HTML이 웹 페이지의 기본 구조를 담당하고, CSS가 디자인을 담당한다면 JavaScript는 클라이언트 단에서 웹 페이지가 동작하는 것을 담당한다.[1] 웹 페이지를 자동차에 비유하자면, HTML은 자동차의 뼈대, CSS는 자동차의 외관, JavaScript는 자동차의 동력이라고 볼 수 있다.
+                </p>
+                <p>
+                    썬 마이크로시스템즈(현재 오라클)에서 개발한 Java와는 별 관계가 없는 언어이다. 이름이 비슷하다고 같은 언어가 아니다. 사람들이 흔히 헷갈리는 부분 중 하나. 실질적인 구동 방식도 JVM을 이용해서 돌리는 Java와, 브라우저 내에 스크립트 엔진(인터프리터)이 존재하는 JavaScript는 완전히 다르다. 햄이랑 햄스터가 다르고, 인도가 인도네시아와 다르듯 심지어는 웹 서버용 파생 규격도 다르다.
+                </p>
+                <p>
+                    JavaScript는 C에서 영향을 받은 C-Family 언어로 기본적인 문법이 유사 중괄호로 구분하는 블럭, 세미콜론으로 줄이 끝남을 알리는 것[2], 변수 쓰는 법, 연산자 사용법 등 기초적인 문법이 C 문법과 크게 다르지 않다.                
+                </p> 
+            </div>
+            <div class="off">
+                <h2 style="text-shadow: 1px 1px 1px gray">jQuery</h2>
+                <hr>
+                <p>
+                    jQuery는 HTML 속 클라이언트 사이드 스크립트 언어를 단순화하도록 설계된 브라우저 호환성이 있는 JavaScript 라이브러리이다. 존 레식에 의해 2006년 뉴욕 시 바캠프(Barcamp NYC)에서 공식적으로 소개되었다. 현재 가장 인기 있는 JavaScript 라이브러리이며 표준에 가까운 점유율을 자랑한다.
+                </p>
+            </div>
+        </div>
+        <div class="foot">
+            <button id="pre">Done</button>
+            <button id="next">Next &gt;</button>
+        </div>
+    </div>
+</body></html>

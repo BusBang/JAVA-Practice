@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script>
+        function test() {
+            alert("인터널 Hi");
+            alert("인터널 Hi2");
+            alert("인터널 Hi3");
+        }
+    </script>
+    <script src="js/first.js">
+    </script>
+</head>
+<body>
+    <button onclick="javascript:alert('hi');">인라인버튼</button><br>
+    <button onclick="test();">Internal</button><br>
+    <button onclick="test1();">External</button>
+
+    <button onclick="javascript:prompt();">prompt1</button>
+    <button onclick="javascript:confirm();">confirm1</button>
+
+    <a href="#">링크</a>
+    <hr>
+    <script>
+        function func1() {
+            document.write("<H1>추가</H1>");
+        }
+        function func2() {
+            console.log("로그");
+        }
+        function func3() {
+            var dg = confirm("동건아 영어단어 외워야지 응 ?");
+            if(dg) {
+            	alert("지금 시험보자. ㅋ");
+            }else {
+            	alert("ㅅㅂ");
+            }
+        }
+        function func4() {
+            var msg = prompt("할말 입력");
+            alert(msg);
+        }
+
+    </script>
+    <button onclick="func1();">첫 번째 버튼</button>
+    <button onclick="func2();">두 번째 버튼</button>
+    <button onclick="func3();">세 번째 버튼</button>
+    <button onclick="func4();">네 번째 버튼</button>
+
+    <br><hr>
+    <script>
+        function idTest() {
+            var p1 = document.getElementById("p1");
+            alert(p1.innerHTML);
+            alert(p1.id);
+            p1.style.color='black';
+            p1.innerHTML='1234';
+            alert(p1.outerHTML);
+        }
+        function classTest() {
+            var pp = document.getElementsByClassName("pp");
+            alert(pp[0].innerHTML);
+            alert(pp[1].innerHTML);
+            alert(pp[2].innerHTML);
+            alert(pp.innerHTML);
+        }
+    </script>
+    <p id="p1"> id는 p1입니다. </p>
+    <button onclick="idTest();">클릭</button>
+
+    <p class="pp">pp클래스1</p>
+    <p class="pp">pp클래스2</p>
+    <p class="pp">pp클래스3</p>
+    <button onclick="classTest();">pp버튼1</button>
+    <!--인풋 데이터 가져오기-->
+    <script>
+        function inputText() {
+            var it = document.getElementById("in1");
+            alert(it.value);
+            in1.value='우편 번호는 이렇게 들어간다';
+        }
+
+    </script>
+    <input id="in1" type="text" value="우편 번호" readonly>
+    <button onclick="inputText();">클릭</button>
+
+    <hr>
+    <script>
+        function chkbox() {
+            var chk = document.getElementById("chk");
+            alert(chk.checked);
+            if(chk.checked){
+                chk.checked = false;
+            }else {
+                chk.checked = true;
+            }
+        }
+    </script>
+    <input type="checkbox" id="chk" checked> <button onclick="chkbox();">클릭</button>
+
+
+
+</body>
+</html>

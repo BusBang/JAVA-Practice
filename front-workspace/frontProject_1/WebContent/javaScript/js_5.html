@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <style>
+        p{
+            height : 100px;
+            border : 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function test1() {
+            var stu= {
+                name : "방찬호", 
+                age : "27",
+                addr:"서울",
+                test:function() {
+                    alert("테스트함수");
+                },
+                info:function() {
+                var str ="";
+                str=this.name+"/"+this.age+"/"+this.addr;
+                return str;
+                }
+             }
+            stu.test();
+            var result = document.getElementById("result1");
+            result.innerHTML=stu.info();
+        }
+        function test2() {
+            var testObj = {a:100, b:200};
+            console.log(testObj);
+            console.log('a' in testObj);
+            console.log('b' in testObj);
+            console.log('c' in testObj);
+            with(testObj) {
+                a=300;
+                b=400;
+            }
+            console.log(testObj.a);
+            console.log(testObj.b);
+        }
+        function test3() {
+            var testObj={a:100, b:200};
+            testObj.c=300;
+            console.log(testObj);
+            console.log(testObj[2]);
+            console.log(testObj.c);
+            delete(testObj.c);
+            console.log(testObj);
+        }
+        function test4() {
+            var objArr = [];
+            var test1 = {a:100, b:200};
+            var test2 = {name:"Busbang", addr:"서울"};
+            var test3= {name:"서동건", addr:"부천"};
+            objArr.push(test1);
+            objArr.push(test2);
+            objArr.push(test3);
+            console.log(objArr)
+            console.log(objArr[2].addr);
+        }
+        ////////////////////////////////////////////////////
+        function test5() {
+            var name = prompt("이름 : ");
+            var age = prompt("나이 : ");
+            var addr = prompt("주소 : ");
+            var obj = getObj(name, age, addr);
+            console.log(obj);
+        }
+        function getObj(name, age, addr) {
+            var obj = {name:name, age:age, addr:addr};
+            return obj;
+        }
+        //////////////// 생성자로서 객체 만들기////////////
+        //Class 객체 만들듯이 대문자로 표기.
+        function Student(name, age, addr){
+            this.name = name;
+            this.age = age;
+            this.addr = addr;
+        }
+        function test6() {
+            var name = prompt("이름 : ");
+            var age = prompt("나이 : ");
+            var addr = prompt("주소 : ");
+            var stu = new Student(name, age, addr);
+            console.log(stu);
+        }
+        
+    </script>
+    <button onclick="test1();">확인 1</button>
+    <button onclick="test2();">확인 2</button>
+    <button onclick="test3();">확인 3</button>
+    <button onclick="test4();">확인 4</button>
+    <button onclick="test5();">확인 5</button>
+    <button onclick="test6();">확인 6</button>
+    <p id="result1"></p>
+</body>
+</html>

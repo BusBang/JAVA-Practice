@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>5분할 게시판</title>
+    <style>
+        div{
+            box-sizing: border-box;
+
+        }
+        .wrapper {
+            margin : 0 auto;
+            width:1280px;
+            border : 1px solid black;
+        }
+        .header {
+            overflow: hidden;
+/*            height: 200px;*/
+            border : 1px dashed red;
+            border-bottom: none;
+        }
+        .layer1 {
+            width : 10%;
+            height : 500px;
+            border : 1px solid blue;
+        }
+/*        컨텐트에 Hidden을 줌으로서 높이 값을 갖게 된다.*/
+        .content {
+            overflow: hidden;
+        }
+        .layer2 {
+            width:70%;
+            height : 500px;
+            border : 1px solid blue;
+
+        }
+        .layer3 {
+            width: 20%;
+            height : 500px;
+            border : 1px dotted red;
+        }
+        .content>div {
+            float : left;
+        }
+        .footer {
+            height : 150px;
+            border : 1px solid green;
+        }
+        .hTitle {
+            height : 100px;
+            border : 1px solid purple;
+        }
+        .hSubTitle {
+            width: 100%;
+            overflow: hidden;
+        }
+        .hTitle1, .hTitle3 {
+            width: 15%;
+            height: 100%;
+            border : 1px solid red;
+        }
+        .hTitle2 {
+            width : 70%;
+            height: 100%;
+            border : 1px solid red;
+        }
+        .hTitle>div {
+            float: left;
+        }
+/*
+        .hTitle {
+            overflow: hidden;
+        }
+*/
+/*****************SubTitle - Menu**********************/
+        .ul1 {
+            display: inline-flex;
+            list-style: none;
+            margin: 0 auto;
+            padding: 0;
+        }
+        .form {
+            box-sizing: border-box;
+            border: 1px solid #EB8921;
+            background-color: #2e2f2f;
+            color: #EB8921;
+            width: calc(1278px/6);
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+            box-shadow: 1px 1px 5px 1px gray;
+        }
+        .form:hover {
+            background-color: #EB9021;
+            color: #2e2f2f;
+            border-bottom-color: 1px solid #eb9021;
+            box-shadow: 0.5px 0.5px 5px 1px gray;
+            font-weight: bold;
+            text-shadow: 1px 1px gray;
+        }
+
+        .ul1>a:first-child>li {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .ul1>a:last-child>li {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .aform {
+            text-decoration-line: none;
+        }
+/******************************************************************/
+    </style>
+    </head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="hTitle">
+                <div class="hTitle1"></div>
+                <div class="hTitle2"></div>
+                <div class="hTitle3"></div>
+            </div>
+            <div class="hSubTitle">
+<!--                내비게이션바-->
+                <ul class='ul1'>
+                    <a class='aform a1' href="#"><li class='form li1'>JAVA</li></a>
+                    <a class='aform a2' href="#"><li class='form li2'>ORACLE</li></a>
+                    <a class='aform a3' href="#"><li class='form li3'>HTML5</li></a>
+                    <a class='aform a4' href="#"><li class='form li4'>CSS3</li></a>
+                    <a class='aform a5' href="#"><li class='form li5'>javascript</li></a>
+                    <a class='aform a6' href="#"><li class='form li6'>jQuery</li></a>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="layer1"></div>
+            <div class="layer2">
+                <img src="../imgs/%EB%A9%94%EC%9D%B81.PNG" width=100%>
+            </div>
+            <div class="layer3">
+                <img src="../imgs/%EB%A9%94%EC%9D%B82.PNG" width=100%>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+         
+
+</body>
+</html>

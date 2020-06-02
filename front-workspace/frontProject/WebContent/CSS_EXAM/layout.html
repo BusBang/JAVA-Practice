@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>layout</title>
+    <style>
+        .div1 {
+            background-color: beige;
+            width: 200px;
+            height: 100px;
+            display: inline;
+        }
+
+        .s1 {
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+            /*인라인 속성은 원래 크기 조정이 되지 않는다.*/
+            display: block;
+        }
+
+        .div2 {
+            background-color: yellowgreen;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            display: inline-block;
+            /*블록들을 가로로 배치하고 크기 조절이 가능함*/
+        }
+
+        a {
+            line-height: 50px;
+            display: block;
+
+            height: 50px;
+            text-decoration: none;
+        }
+
+        #google:hover>a {
+            display: block;
+        }
+
+        #googlea {
+            display: none;
+        }
+
+        #daum:hover>a {
+            display: block;
+        }
+
+        #dauma {
+            display: none;
+        }
+
+        .div3 {
+            width: 50px;
+            height: 50px;
+            border-style: dashed dotted;
+            border-top-width: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="div1">........................................................</div>
+    <div class="div1"></div>
+    <span class="s1">...................................................................................................</span>
+    <div class="div2" id="naver">
+        <a href="http://www.naver.com">네이버</a>
+    </div>
+    <div class="div2" id="daum">
+        <a id=dauma href="http://www.daum.net">다음</a>
+    </div>
+    <div class="div2" id="google">
+        <a id="googlea" href="http://www.google.com">구글</a>
+    </div>
+    <hr>
+    <div class="div3"></div>
+
+    <hr>
+    <style>
+        .rad {
+            width: 100px;
+            height: 100px;
+            border: 3px solid black;
+            display: inline-block;
+        }
+
+        .r1 {
+            border-top-left-radius: 10px;
+        }
+
+        .r2 {
+            border-top-right-radius: 10px;
+        }
+
+        .r3 {
+            border-bottom-right-radius: 10px;
+        }
+
+        .r4 {
+            border-bottom-left-radius: 10px;
+        }
+
+        .r5 {
+            border-radius: 10px;
+        }
+
+        .r6 {
+            border-radius: 10px 20px 40px 80px;
+        }
+
+        .s1 {
+            box-shadow: 10px 10px 50px 100px;
+            /*가로 세로 번짐 크기*/
+        }
+
+    </style>
+    <div class="rad r1"></div>
+    <div class="rad r2"></div>
+    <div class="rad r3"></div>
+    <div class="rad r4"></div>
+    <div class="rad r5"></div>
+    <div class="rad r6"></div>
+    <div class="rad s1"></div>
+    <div class="rad s2"></div>
+    <div class="rad s3"></div>
+    <br><br><br><br><br><br>
+    <!-------------------------------------------------------->
+    <hr>
+    <p>다음과 같이 테이블을 꾸며보세요</p>
+    <style>
+        .d1 {
+            width: 100px;
+            height: 100px;
+            border-style: solid dashed dashed solid;
+            border-top-left-radius: 10px;
+            border-color: blue;
+
+        }
+
+        .d2 {
+            width: 100px;
+            height: 100px;
+            border-style: dashed;
+        }
+
+        .d3 {
+            width: 100px;
+            height: 100px;
+            border-style: solid solid dashed dashed;
+            border-top-right-radius: 10px;
+            border-color: green;
+        }
+
+        .d4 {
+            width: 100px;
+            height: 100px;
+            border-style: dashed;
+        }
+
+        .d5 {
+            width: 100px;
+            height: 100px;
+            border-style: dotted;
+            border-color: mediumpurple;
+        }
+
+        .d6 {
+            width: 100px;
+            height: 100px;
+            border-style: dashed;
+            border-color: black;
+        }
+
+        .d7 {
+            width: 100px;
+            height: 100px;
+            border-style: dashed dashed solid solid;
+            border-color: yellow;
+            border-bottom-left-radius: 10px;
+        }
+
+        .d8 {
+            width: 100px;
+            height: 100px;
+            border-style: dashed;
+            border-color: black;
+        }
+
+        .d9 {
+            width: 100px;
+            height: 100px;
+            border-style: dashed solid solid dashed;
+            border-color: crimson;
+            border-bottom-right-radius: 10px;
+        }
+
+        .t1 {
+            margin: -1px;
+        }
+
+    </style>
+    <table>
+        <tr>
+            <th>
+                <div class="d1 t1"></div>
+            </th>
+            <th>
+                <div class="d2 t1"></div>
+            </th>
+            <th>
+                <div class="d3 t1"></div>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <div class="d4 t1"></div>
+            </th>
+            <th>
+                <div class="d5 t1"></div>
+            </th>
+            <th>
+                <div class="d6 t1"></div>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <div class="d7 t1"></div>
+            </th>
+            <th>
+                <div class="d8 t1"></div>
+            </th>
+            <th>
+                <div class="d9 t1"></div>
+            </th>
+        </tr>
+
+    </table>
+    <hr>
+    <p>다음과 같이 테이블을 꾸며보세요</p>
+    <style>
+        .default {
+            width: 100px;
+            height: 100px;
+            border: 3px solid black;
+            display: inline-block;
+            margin-right : -4.5px;
+            margin-bottom : -3px;
+        }
+        .b1 {
+            border-color: blue;
+            border-top-left-radius: 10px;
+            border-style: solid dashed dashed solid;
+        }
+        .b2 {
+            border-color: black;
+            border-style: dashed;
+        }
+        .b3 {
+            border-color: green;
+            border-top-right-radius: 10px;
+            border-style: solid solid dashed dashed;
+        }
+        .b4 {
+            border-color: black;
+            border-style: dashed;
+        }
+        .b5 {
+            border-color: violet;
+            border-style: dotted;
+        }
+        .b6 {
+            border-color: black;
+            border-style: dashed;
+        }
+        .b7 {
+            border-color: yellow;
+            border-bottom-left-radius: 10px;
+            border-style: dashed dashed solid solid ;
+        }
+        .b8 {
+            border-color: black;
+            border-style: dashed;
+        }
+        .b9 {
+            border-color: crimson;
+            border-bottom-right-radius: 10px;
+            border-style: dashed solid solid dashed;
+        }      
+
+
+    </style>
+    <div>
+        <div class="default b1"></div>
+        <div class="default b2"></div>
+        <div class="default b3"></div>
+    </div>
+    <div>
+        <div class="default b4"></div>
+        <div class="default b5"></div>
+        <div class="default b6"></div>
+    </div>
+    <div>
+        <div class="default b7"></div>
+        <div class="default b8"></div>
+        <div class="default b9"></div>
+    </div>
+    
+    <br><hr><br>
+    <style>
+        .ma{
+            border : 1px solid black;
+            background-color: black;
+            color: aliceblue;
+            width:200px;
+            height: 200px;
+            margin-left: 10px; /*컨텐츠 영역이 아닌 박스 밖 공간이 생긴다. */
+            padding-left: 10px; /*박스 내 박스와 컨텐츠 사이에 공간이 생긴다.*/
+        }
+         .ma2{
+            border : 1px solid black;
+            background-color: black;
+            color: aliceblue;
+            width:200px;
+            height: 200px;
+            margin-left: 10px; /*컨텐츠 영역이 아닌 박스 밖 공간이 생긴다. */
+            padding-left: 10px; /*박스 내 박스와 컨텐츠 사이에 공간이 생긴다.*/
+        }
+        ul{
+            padding : -40px;
+            margin : -10px;
+        }
+    </style>
+    <div class="ma">
+    HI
+    </div>
+    <br>
+    <ul class="p1">
+        <li>hi1</li>
+        <li>hi1</li>
+        <li>hi1</li>
+    </ul>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><hr>
+    <style>
+        .d22{
+            width : 500px;
+            height:300px;
+            border : 1px solid black;
+            box-sizing: content-box; /**/
+        }
+        .d23{
+            /*박스의 사이즈는 내용250+테두리2*/
+            box-sizing: border-box; /*넓이의 윤곽선까지 포함해 250으로 잡아준다 그러므로 컨텐츠는 248*/
+        
+            float : left;
+            border : 1px dashed blue;
+            height : 300px;
+            width:250px;
+        }
+    </style>
+    <div class="d22">
+        <div class="d23"></div>
+        <div class="d23"></div>
+    </div>
+    
+
+</body>
+
+</html>

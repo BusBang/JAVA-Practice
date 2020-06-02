@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Font CSS 2</title>
+    <style>
+        .p1{
+            text-indent : 30px;
+        }
+        .p3{
+            line-height: 50px;
+        }
+        #d1{
+            width:200px;
+            height:50px;
+            border : 1px solid black;
+            text-align: center;
+            line-height: 50px; /*글자의 크기가 더 작을 땐, div의 크기와 같게 맞춰준다. */
+        }
+        .p4{
+            border : 1px solid black;
+            width : 15em;
+            white-space: nowrap;
+            overflow:hidden;
+            text-overflow: clip;
+        }
+        .p5{
+            border : 1px solid black;
+            width:15em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <p class="p1">Test 문구</p>
+    <p class="p2">Test 문구</p>
+    <hr>
+    <p class="p3">Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구Test문구</p>
+    <div id="d1">글자테스트</div>
+    <p class="p4">이건 테스트를 위한 문구입니다. 그러니 더 길게 쓰도록 하겠습니다. </p>
+    <p class="p5">이건 테스트를 위한 문구입니다. 그러니 더 길게 쓰도록 하겠습니다. </p>
+    
+    <br><hr><br>
+    <style>
+        .ul1{
+            /*흑색원형*/
+            list-style-type:disc; 
+            /*속이 빈 원형*/
+            list-style-type: circle;
+            /*사각형*/
+            list-style-type: square;
+            /*아무 것도 없음*/
+            list-style-type: none;
+        }
+        .ul1{
+            list-style-image:url(../imgs/kakao.jpg);
+            list-style-position:inside;
+        }
+    </style>
+    <ul class="ul1">
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+    </ul>
+    
+    
+</body>
+
+</html>

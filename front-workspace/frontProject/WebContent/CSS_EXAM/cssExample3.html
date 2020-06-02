@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>글꼴 관련 스타일</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Modak|Sunflower:300&display=swap" rel="stylesheet">
+    <style>
+        .goongseo{
+            font-family: "궁서체";
+        }
+        .gothic{
+            font-family: "고딕체";
+        }
+        .no-font{
+            font-family: "없는 글꼴";
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .bold700{
+            font-weight: 700;
+        }
+        .light100{
+            font-weight: 100;
+        }
+        .modak {
+            font-family: 'Modak', cursive;
+        }
+        .px25 {
+            font-size: 25px;
+        }
+        .em125 {
+            font-size: 1.25em;
+        }
+        .var-caps{
+            font-variant: small-caps;
+        }
+        .italic{
+            font-style: italic;
+        }
+        .obilque{
+            font-style: oblique;
+        }
+        .style01{
+            font : 16px "궁서체";
+        }
+        .style02{
+            font : italic bold 20px "고딕체";
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <h2>글꼴 관련 스타일</h2>
+    <hr>
+    <h4>font-family 속성 : 텍스트의 글꼴을 지정할 때 사용한다.</h4>
+    <pre> 선택자 { font-family : 글꼴이름; }의 형식으로 사용된다.</pre>
+    <p class="goongseo">글꼴 변경 테스트1(궁서체)</p>
+    <p class="gothic">글꼴 변경 테스트2(고딕체)</p>
+    <p class="no-font">글꼴 변경 테스트3(없는 글꼴)</p>
+    <p class="bold">** 웹 폰트 사용하는 방법</p>
+    <p>웹 폰트 제공 사이트 예시 : <a href="https://fonts.google.com/">구글 웹폰트 사이트로</a></p>
+    <p class="modak">font style test (Modak)</p>
+    <hr>
+    <h4>font-size 속성 : 텍스트의 크기를 변경할 때 사용한다.</h4>
+    <pre> 선택자 { font-size : 크기; }의 형식으로 사용된다.</pre>
+    <ul>
+        <li class="px25">고정크기 px 테스트 </li>
+        <li class="em125">가변크기 % 테스트 </li>
+    </ul>
+    <hr>
+    <h4>font-weight 속성 : 두꺼운 글씨를 표현할 때 사용한다. </h4>
+    <pre> 선택자 { font-weight : normal | bold | bolder | lighter | 100 | 400 | 900; }의 형식으로 표현한다. </pre>
+    <ul>
+        <li class="bold">굵은 글꼴로 변경</li>
+        <li class="light100">원래 굵기보다 더 가늘게</li>
+        <li class="bold700">원래 굵기보다 더 굵게</li>
+    </ul>
+    <hr>
+    <h4>font-variant 속성 : 작은 대문자로 변경할 때 사용한다. </h4>
+    <pre> 선택자 {font-variant : 속성값; }의 형식으로 사용된다. </pre>
+    <p>I LOVE YOU</p>
+    <p class="var-caps">i love you</p>
+    <hr>
+    <h4>font-style 속성 : 텍스트의 기울임을 지정할 때 사용한다. </h4>
+    <pre> 선택자 { font-style : normal |italic |oblique; }의 형식으로 사용한다. </pre>
+    <ul>
+        <li class="italic">italic 기울임 글꼴</li>
+        <li class="obilque">obilque 기울임 글꼴</li>
+    </ul>
+    <hr>
+    <h4>font 속성 : 글꼴 관련 스타일을 한 번에 지정할 때 사용한다. </h4>
+    <pre> 선택자 { font : font-style font-variant font-weight font-size/line-height font-family; }의 형식으로 사용한다. </pre>
+    <ul>
+        <li class="style01">글꼴 관련 스타일 테스트1 (16px 궁서체)</li>
+        <li class="style02">글꼴 관련 스타일 테스트2 (italic bold 20px 고딕체)</li>
+    </ul>
+    <hr>
+</body></html>

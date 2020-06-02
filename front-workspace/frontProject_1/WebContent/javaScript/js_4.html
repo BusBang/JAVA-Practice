@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <script>
+        function test1(msg) {
+            alert(msg);
+        }
+        
+//        (function() {
+//            alert("이건 그냥 뜨는 함수다");
+//        })();
+//        
+        var test2 = function () {
+            alert("test2 function")
+            return "테스트2 함수 리턴값";
+        }
+//        
+//        test2();
+//        
+        function test3() {
+            test1("테스트1 함수 호출111111111111","ㅁㄴㅇㄹ");
+            var test = test2();
+            alert(test+"은 테스트2 함수의 리턴값");
+        }
+        function test4(val) {
+//            alert(val.innerHTML);
+            val.style.color="red";
+        }
+        
+    </script>
+    <button onclick="test1('msgmsg');">선언형 함수</button>
+    <button onclick="test3();">함수 호출</button>
+    <hr>
+    <div onclick="test4(this);">테스트1</div>
+    <div onclick="test6(this);">테스트3</div>
+    <hr>
+    <script>
+        var count = 0;
+        function inc() {
+            count++;
+            return count;
+        }
+        function test5(){
+            console.log(inc());
+        }
+        function init() {
+            var cnt = 0;
+            return function inc2() {
+                cnt++;
+                return cnt;
+            }
+        }
+        var x = init();
+        function test6() {
+            console.log(x());
+        }
+    </script>
+    <div onclick="test5();">테스트2</div>
+    <button onclick="test6();">클로저테스트</button>
+    
+    <hr>
+    <script>
+        function origin() {
+            var str = "http://www.kh.org?hello=안녕하세요";
+            alert(str);
+        }
+        function enc() {
+            var str = "http://www.kh.org?hello=안녕하세요";
+            var str1 = escape(str);
+            alert(str1);
+        }
+        function dec() {
+            var str = "http://www.kh.org?hello=안녕하세요";
+            var str1 = escape(str);
+            var str2 = unescape(str1);
+            alert(str2);
+        }
+    </script>
+    <button onclick = "origin();">원본</button>
+    <button onclick = "enc();">인코딩</button>
+    <button onclick = "dec();">디코딩</button>
+    <hr>
+    <script>
+        function evalText() {
+            var str ="";
+            str += "document.getElementById('text1').value + '+'";
+            str += "+document.getElementById('text2').value + '='";
+            str += "+(Number(document.getElementById('text1').value)";
+            str += "+Number(document.getElementById('text2').value))";
+            var p1 = document.getElementById("p1");
+            p1.innerHTML=eval(str);
+        }
+        function numberTest(){
+            var text1 = document.getElementById("text1").value;
+            var text2 = Number(document.getElementById("text2").value);
+            console.log(isFinite(text1));
+            console.log(isFinite(text2));
+            console.log(isNaN(text1));
+            console.log(isNaN(text2));
+            
+        }
+    </script>
+    
+    첫 번째 수 : <input type="text" id="text1"><br>
+    두 번째 수 : <input type="text" id="text2"><br>
+    <button onclick="evalText()">더하기</button>
+    <button onclick="numberTest()">확인</button>
+    <p id ="p1"></p>
+    
+</body>
+</html>

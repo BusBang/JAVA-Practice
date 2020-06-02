@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $(function() {
+            var first = $("h3").first();
+            first.css("color","red");
+            var last = $("h3").last();
+            last.css("color","blue");
+            var second = $("h3").eq(1);
+            second.css("color","hotpink");
+            
+            $("h3").filter(".h").css("background-color","yellow");
+            $("h3").not(".h").css("background-color", "cyan");
+            
+        });
+    </script>
+</head>
+<body>
+    <h3 class="h">Header-0</h3>
+    <h3 class="h">Header-1</h3>
+    <h3>Header-2</h3>
+    <h3>Header-3</h3>
+    <hr>
+    <h1>Ancestor</h1>
+    <style>
+        .ancestors *, .descendants *, .sideway *{
+            display : block;
+            border: 2px solid lightgray;
+            color:lightgray;
+            padding : 5px;
+            margin : 15px;
+        }
+    </style>
+    <script>
+        function test1() {
+            var par = $("span").parent();
+            par.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+            alert("span의 parent입니다!");
+        }
+        function test2() {
+            var pars = $("span").parents();
+            pars.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+            alert("span의 parent입니다!");
+        }
+        function test3() {
+            var par = $("span").parents("ul");
+            par.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+            alert("span의 parents('ul')입니다!");            
+        }
+        function test4() {
+            var par = $("span").parentsUntil("div");
+            console.log(par);
+            par.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+            alert("span의 parentsUntil('div')입니다!");            
+        }
+    </script>
+    <div class="ancestors">
+        <div style="width:500px;">div(great-grand parent)
+            <ul>ul(grand parent)
+                <li>li(direct parent)
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+        <div style="width:500px;">div(grand parent)
+            <p>p(direct parent)
+                <span>span</span>
+            </p>
+        </div>
+    </div>
+    <button onclick="test1();">Parent()</button>
+    <button onclick="test2();">Parents()</button>
+    <button onclick="test3();">Parents("ul")</button>
+    <button onclick="test4();">ParentsUntil(div)</button>
+    
+    <hr>
+    <h1>Descendant</h1>
+     <div class="descendants">
+        <div style="width:500px;" class="child1">div(current element)
+            <ul>ul(child)
+                <li>li(grand-child)
+                    <span>span(great-grand child)</span>
+                </li>
+            </ul>
+        </div>
+        <div style="width:500px;" class="child2">div(currect element)
+            <p>p(child)
+                <span>span(grand-child)</span>
+            </p>
+        </div>
+    </div>
+    <button onclick="test5();">children(".child1")</button>
+    <button onclick="test6();">find("span")</button>
+
+    <script>
+        function test5() {
+            var child = $(".descendants").children(".child1");
+            child.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+        function test6() {
+            var child = $(".descendants").find("span");
+            child.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+
+    </script>
+    <hr>
+    <script>
+        function test7() {
+            var si = $("#hh").siblings();
+            si.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+        function test8() {
+            var si = $("#hh").next();
+            si.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+        function test9() {
+            var si = $("#hh").nextAll();
+            si.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+        function test10() {
+            var si = $("#hh").nextUntil("p");
+            si.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+        function test11() {
+            var si = $("#hh2").prev();
+            si.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+        function test12() {
+            var si = $("#hh2").prevAll();
+            si.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+        function test13() {
+            var si = $("#hh2").prevUntil("p");
+            si.css("border", "2px solid red").css("color", "red").css("font-weight", "bold");
+        }
+    </script>
+    <h1>sideway</h1>
+    <div class="sideway">
+        <div>div(parent)
+            <p>p</p>
+            <span>span</span>
+            <h2 id="hh">h2</h2>
+            <h3>h3</h3>
+            <h4>h4</h4>
+            <h5 id="hh2">h5</h5>
+            <h6>h6</h6>
+            <p>p</p>
+        </div>
+    </div>
+    <button onclick="test7();">siblings()</button>
+    <button onclick="test8();">next()</button>
+    <button onclick="test9();">nextAll()</button>
+    <button onclick="test10();">nextUntil("p")</button>
+    <button onclick="test11();">prev()</button>
+    <button onclick="test12();">prevAll()</button>
+    <button onclick="test13();">prevUntil(p)</button>
+    
+    
+</body>
+</html>
