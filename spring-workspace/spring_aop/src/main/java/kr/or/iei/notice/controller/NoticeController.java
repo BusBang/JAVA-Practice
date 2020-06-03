@@ -14,6 +14,7 @@ import java.util.Date;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,7 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-
+import kr.or.iei.member.model.vo.Member;
 import kr.or.iei.notice.model.service.NoticeService;
 import kr.or.iei.notice.model.vo.Notice;
 import kr.or.iei.notice.model.vo.NoticeData;
@@ -35,7 +36,9 @@ public class NoticeController {
 	private NoticeService service;	
 	
 	@RequestMapping(value="/noticeWriteFrm.do")
-	public String noticeWriteFrm() {
+	public String noticeWriteFrm(HttpSession session, Model model) {
+		Member m = (Member)session.getAttribute("member");
+		model.addAttribute("m", m);
 		return "notice/noticeFrm";
 	}
 	

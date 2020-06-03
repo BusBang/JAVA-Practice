@@ -13,7 +13,7 @@
 				(select
 					notice_no as noticeNo, notice_title as noticeTitle, notice_writer as noticeWriter,
 					notice_content as noticeContent, filename, filepath, reg_date as regDate
-				from notice	order by notice_no) n) 
+				from notice	order by notice_no desc) n) 
 		where rnum BETWEEN #{start} and #{end}
 	</select>
 	<select id="selectOneNotice" parameterType="int" resultType="notice">

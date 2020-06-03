@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -41,7 +43,7 @@ public class MemberController {
 	public String allMember() {
 		return "member/allMember";
 	}
-	
+	@CrossOrigin(origins = {"http://192.168.10.179","http://192.168.10.188","http://localhost"})
 	@ResponseBody
 	@RequestMapping(value="/checkId.do", produces = "text/html; charset=utf-8")
 	public String checkId(Member m) {
@@ -126,6 +128,15 @@ public class MemberController {
 			model.addAttribute("m",m);
 			return "member/mypage";			
 		}
+	}
+	@RequestMapping("/error.do")
+	public String error() {
+		return "member/error";
+	}
+	
+	@ExceptionHandler(RuntimeException.class)
+	public String errorHandler() {
+		return "redirect:/error.do";
 	}
 
 }

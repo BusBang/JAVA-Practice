@@ -21,7 +21,7 @@
 	<form action="noticeUpdate.do" method="get" enctype="multipart/form-data">
 		<input type="hidden" value="${n.noticeNo }">
 		제목 : <input type="text" value="${n.noticeTitle }" name="noticeTitle"><br>
-		작성자 : <input type="text" value="${n.noticeWriter }" name="noticeWriter"><br>
+		작성자 : <input type="text" value="${n.noticeWriter }" name="noticeWriter" readonly><br>
 		첨부파일 : <input type="hidden" name="status" value="stay">
 				 <c:if test="${not empty n.filename }">
 						<!-- 파일첨부돼있을때, 삭제 버튼을 누르면 첨부 파일이 사라져보이게 delFile 클래스를 이용 -->
