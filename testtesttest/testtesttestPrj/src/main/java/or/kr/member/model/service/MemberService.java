@@ -32,4 +32,8 @@ public class MemberService {
 	public int updateMember(Member m) {
 		return dao.updateMember(m);
 	}
+
+	public int deleteMember(String memberId) {
+		return dao.deleteMember(memberId);
+	}
 }

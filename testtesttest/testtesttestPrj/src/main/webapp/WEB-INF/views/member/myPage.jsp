@@ -9,16 +9,18 @@
 <body>
 	<h1>마이페이지</h1>
 	<hr>
-		<form action="updateMember.do" method="post">
+	<form action="updateMember.do" method="post">
 		NO : <input type="text" name="memberNo" value="${sessionScope.member.memberNo }" readonly><br>
 		ID : <input type="text" name="memberId" value="${sessionScope.member.memberId }" readonly><br>
 		PW : <input type="password" name="memberPw" value="${sessionScope.member.memberPw }" readonly><br>
 		NAME : <input type="text" name="memberName" value="${sessionScope.member.memberName }"><br>
 		AGE : <input type="text" name="age" value="${sessionScope.member.age }"><br>
 		ENROLL_DATE : <input type="text" name="enrollDate" value="${sessionScope.member.enrollDate }"><br>
-	<input type="submit" value="Modify">
+		<input type="submit" value="Modify">
+		<a href="deleteMember.do?memberId=${sessionScope.member.memberId }">회원탈퇴</a>	
 	</form>
 	<hr>
+	<a href="goToMain.do">메인 페이지로</a>
 	
 </body>
 </html>

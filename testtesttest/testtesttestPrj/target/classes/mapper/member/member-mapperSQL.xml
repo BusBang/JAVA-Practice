@@ -14,11 +14,14 @@
 			enroll_date as enrollDate
 		from member
 		where member_id = #{memberId}
-		<if test="memberPw != null || memberPw != ''">
+		<if test="memberPw != null">
 			and member_pw = #{memberPw}
 		</if>
 	</select>	
 	<update id="updateMember" parameterType="member">
 		update member set member_name=#{memberName}, age=#{age}, enroll_date = #{enrollDate} where member_id = #{memberId}
 	</update>
+	<delete id="deleteMember" parameterType="string">
+		delete from member where member_id = #{_parameter}
+	</delete>
 </mapper>

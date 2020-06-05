@@ -55,7 +55,7 @@ public class MemberController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
-	}z
+	}
 	@RequestMapping(value="/myPage.do")
 	public String myPage() {
 		return "member/myPage";
@@ -63,13 +63,26 @@ public class MemberController {
 	@RequestMapping(value="/updateMember.do")
 	public String updateMember(Member m, HttpSession session) {
 		int result = service.updateMember(m);
+		Member member = (Member)session.getAttribute("member");
 		if(result>0) {
 			System.out.println("수정 성공");
-			m.setMemberPw("");
-			Member member = service.selectOneMember(m);
-			session.setAttribute("member", member);
+			member.setMemberPw(null);
+			Member newMember = service.selectOneMember(member);
+			System.out.println(newMember.getMemberId());
+			session.setAttribute("member", newMember);
 		}else {
 			System.out.println("수정 실패");
+		}
+		return "member/myPage";
+	}
+	@RequestMapping(value="/deleteMember.do")
+	public String deleteMember(String memberId, HttpSession session) {
+		int result = service.deleteMember(memberId);
+		if(result >0) {
+			session.invalidate();
+			System.out.println("삭제 성공");
+		}else {
+			System.out.println("삭제 실패");
 		}
 		return "redirect:/";
 	}
