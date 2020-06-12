@@ -134,6 +134,7 @@ public class MemberController {
 		return "member/error";
 	}
 	
+	
 	@ExceptionHandler(RuntimeException.class)
 	public String errorHandler() {
 		return "redirect:/error.do";

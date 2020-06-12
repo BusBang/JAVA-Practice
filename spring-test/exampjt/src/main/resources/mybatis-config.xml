@@ -5,6 +5,6 @@
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
 	<typeAliases>
-		<typeAlias type="kr.message.model.vo.Message" alias="message"/>
+		<typeAlias type="kr.member.model.vo.Member" alias="member"/>
 	</typeAliases>
 </configuration>

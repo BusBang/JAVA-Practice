@@ -37,7 +37,6 @@
 			<th>이름</th>
 			<th>나이</th>
 		</tr>
-		
 	</table>
 </body>
 </html>

@@ -1,4 +1,5 @@
 package ncs.kh.advices;
+
 import org.aspectj.lang.JoinPoint;
 
 import org.aspectj.lang.Signature;
@@ -13,16 +14,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LogAdvisor {
+public class LogAdviser {
 
-	@Pointcut("execution(* ncs.kh.dao.MembersDAO.*())")
-	public void printLog() {}
-	
+	@Pointcut("execution(* ncs.kh.dao.MembersDAO.*(..))")
+	public void printLog() {
+		System.out.println("asdfasdf");
+	}
 	@Before("printLog()")
+
 	public void before(JoinPoint jp) {
-	Signature p = jp.getSignature();
-	String methodName = p.getName();
-	System.out.println(methodName);
+		System.out.println("asdfsadf");
+		Signature p = jp.getSignature();
+		String methodName = p.getName();
+		System.out.println(methodName);
+
 	}
 
 }
