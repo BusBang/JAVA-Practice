@@ -30,5 +30,7 @@
 	<a href="/noticeWriteFrm.do">게시글 작성</a><br>
 	<a href="/noticeWriteFrm.do">게시글 작성</a><br>
 	</c:if>
+	<br>
+	<a href="/aladdin.jsp">알라딘검색창</a>
 </body>
 </html>

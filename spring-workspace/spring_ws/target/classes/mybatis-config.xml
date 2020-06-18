@@ -5,6 +5,7 @@
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
 	<typeAliases>
+		<typeAlias type="kr.or.iei.member.model.vo.Book" alias="book"/>
 		<typeAlias type="kr.or.iei.member.model.vo.Member" alias="member"/>
 		<typeAlias type="kr.or.iei.notice.model.vo.Notice" alias="notice"/>
 		<typeAlias type="kr.or.iei.notice.model.vo.NoticeData" alias="noticeData"/>
