@@ -157,8 +157,6 @@
 
 $(document).ready(function(){
   google.charts.load('current', {'packages':['line','controls']});
-	/* 파이차트 로딩 */
-  google.charts.load('current', {'packages':['corechart']});
 
   chartDrowFun.chartDrow(); //chartDrow() 실행
 });
@@ -172,23 +170,90 @@ $(document).ready(function(){
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['GENRE', 'one Genre in ReadingBooks'],
-          ['로맨스',     20],
-          ['소설/희곡/시',      10],
-          ['참고서',  4],
-          ['경제경영', 9],
-          ['잡지',    13]
+          ['로맨스', 50],
+          ['소설/희곡/시', 25],
+          ['참고서',  20],
+          ['경제경영', 15],
+          ['잡지',    6],
+          ['기타 등등', 8]
         ]);
 
         var options = {
           title: '읽은 책들의 장르 비율',
-          sliceVisibilityThreshold: .1
+/*           sliceVisibilityThreshold: .1, */
+        animation: {
+            duration: 1000,
+            easing: 'out',
+            startup: true
+        },
+		slices: {0: {color: '#0066b3', offset: 0.05}, 1: {color: '#dddddd'}, 2: {color: '#00a3e0'}, 3: {color: '#eeeeee'}, 4: {color: '#666666'}, 5: {color: '#eeeeee'}},
+        pieHole: 0.4
         };
-
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
+
+
+        // initial value
+	        var percent = 0;
+	        // start the animation loop
+	        var handler = setInterval(function(){
+	            // values increment
+	            percent += 1;
+	            // apply new values
+	            data.setValue(0, 1, percent);
+	            // update the pie
+	            chart.draw(data, options);
+	            // check if we have reached the desired value
+	            if (percent >= 50)
+	                // stop the loop
+	                clearInterval(handler);
+	        }, 25);
+	        
       }
     </script>
+ <!-- 구글 차트 - 바  --> 
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["장르", "평점", { role: "style" }],
+        ["로맨스", 4.3, "#3cbcc7; opacity: 0.7"],
+        ["소설/희곡/시", 3.75, "#dddddd"],
+        ["참고서", 2.7, "#3cbcc7; opacity: 0.2"],
+        ["경제경영", 3.3, "#dddddd"],
+        ["잡지", 1.9, "#3cbcc7; opacity: 0.5"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "내가 남긴 장르별 평점",
+        width: 600,
+        height: 300,
+        bar: {groupWidth: "70%"},
+        legend: { position: "none" },
+        animation: {
+            duration:2000,
+            easing: 'out',
+            startup: true
+        }
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+      
+      
+  }
+  </script>    
+
 <body>
 	<hr>
 	표 테스트
@@ -203,7 +268,9 @@ $(document).ready(function(){
 	<hr>
 	<H4>구글차트 테스트</H4>
 	    <div id="piechart" style="width: 900px; height: 500px;"></div>
-	<HR>
+	<hr>
+	<div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+	<hr>
 	<br> 책이름 :
 	<input type="text" name="title" id="title">
 	<button type="button" id="btn1">검색</button>
