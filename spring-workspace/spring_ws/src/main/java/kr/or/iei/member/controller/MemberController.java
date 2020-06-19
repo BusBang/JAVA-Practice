@@ -221,7 +221,7 @@ public class MemberController {
 		//편집자 추천
 //		BASE_URL = "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbbang82550812001&Query="+title+"&QueryType=ItemEditorChoice&MaxResults=100&start=1&SearchTarget=Book&output=js&Version=20070901";
 		//인기 신간
-		BASE_URL = "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbbang82550812001&Query="+title+"&QueryType=ItemNewSpecial&MaxResults=100&start=1&SearchTarget=Book&output=js&Version=20070901";
+//		BASE_URL = "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey=ttbbang82550812001&Query="+title+"&QueryType=ItemNewSpecial&MaxResults=100&start=1&SearchTarget=Book&output=js&Version=20070901";
 
 		try {
 			HttpClient client = HttpClientBuilder.create().build(); // HttpClient 생성
@@ -297,7 +297,7 @@ public class MemberController {
 
 				FileOutputStream outFile;
 				try {
-					outFile = new FileOutputStream("인기신간 나.xlsx");
+					outFile = new FileOutputStream("인기신간 다.xlsx");
 					workbook.write(outFile);
 					outFile.close();		
 					System.out.println("파일생성 완료");
